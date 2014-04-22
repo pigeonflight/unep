@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="unep: Add Meeting" acquire="True">
+      <role name="Owner"/>
+      <role name="Manager"/>
+    </permission>
+    <permission name="unep: Add File" acquire="True">
+      <role name="Owner"/>
+      <role name="Manager"/>
+    </permission>
+  </permissions>
+</rolemap>

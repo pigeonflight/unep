@@ -1,0 +1,9 @@
+/.installed.cfg
+/src/UNEP.egg-info/
+/bin/
+/develop-eggs/
+/include/
+/lib/
+/nixenv
+/parts/
+/var/
