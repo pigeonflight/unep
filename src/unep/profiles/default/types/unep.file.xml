@@ -4,9 +4,9 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">File</property>
+  <property name="title" i18n:translate="">UNEP File</property>
   <property name="description"
-    i18n:translate="">TODO</property>
+    i18n:translate=""></property>
   <property name="icon_expr">string:${portal_url}/file_icon.png</property>
   <property name="factory">unep.file</property>
   <property name="global_allow">True</property>
