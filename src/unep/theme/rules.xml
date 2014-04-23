@@ -1,0 +1,25 @@
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- copy the page title -->
+  <replace css:theme="title" css:content="title" />
+
+  <!-- copy the <base /> tag (necessary for Plone's links to work) -->
+  <before css:theme-children="head" css:content="base" />
+
+  <!-- Drop styles in the head - these are added back by including them from Plone -->
+  <drop theme="/html/head/link" />
+  <drop theme="/html/head/style" />
+
+  <!-- Pull in Plone CSS -->
+  <after theme-children="/html/head" content="/html/head/link | /html/head/style" />
+
+  <!-- Pull in Plone JS -->
+  <after theme-children="/html/head" content="/html/head/script" />
+
+  <!-- Body -->
+  <merge attributes="class" css:theme="body" css:content="body" />
+
+</rules>

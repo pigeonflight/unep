@@ -17,6 +17,8 @@
     title="unep: Add File"
     />
 
+  <plone:static name="unep.theme" directory="theme" type="theme" />
+
   <genericsetup:registerProfile
     name="default"
     title="UNEP"
