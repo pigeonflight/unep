@@ -19,6 +19,18 @@
 
   <plone:static name="unep.theme" directory="theme" type="theme" />
 
+  <adapter
+    for="unep.interfaces.IMeeting"
+    provides="unep.base.INameFromLanguageItem"
+    factory="unep.base.NameFromLanguageItem"
+    />
+
+  <adapter
+    for="unep.interfaces.IFile"
+    provides="unep.base.INameFromLanguageItem"
+    factory="unep.base.NameFromLanguageItem"
+    />
+
   <genericsetup:registerProfile
     name="default"
     title="UNEP"

@@ -2,11 +2,8 @@
 
 from zope.schema import TextLine
 from zope.schema import Text
-from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
-from plone.dexterity.content import Item
-#from plone.autoform import directives as form
-from unep.utils import get_field
+from plone.namedfile.field import NamedBlobFile
 
 
 class IFile(model.Schema):
@@ -92,20 +89,54 @@ class IFile(model.Schema):
         )
 
 
-class File(Item):
+class IMeeting(model.Schema):
     """
     """
 
-    @property
-    def title(self):
-        return get_field(self, 'title', '')
+    en_title = TextLine(
+        title=u'Title',
+        required=False,
+        )
 
-    def setTitle(self, value):
-        return
+    en_description = Text(
+        title=u'Description',
+        required=False,
+        )
 
-    @property
-    def description(self):
-        return get_field(self, 'description', '')
+    model.fieldset(
+        'en',
+        label=u'English',
+        fields=['en_title', 'en_description']
+        )
 
-    def setDescription(self, value):
-        return
+    es_title = TextLine(
+        title=u'Title',
+        required=False,
+        )
+
+    es_description = Text(
+        title=u'Description',
+        required=False,
+        )
+
+    model.fieldset(
+        'es',
+        label=u"Spanish",
+        fields=['es_title', 'es_description']
+        )
+
+    fr_title = TextLine(
+        title=u'Title',
+        required=False,
+        )
+
+    fr_description = Text(
+        title=u'Description',
+        required=False,
+        )
+
+    model.fieldset(
+        'fr',
+        label=u"French",
+        fields=['fr_title', 'fr_description']
+        )

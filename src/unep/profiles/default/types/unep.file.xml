@@ -15,10 +15,10 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema interface -->
-  <property name="schema">unep.file.IFile</property>
+  <property name="schema">unep.interfaces.IFile</property>
 
   <!-- class used for content items -->
-  <property name="klass">unep.file.File</property>
+  <property name="klass">unep.base.LanguageItem</property>
 
   <!-- add permission -->
   <property name="add_permission">unep.AddFile</property>
