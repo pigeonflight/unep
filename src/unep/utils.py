@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 
-def get_field(self, field, default):
-    if hasattr(self, 'en_' + field):
-        return getattr(self, 'en_' + field)
-    elif hasattr(self, 'es_' + field):
-        return getattr(self, 'es_' + field)
-    elif hasattr(self, 'fr_' + field):
-        return getattr(self, 'fr_' + field)
+
+def get_field(context, field, default):
+    if hasattr(context, 'en_' + field) and getattr(context, 'en_' + field):
+        return getattr(context, 'en_' + field)
+    elif hasattr(context, 'es_' + field) and getattr(context, 'es_' + field):
+        return getattr(context, 'es_' + field)
+    elif hasattr(context, 'fr_' + field) and getattr(context, 'fr_' + field):
+        return getattr(context, 'fr_' + field)
     else:
         return default

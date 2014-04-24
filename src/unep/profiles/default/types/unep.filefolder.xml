@@ -17,10 +17,10 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema interface -->
-  <property name="schema">unep.interfaces.IFileFolder</property>
+  <property name="schema">unep.filefolder.IFileFolder</property>
 
   <!-- class used for content items -->
-  <property name="klass">plone.dexterity.content.Container</property>
+  <property name="klass">unep.filefolder.FileFolder</property>
 
   <!-- add permission -->
   <property name="add_permission">unep.AddFileFolder</property>
