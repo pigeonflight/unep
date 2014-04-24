@@ -1,4 +1,5 @@
 <object name="portal_types">
  <object name="unep.meeting" meta_type="Dexterity FTI" />
  <object name="unep.file" meta_type="Dexterity FTI" />
+ <object name="unep.filefolder" meta_type="Dexterity FTI" />
 </object>

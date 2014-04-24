@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from plone.app.event.dx.behaviors import default_end
-from plone.app.event.dx.behaviors import default_start
 from plone.app.textfield import RichText
 from plone.autoform import directives as form
 from plone.app.widgets.dx import DatetimeWidget
@@ -12,6 +10,22 @@ from unep import _
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
+from zope.interface import Invalid
+from zope.interface import invariant
+
+
+class AtLeastOneFile(Invalid):
+    __doc__ = _(u'You need to upload at least one file.')
+
+
+class IFileFolder(model.Schema):
+    """
+    """
+
+    title = schema.TextLine(
+        title=_(u'Title'),
+        required=False,
+        )
 
 
 class IFile(model.Schema):
@@ -92,6 +106,13 @@ class IFile(model.Schema):
         fields=['fr_title', 'fr_description', 'fr_file']
         )
 
+    @invariant
+    def at_least_one_file(data):
+        if not hasattr(data, 'en_file') and \
+           not hasattr(data, 'es_file') and \
+           not hasattr(data, 'fr_file'):
+            raise AtLeastOneFile(_(u'You need to provide at least one file.'))
+
 
 class IMeeting(model.Schema):
     """
@@ -102,7 +123,6 @@ class IMeeting(model.Schema):
         title=_(u'Meeting starts'),
         description=_(u'Date and Time, when the meeting begins.'),
         required=True,
-        #defaultFactory=default_start,
     )
 
     form.widget('end', DatetimeWidget)
@@ -110,7 +130,6 @@ class IMeeting(model.Schema):
         title=_(u'Meeting ends'),
         description=_(u'Date and Time, when the meeting ends.'),
         required=True,
-        #defaultFactory=default_end,
     )
 
     address = schema.Text(
@@ -136,7 +155,18 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    form.widget('files_working', RelatedItemsWidget)
+    form.widget(
+        'files_working',
+        RelatedItemsWidget,
+        pattern_options={
+            "selectableTypes": ["UNEP File"],
+            "folderTypes": ['UNEP File Folder'],
+            "baseCriteria": [{
+                'i': 'Type',
+                'o': 'plone.app.querystring.operation.string.contains',
+                'v': ['UNEP File'],
+            }],
+        })
     files_working = RelationList(
         title=_(u'Working documents'),
         description=_(u'TODO'),
@@ -147,7 +177,18 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    form.widget('files_information', RelatedItemsWidget)
+    form.widget(
+        'files_information',
+        RelatedItemsWidget,
+        pattern_options={
+            "selectableTypes": ["UNEP File"],
+            "folderTypes": ['UNEP File Folder'],
+            "baseCriteria": [{
+                'i': 'Type',
+                'o': 'plone.app.querystring.operation.string.contains',
+                'v': ['UNEP File'],
+            }],
+        })
     files_information = RelationList(
         title=_(u'Information documents'),
         description=_(u'TODO'),
@@ -158,7 +199,18 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    form.widget('files_reference', RelatedItemsWidget)
+    form.widget(
+        'files_reference',
+        RelatedItemsWidget,
+        pattern_options={
+            "selectableTypes": ["UNEP File"],
+            "folderTypes": ['UNEP File Folder'],
+            "baseCriteria": [{
+                'i': 'Type',
+                'o': 'plone.app.querystring.operation.string.contains',
+                'v': ['UNEP File'],
+            }],
+        })
     files_reference = RelationList(
         title=_(u'Reference documents'),
         description=_(u'TODO'),

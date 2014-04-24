@@ -1,27 +1,29 @@
 <?xml version="1.0"?>
-<object name="unep.file" meta_type="Dexterity FTI"
+<object name="unep.filefolder" meta_type="Dexterity FTI"
     i18n:domain="unep"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">UNEP File</property>
+  <property name="title" i18n:translate="">UNEP File Folder</property>
   <property name="description"
     i18n:translate=""></property>
-  <property name="icon_expr">string:${portal_url}/file_icon.png</property>
-  <property name="factory">unep.file</property>
-  <property name="global_allow">False</property>
+  <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
+  <property name="factory">unep.filefolder</property>
+  <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
-  <property name="allowed_content_types" />
+  <property name="allowed_content_types">
+    <element value="unep.file" />
+  </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema interface -->
-  <property name="schema">unep.interfaces.IFile</property>
+  <property name="schema">unep.interfaces.IFileFolder</property>
 
   <!-- class used for content items -->
-  <property name="klass">unep.base.LanguageItem</property>
+  <property name="klass">plone.dexterity.content.Container</property>
 
   <!-- add permission -->
-  <property name="add_permission">unep.AddFile</property>
+  <property name="add_permission">unep.AddFileFolder</property>
 
   <!-- enabled behaviors -->
   <property name="behaviors">
@@ -52,4 +54,3 @@
   </action>
 
 </object>
-

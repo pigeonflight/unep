@@ -17,6 +17,11 @@
     title="unep: Add File"
     />
 
+  <permission
+    id="unep.AddFileFolder"
+    title="unep: Add File Folder"
+    />
+
   <plone:static name="unep.theme" directory="theme" type="theme" />
 
   <adapter
