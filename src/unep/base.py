@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from plone.app.content.interfaces import INameFromTitle
 from plone.dexterity.content import Item
 from zope.interface import implements

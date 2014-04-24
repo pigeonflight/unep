@@ -19,14 +19,13 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
-    #namespace_packages=['plone', 'plone.app'],
     zip_safe=False,
     install_requires=[
         'setuptools',
         'plone.app.contenttypes',
         'plone.app.event[dexterity]',
         'plone.app.widgets[dexterity]',
-        'wildcard.foldercontents',
+        #'wildcard.foldercontents',
     ],
     extras_require={
         'test': [
