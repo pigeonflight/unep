@@ -36,6 +36,13 @@
     factory="unep.file.NameFromFile"
     />
 
+  <browser:page
+    for="unep.file.IFile"
+    name="view"
+    permission="zope2.Public"
+    class="unep.file.FileView"
+    />
+
   <genericsetup:registerProfile
     name="default"
     title="UNEP"

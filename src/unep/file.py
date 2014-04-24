@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 
+from Acquisition import aq_parent
+from Products.Five.browser import BrowserView
 from plone.app.content.interfaces import INameFromTitle
-from plone.namedfile.field import NamedBlobFile
 from plone.dexterity.content import Item
-from zope.interface import implements
+from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from unep import _
 from unep.utils import get_field
 from zope import schema
 from zope.interface import Invalid
+from zope.interface import implements
 from zope.interface import invariant
 
 
@@ -96,10 +98,12 @@ class IFile(model.Schema):
 
     @invariant
     def at_least_one_file(data):
-        if not hasattr(data, 'en_file') and \
-           not hasattr(data, 'es_file') and \
-           not hasattr(data, 'fr_file'):
-            raise AtLeastOneFile(_(u'You need to provide at least one file.'))
+        pass
+        # TODO: doesnt work
+        #if not hasattr(data, 'en_file') and \
+        #   not hasattr(data, 'es_file') and \
+        #   not hasattr(data, 'fr_file'):
+        #    raise AtLeastOneFile(_(u'You need to provide at least one file.'))
 
 
 class File(Item):
@@ -139,3 +143,12 @@ class NameFromFile(object):
     @property
     def title(self):
         return self.context.code + '-' + get_field(self.context, 'title', '')
+
+
+class FileView(BrowserView):
+    """
+    """
+
+    def __call__(self):
+        self.request.response.redirect(
+            aq_parent(self.context).absolute_url())
