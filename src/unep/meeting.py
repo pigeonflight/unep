@@ -33,10 +33,10 @@ class IMeeting(model.Schema):
         required=True,
     )
 
-    address = schema.Text(
-        title=_(u'Address'),
-        description=_(u'Address where meeting is going to happen '
-                      u'eg: Sunny road 11/2.'),
+    location = schema.TextLine(
+        title=_(u'Location'),
+        description=_(u'Location where meeting is going to happen '
+                      u'eg: Kingston, Jamaica'),
         required=False,
     )
 
@@ -56,6 +56,12 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    registration_url = schema.URI(
+        title=_(u'Registration URL'),
+        description=_(u''),
+        required=False,
+    )
+
     form.widget(
         'files_working',
         RelatedItemsWidget,
@@ -70,9 +76,9 @@ class IMeeting(model.Schema):
         })
     files_working = RelationList(
         title=_(u'Working documents'),
-        description=_(u'TODO'),
+        description=_(u''),
         value_type=RelationChoice(
-            title=_(u'Working document'),
+            title=_(u'File'),
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -92,9 +98,9 @@ class IMeeting(model.Schema):
         })
     files_information = RelationList(
         title=_(u'Information documents'),
-        description=_(u'TODO'),
+        description=_(u''),
         value_type=RelationChoice(
-            title=_(u'Information document'),
+            title=_(u'File'),
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -114,73 +120,244 @@ class IMeeting(model.Schema):
         })
     files_reference = RelationList(
         title=_(u'Reference documents'),
-        description=_(u'TODO'),
+        description=_(u''),
         value_type=RelationChoice(
-            title=_(u'Reference document'),
+            title=_(u'File'),
+            vocabulary="plone.app.vocabularies.Catalog",
+        ),
+        required=False,
+    )
+
+    form.widget(
+        'files_conference_papers',
+        RelatedItemsWidget,
+        pattern_options={
+            "selectableTypes": ["UNEP File"],
+            "folderTypes": ['UNEP File Folder'],
+            "baseCriteria": [{
+                'i': 'Type',
+                'o': 'plone.app.querystring.operation.string.contains',
+                'v': ['UNEP File'],
+            }],
+        })
+    files_conference_papers = RelationList(
+        title=_(u'Conference papers'),
+        description=_(u''),
+        value_type=RelationChoice(
+            title=_(u'File'),
+            vocabulary="plone.app.vocabularies.Catalog",
+        ),
+        required=False,
+    )
+
+    form.widget(
+        'files_final_reports',
+        RelatedItemsWidget,
+        pattern_options={
+            "selectableTypes": ["UNEP File"],
+            "folderTypes": ['UNEP File Folder'],
+            "baseCriteria": [{
+                'i': 'Type',
+                'o': 'plone.app.querystring.operation.string.contains',
+                'v': ['UNEP File'],
+            }],
+        })
+    files_final_reports = RelationList(
+        title=_(u'Final reports'),
+        description=_(u''),
+        value_type=RelationChoice(
+            title=_(u'File'),
+            vocabulary="plone.app.vocabularies.Catalog",
+        ),
+        required=False,
+    )
+
+    form.widget(
+        'files_presentations',
+        RelatedItemsWidget,
+        pattern_options={
+            "selectableTypes": ["UNEP File"],
+            "folderTypes": ['UNEP File Folder'],
+            "baseCriteria": [{
+                'i': 'Type',
+                'o': 'plone.app.querystring.operation.string.contains',
+                'v': ['UNEP File'],
+            }],
+        })
+    files_presentations = RelationList(
+        title=_(u'Presentations'),
+        description=_(u''),
+        value_type=RelationChoice(
+            title=_(u'File'),
+            vocabulary="plone.app.vocabularies.Catalog",
+        ),
+        required=False,
+    )
+
+    form.widget(
+        'files_others',
+        RelatedItemsWidget,
+        pattern_options={
+            "selectableTypes": ["UNEP File"],
+            "folderTypes": ['UNEP File Folder'],
+            "baseCriteria": [{
+                'i': 'Type',
+                'o': 'plone.app.querystring.operation.string.contains',
+                'v': ['UNEP File'],
+            }],
+        })
+    files_others = RelationList(
+        title=_(u'Other'),
+        description=_(u''),
+        value_type=RelationChoice(
+            title=_(u'File'),
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
     )
 
     model.fieldset(
-        'general',
-        label=_(u'General'),
-        fields=['start', 'end', 'address', 'meeting_type', 'files_working',
-                'files_information', 'files_reference',
-                ],
-        )
+        'language_independent',
+        label=_(u'Language independent'),
+        fields=[
+            'start',
+            'end',
+            'location',
+            'meeting_type',
+            'registration_url',
+            'files_working',
+            'files_information',
+            'files_reference',
+            'files_conference_papers',
+            'files_final_reports',
+            'files_presentations',
+            'files_others',
+        ],
+    )
 
     en_title = schema.TextLine(
         title=_(u'Meeting Name'),
         description=_(u'The name or title of the meeting'),
         required=False,
-        )
+    )
 
-    en_text = RichText(
-        title=_(u'TODO'),
-        description=_(u'TODO'),
+    en_announcement = RichText(
+        title=_(u'Announcement'),
+        description=_(u''),
         required=False,
-        )
+    )
+
+    en_travel_info = RichText(
+        title=_(u'Information note for participants'),
+        description=_(u''),
+        required=False,
+    )
+
+    en_visa_info = RichText(
+        title=_(u'Travel and visa information'),
+        description=_(u''),
+        required=False,
+    )
+
+    en_additional_text = RichText(
+        title=_(u'Other'),
+        description=_(u''),
+        required=False,
+    )
 
     model.fieldset(
         'en',
         label=u'English',
-        fields=['en_title', 'en_text']
-        )
+        fields=[
+            'en_title',
+            'en_announcement',
+            'en_travel_info',
+            'en_visa_info',
+            'en_additional_text',
+        ]
+    )
 
     es_title = schema.TextLine(
         title=u'Title',
         required=False,
-        )
+    )
 
-    es_text = RichText(
-        title=_(u'TODO'),
-        description=_(u'TODO'),
+    es_announcement = RichText(
+        title=_(u'Announcement'),
+        description=_(u''),
         required=False,
-        )
+    )
+
+    es_travel_info = RichText(
+        title=_(u'Information note for participants'),
+        description=_(u''),
+        required=False,
+    )
+
+    es_visa_info = RichText(
+        title=_(u'Travel and visa information'),
+        description=_(u''),
+        required=False,
+    )
+
+    es_additional_text = RichText(
+        title=_(u'Other'),
+        description=_(u''),
+        required=False,
+    )
 
     model.fieldset(
         'es',
         label=u"Spanish",
-        fields=['es_title', 'es_text']
-        )
+        fields=[
+            'es_title',
+            'es_announcement',
+            'es_travel_info',
+            'es_visa_info',
+            'es_additional_text',
+        ],
+    )
 
     fr_title = schema.TextLine(
         title=u'Title',
         required=False,
-        )
+    )
 
-    fr_text = RichText(
-        title=_(u'TODO'),
-        description=_(u'TODO'),
+    fr_announcement = RichText(
+        title=_(u'Announcement'),
+        description=_(u''),
         required=False,
-        )
+    )
+
+    fr_travel_info = RichText(
+        title=_(u'Information note for participants'),
+        description=_(u''),
+        required=False,
+    )
+
+    fr_visa_info = RichText(
+        title=_(u'Travel and visa information'),
+        description=_(u''),
+        required=False,
+    )
+
+    fr_additional_text = RichText(
+        title=_(u'Other'),
+        description=_(u''),
+        required=False,
+    )
 
     model.fieldset(
         'fr',
         label=u"French",
-        fields=['fr_title', 'fr_text']
-        )
+        fields=[
+            'fr_title',
+            'fr_announcement',
+            'fr_travel_info',
+            'fr_visa_info',
+            'fr_additional_text',
+        ],
+    )
 
 
 class Meeting(Item):

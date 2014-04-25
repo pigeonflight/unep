@@ -24,86 +24,79 @@ class IFile(model.Schema):
 
     code = schema.TextLine(
         title=_(u'Code'),
-        required=True,
-        )
+        required=False,
+    )
+
+    # TODO: hidden uid
 
     model.fieldset(
-        'general',
-        label=_(u'General'),
+        'language_independent',
+        label=_(u'Language independent'),
         fields=['code'],
-        )
+    )
 
     en_title = schema.TextLine(
         title=_(u'Title'),
         required=False,
-        )
+    )
 
     en_description = schema.Text(
         title=_(u'Description'),
         required=False,
-        )
+    )
 
     en_file = NamedBlobFile(
         title=_(u'File'),
         required=False,
-        )
+    )
 
     model.fieldset(
         'en',
         label=_(u'English'),
         fields=['en_title', 'en_description', 'en_file']
-        )
+    )
 
     es_title = schema.TextLine(
         title=_(u'Title'),
         required=False,
-        )
+    )
 
     es_description = schema.Text(
         title=_(u'Description'),
         required=False,
-        )
+    )
 
     es_file = NamedBlobFile(
         title=_(u'File'),
         required=False,
-        )
+    )
 
     model.fieldset(
         'es',
         label=_(u'Spanish'),
         fields=['es_title', 'es_description', 'es_file']
-        )
+    )
 
     fr_title = schema.TextLine(
         title=_(u'Title'),
         required=False,
-        )
+    )
 
     fr_description = schema.Text(
         title=_(u'Description'),
         required=False,
-        )
+    )
 
     fr_file = NamedBlobFile(
         title=_(u'File'),
         required=False,
-        )
+    )
 
     model.fieldset(
         'fr',
         label=_(u'French'),
         fields=['fr_title', 'fr_description', 'fr_file']
-        )
-
-    @invariant
-    def at_least_one_file(data):
-        pass
-        # TODO: doesnt work
-        #if not hasattr(data, 'en_file') and \
-        #   not hasattr(data, 'es_file') and \
-        #   not hasattr(data, 'fr_file'):
-        #    raise AtLeastOneFile(_(u'You need to provide at least one file.'))
+    )
 
 
 class File(Item):

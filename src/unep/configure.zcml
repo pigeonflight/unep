@@ -51,4 +51,11 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <genericsetup:importStep
+    name="unep"
+    title="UNEP special import handlers"
+    description=""
+    handler="unep.setuphandlers.setupVarious"
+    />
+
 </configure>

@@ -22,6 +22,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
+        'plone.api',
         'plone.app.contenttypes',
         'plone.app.event[dexterity]',
         'plone.app.widgets[dexterity]',
