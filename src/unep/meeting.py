@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from plone.app.content.interfaces import INameFromTitle
 from plone.app.textfield import RichText
 from plone.app.widgets.dx import DatetimeWidget
 from plone.app.widgets.dx import RelatedItemsWidget
@@ -375,25 +374,7 @@ class Meeting(Item):
 
     @property
     def description(self):
-        return get_field(self, 'description', '')
+        return get_field(self, 'announcement', '')
 
     def setDescription(self, value):
         return
-
-
-class INameFromMeeting(INameFromTitle):
-
-    def title():
-        """Return a processed title"""
-
-
-class NameFromMeeting(object):
-
-    implements(INameFromMeeting)
-
-    def __init__(self, context):
-        self.context = context
-
-    @property
-    def title(self):
-        return get_field(self.context, 'title', '')

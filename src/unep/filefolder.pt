@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master">
+
+  <metal:block fill-slot="content-core">
+    <div id="unep-upload">Drag/Click to upload documents.</div>
+    <div id="unep-upload-preview"></div>
+    <div style="clear: both;"></div>
+    <button id="unep-upload-submit">Upload</button>
+    <button id="unep-upload-cancel">Cancel</button>
+    <link rel="stylesheet" type="text/css" href="++resource++unep/upload.css" />
+    <script src="++resource++unep/upload.js"></script>
+  </metal:block>
+
+</html>

@@ -2,7 +2,7 @@
 
 from Acquisition import aq_parent
 from Products.Five.browser import BrowserView
-from plone.app.content.interfaces import INameFromTitle
+from os.path import splitext
 from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
@@ -11,7 +11,6 @@ from unep.utils import get_field
 from zope import schema
 from zope.interface import Invalid
 from zope.interface import implements
-from zope.interface import invariant
 
 
 class AtLeastOneFile(Invalid):
@@ -27,12 +26,12 @@ class IFile(model.Schema):
         required=False,
     )
 
-    # TODO: hidden uid
-
     model.fieldset(
         'language_independent',
         label=_(u'Language independent'),
-        fields=['code'],
+        fields=[
+            'code',
+        ],
     )
 
     en_title = schema.TextLine(
@@ -107,35 +106,26 @@ class File(Item):
 
     @property
     def title(self):
-        return get_field(self, 'title', '')
+        title = get_field(self, 'title', '')
+        if self.code:
+            title = '(' + self.code + ')' + title
+        return title
 
     def setTitle(self, value):
         return
 
-    @property
-    def description(self):
-        return get_field(self, 'description', '')
 
-    def setDescription(self, value):
-        return
+def setFileId(context, event):
+    filename = None
+    if context.en_file:
+        filename = context.en_file.filename
+    elif context.es_file:
+        filename = context.es_file.filename
+    elif context.fr_file:
+        filename = context.fr_file.filename
 
-
-class INameFromFile(INameFromTitle):
-
-    def title():
-        """Return a processed title"""
-
-
-class NameFromFile(object):
-
-    implements(INameFromFile)
-
-    def __init__(self, context):
-        self.context = context
-
-    @property
-    def title(self):
-        return self.context.code + '-' + get_field(self.context, 'title', '')
+    if filename:
+        context.id = splitext(filename)[0][:-3]
 
 
 class FileView(BrowserView):

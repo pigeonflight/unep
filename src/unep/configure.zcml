@@ -24,16 +24,16 @@
 
   <plone:static name="unep.theme" directory="theme" type="theme" />
 
-  <adapter
-    for="unep.meeting.IMeeting"
-    provides="unep.meeting.INameFromMeeting"
-    factory="unep.meeting.NameFromMeeting"
-    />
+  <browser:resourceDirectory
+      name="unep"
+      directory="static"
+      layer=".interfaces.IUNEPLayer"
+      />
 
-  <adapter
-    for="unep.file.IFile"
-    provides="unep.file.INameFromFile"
-    factory="unep.file.NameFromFile"
+  <subscriber
+    for="unep.file.IFile
+         zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+    handler="unep.file.setFileId"
     />
 
   <browser:page
@@ -41,6 +41,22 @@
     name="view"
     permission="zope2.Public"
     class="unep.file.FileView"
+    />
+
+  <browser:page
+    for="unep.filefolder.IFileFolder"
+    name="view"
+    permission="zope2.Public"
+    class="unep.filefolder.FileFolderView"
+    template="filefolder.pt"
+    />
+
+  <browser:page
+    for="unep.filefolder.IFileFolder"
+    name="upload"
+    permission="zope2.Public"
+    class="unep.filefolder.FileFolderUpload"
+    template="filefolder.pt"
     />
 
   <genericsetup:registerProfile
