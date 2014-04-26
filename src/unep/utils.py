@@ -7,7 +7,7 @@ def get_translated(context, request, field_name, fallback=False,
         field = getattr(
             context, request.cookies['unep-language'] + '_' + field_name)
     else:
-        field = getattr(context, default_lang + '_' + field)
+        field = getattr(context, default_lang + '_' + field_name)
     if fallback and not field:
         field = get_field(context, field_name, '')
     if field:
