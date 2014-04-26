@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master">
+
+  <metal:block fill-slot="main">
+
+    <ul id="unep-language">
+      <li id="unep-language-en">
+        <a href="#">
+          <img src="++resource++country-flags/us.gif" />
+          <span>English</span>
+        </a>
+      </li>
+      <li id="unep-language-es">
+        <a href="#">
+          <img src="++resource++country-flags/es.gif" />
+          <span>Spanish</span>
+        </a>
+      </li>
+      <li id="unep-language-fr">
+        <a href="#">
+          <img src="++resource++country-flags/fr.gif" />
+          <span>French</span>
+        </a>
+      </li>
+    </ul>
+    <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
+    <script src="++resource++unep/language.js"></script>
+
+    <div id="meeting-texts">
+      <h2 class="open">Announcement</h2>
+      <div tal:content="structure view/announcement"></div>
+      <h2>Information note for participants</h2>
+      <div tal:content="structure view/travel_info"></div>
+      <h2>Travel and visa information</h2>
+      <div tal:content="structure view/visa_info"></div>
+      <h2>Other</h2>
+      <div tal:content="structure view/additional_text"></div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="++resource++unep/meeting.css" />
+    <script src="++resource++unep/meeting.js"></script>
+  </metal:block>
+
+</html>

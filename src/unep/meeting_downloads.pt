@@ -1,0 +1,171 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master">
+
+  <metal:block fill-slot="main">
+
+    <ul id="unep-language">
+      <li id="unep-language-en">
+        <a href="#">
+          <img src="++resource++country-flags/us.gif" />
+          <span>English</span>
+        </a>
+      </li>
+      <li id="unep-language-es">
+        <a href="#">
+          <img src="++resource++country-flags/es.gif" />
+          <span>Spanish</span>
+        </a>
+      </li>
+      <li id="unep-language-fr">
+        <a href="#">
+          <img src="++resource++country-flags/fr.gif" />
+          <span>French</span>
+        </a>
+      </li>
+    </ul>
+    <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
+    <script src="++resource++unep/language.js"></script>
+
+    <div id="meeting-downloads">
+      <h2 class="open">Working documents</h2>
+      <h2>Information documents</h2>
+      <ul>
+        <li>
+          <h4 class="col1">Title</h4>
+          <h4 class="col2">Select</h4>
+        </li>
+      </ul>
+      <ol>
+        <li tal:repeat="file view/files_working">
+          <div class="col1">
+            <strong tal:content="file/title"/>
+            <p tal:content="file/description"/>
+          </div>
+          <div class="col2">
+            <input type="checkbox" name="file/id" />
+          </div>
+        </li>
+      </ol>
+      <h2>Information documents</h2>
+      <ul>
+        <li>
+          <h4 class="col1">Title</h4>
+          <h4 class="col2">Select</h4>
+        </li>
+      </ul>
+      <ol>
+        <li tal:repeat="file view/files_information">
+          <div class="col1">
+            <strong tal:content="file/title"/>
+            <p tal:content="file/description"/>
+          </div>
+          <div class="col2">
+            <input type="checkbox" name="file/id" />
+          </div>
+        </li>
+      </ol>
+      <h2>Reference documents</h2>
+      <ul>
+        <li>
+          <h4 class="col1">Title</h4>
+          <h4 class="col2">Select</h4>
+        </li>
+      </ul>
+      <ol>
+        <li tal:repeat="file view/files_reference">
+          <div class="col1">
+            <strong tal:content="file/title"/>
+            <p tal:content="file/description"/>
+          </div>
+          <div class="col2">
+            <input type="checkbox" name="file/id" />
+          </div>
+        </li>
+      </ol>
+      <h2>Conference papers</h2>
+      <ul>
+        <li>
+          <h4 class="col1">Title</h4>
+          <h4 class="col2">Select</h4>
+        </li>
+      </ul>
+      <ol>
+        <li tal:repeat="file view/files_conference_papers">
+          <div class="col1">
+            <strong tal:content="file/title"/>
+            <p tal:content="file/description"/>
+          </div>
+          <div class="col2">
+            <input type="checkbox" name="file/id" />
+          </div>
+        </li>
+      </ol>
+      <h2>Final reports</h2>
+      <ul>
+        <li>
+          <h4 class="col1">Title</h4>
+          <h4 class="col2">Select</h4>
+        </li>
+      </ul>
+      <ol>
+        <li tal:repeat="file view/files_final_reports">
+          <div class="col1">
+            <strong tal:content="file/title"/>
+            <p tal:content="file/description"/>
+          </div>
+          <div class="col2">
+            <input type="checkbox" name="file/id" />
+          </div>
+        </li>
+      </ol>
+      <h2>Presentations</h2>
+      <ul>
+        <li>
+          <h4 class="col1">Title</h4>
+          <h4 class="col2">Select</h4>
+        </li>
+      </ul>
+      <ol>
+        <li tal:repeat="file view/files_presentations">
+          <div class="col1">
+            <strong tal:content="file/title"/>
+            <p tal:content="file/description"/>
+          </div>
+          <div class="col2">
+            <input type="checkbox" name="file/id" />
+          </div>
+        </li>
+      </ol>
+      <h2>Other</h2>
+      <ul>
+        <li>
+          <h4 class="col1">Title</h4>
+          <h4 class="col2">Select</h4>
+        </li>
+      </ul>
+      <ol>
+        <li tal:repeat="file view/files_others">
+          <div class="col1">
+            <strong tal:content="file/title"/>
+            <p tal:content="file/description"/>
+          </div>
+          <div class="col2">
+            <input type="checkbox" name="file/id" />
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div id="meeting-download-buttonbar">
+      <button id="meeting-download-button">Download</button>
+      <span id="meeting-downloads-number-of-documents">0</span>
+      <span> of items selected in </span>
+      <span id="meeting-downloads-language">English</span>
+    </div>
+    <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
+    <script src="++resource++unep/downloads.js"></script>
+  </metal:block>
+
+</html>

@@ -1,0 +1,19 @@
+#unep-language {
+  background: #EEE;
+  font-size: 0.8em;
+  text-align: center;
+  margin-left: 0 !important;
+}
+
+#unep-language li {
+  margin: 0.5em;
+  display: inline-block;
+}
+
+#unep-language img {
+  vertical-align: middle;
+}
+
+#unep-language a {
+  border: 0 !important;
+}

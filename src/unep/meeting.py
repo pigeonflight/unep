@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from Products.Five.browser import BrowserView
 from plone.app.textfield import RichText
 from plone.app.widgets.dx import DatetimeWidget
 from plone.app.widgets.dx import RelatedItemsWidget
@@ -8,6 +9,7 @@ from plone.dexterity.content import Item
 from plone.supermodel import model
 from unep import _
 from unep.utils import get_field
+from unep.utils import get_translated
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
@@ -378,3 +380,67 @@ class Meeting(Item):
 
     def setDescription(self, value):
         return
+
+
+class MeetingView(BrowserView):
+    """
+    """
+
+    @property
+    def announcement(self):
+        return get_translated(self.context, self.request, 'announcement')
+
+    @property
+    def travel_info(self):
+        return get_translated(self.context, self.request, 'travel_info')
+
+    @property
+    def visa_info(self):
+        return get_translated(self.context, self.request, 'visa_info')
+
+    @property
+    def additional_text(self):
+        return get_translated(self.context, self.request, 'additional_text')
+
+
+class MeetingDownloadsView(BrowserView):
+    """
+    """
+
+    def get_files(self, field_name):
+        files = []
+        for item in getattr(self.context, field_name):
+            description = ''
+            title = get_translated(item.to_object, self.request, 'title', True)
+            if item.to_object.code:
+                description = title
+                title = item.to_object.code
+            files.append({
+                'id': item.to_object.id,
+                'title': title,
+                'description': description,
+                'url': item.to_object.absolute_url(),
+            })
+        return files
+
+    @property
+    def files_working(self):
+        return self.get_files('files_working')
+
+    def files_information(self):
+        return self.get_files('files_information')
+
+    def files_reference(self):
+        return self.get_files('files_reference')
+
+    def files_conference_papers(self):
+        return self.get_files('files_conference_papers')
+
+    def files_final_reports(self):
+        return self.get_files('files_final_reports')
+
+    def files_presentations(self):
+        return self.get_files('files_presentations')
+
+    def files_others(self):
+        return self.get_files('files_others')

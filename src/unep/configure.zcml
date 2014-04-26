@@ -59,6 +59,22 @@
     template="filefolder.pt"
     />
 
+  <browser:page
+    for="unep.meeting.IMeeting"
+    name="view"
+    permission="zope2.Public"
+    class="unep.meeting.MeetingView"
+    template="meeting.pt"
+    />
+
+  <browser:page
+    for="unep.meeting.IMeeting"
+    name="downloads"
+    permission="zope2.Public"
+    class="unep.meeting.MeetingDownloadsView"
+    template="meeting_downloads.pt"
+    />
+
   <genericsetup:registerProfile
     name="default"
     title="UNEP"
