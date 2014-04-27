@@ -45,16 +45,16 @@ class IMeeting(model.Schema):
 
     meeting_type = schema.Choice(
         title=_(u'Meeting type'),
-        description=_(u'TODO'),
+        description=_(u'The type of meeting'),
         values=[
-            u'CEP - IGM',
-            u'CEP - MONCOM',
-            u'SPAW - ISTAC',
-            u'SPAW - Workshop',
-            u'SPAW - COP',
-            u'SPAW - STAC',
-            u'LBS - ISTAC',
-            u'LBS - Workshop',
+            _(u'CEP - IGM'),
+            _(u'CEP - MONCOM'),
+            _(u'SPAW - ISTAC'),
+            _(u'SPAW - Workshop'),
+            _(u'SPAW - COP'),
+            _(u'SPAW - STAC'),
+            _(u'LBS - ISTAC'),
+            _(u'LBS - Workshop'),
         ],
         required=False,
     )
