@@ -5,33 +5,50 @@ require([
 
   Dropzone.autoDiscover = false;
 
-  var dropzone = new Dropzone("#unep-upload", {
+  function addMessage(type, typeName,  message) {
+    $('#upload-messages').append($('' +
+      '<dl class="portalMessage ' + type + '">' +
+      '<dt>' + typeName + '</dt>' +
+      '<dd>' + message + '</dd>' +
+      '</dl>'
+    ));
+  }
+
+  var dropzone = new Dropzone("#upload", {
     url: "@@upload",
     addRemoveLinks: true,
     parallelUploads: 1,
     uploadMultiple: false,
-    previewsContainer: '#unep-upload-preview',
+    previewsContainer: '#upload-preview',
     clickable: true,
     autoProcessQueue: false,
     init: function() {
       var self = this;
 
-      $('#unep-upload-submit').on('click', function() {
+      $('#upload-submit').on('click', function() {
         if (self.files.length !== 0) {
             self.processFile(self.files[0]);
         }
         self.processFile(self);
       });
 
-      $('#unep-upload-cancel').on('click', function() {
+      $('#upload-cancel').on('click', function() {
         self.removeAllFiles(true);
       });
 
       self.on("addedfile", function(file) {
-        if (self.files
-             .map(function(f) { return f.name; })
-             .filter(function(f) { return f === file.name })
-             .length != 1) {
+        if (file.name.indexOf('.') !== -1 &&
+            file.name.split('.').slice(-2)[0].indexOf('-') !== -1 &&
+            ['en', 'fr', 'es'].indexOf('assasasa.zip'.split('.').slice(-2)[0].split('-').slice(-1)[0])) {
+          if (self.files
+              .map(function(f) { return f.name; })
+              .filter(function(f) { return f === file.name })
+              .length != 1) {
+            self.removeFile(file);
+          }
+        } else {
+          addMessage('error', 'Error',
+                     'Files need to end with language (-en,-es,-fr) to be able to upload it.');
           self.removeFile(file);
         }
       });
@@ -42,7 +59,7 @@ require([
         setTimeout(function() {
           self.removeFile(file);
           if (self.files.length !== 0) {
-              $('#unep-upload-submit').trigger('click');
+              $('#upload-submit').trigger('click');
           }
         }, 300);
       });

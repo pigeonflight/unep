@@ -5,11 +5,12 @@
       metal:use-macro="context/main_template/macros/master">
 
   <metal:block fill-slot="content-core">
-    <div id="unep-upload">Drag/Click to upload documents.</div>
-    <div id="unep-upload-preview"></div>
+    <div id="upload-messages"></div>
+    <div id="upload">Drag/Click to upload documents.</div>
+    <div id="upload-preview"></div>
     <div style="clear: both;"></div>
-    <button id="unep-upload-submit">Upload</button>
-    <button id="unep-upload-cancel">Cancel</button>
+    <button id="upload-submit">Upload</button>
+    <button id="upload-cancel">Cancel</button>
     <link rel="stylesheet" type="text/css" href="++resource++unep/upload.css" />
     <script src="++resource++unep/upload.js"></script>
   </metal:block>

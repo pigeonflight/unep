@@ -1,4 +1,4 @@
-#unep-upload {
+#upload {
   width: 100%;
   height: 5em;
   border: 3px dashed #777;
@@ -10,55 +10,55 @@
   margin-bottom: 0.5em;
 }
 
-#unep-upload-preview {
+#upload-preview {
   position: relative;
   width: 100%;
   background: #EEE;
   float: left;
 }
-#unep-upload-preview .dz-preview {
+#upload-preview .dz-preview {
   clear: both;
   font-size: 0.8em;
 }
-#unep-upload-preview .dz-details {
+#upload-preview .dz-details {
   line-height: 2em;
   float: left;
   margin: 0.5em 0.8em;
 }
-#unep-upload-preview .dz-error-message,
-#unep-upload-preview .dz-details img {
+#upload-preview .dz-error-message,
+#upload-preview .dz-details img {
   display: none;
 }
-#unep-upload-preview .dz-size,
-#unep-upload-preview .dz-filename {
+#upload-preview .dz-size,
+#upload-preview .dz-filename {
   float: left;
 }
-#unep-upload-preview .dz-size {
+#upload-preview .dz-size {
   margin-left: 0.5em;
 }
-#unep-upload-preview .dz-size:before {
-  content: "( ";    
+#upload-preview .dz-size:before {
+  content: "( ";
 }
-#unep-upload-preview .dz-size:after {
-  content: " )";    
+#upload-preview .dz-size:after {
+  content: " )";
 }
-#unep-upload-preview .dz-remove {
+#upload-preview .dz-remove {
   float: right;
   margin: 0.5em 0.8em;
 }
 
-#unep-upload-preview .dz-success-mark,
-#unep-upload-preview .dz-error-mark {
+#upload-preview .dz-success-mark,
+#upload-preview .dz-error-mark {
   display: none;
 }
-#unep-upload-preview .dz-feedback {
+#upload-preview .dz-feedback {
   line-height: 2em;
   text-align: center;
   margin: 0.5em;
 }
 
-#unep-upload-submit,
-#unep-upload-cancel {
+#upload-submit,
+#upload-cancel {
   border: 0;
   border-radius: 0.1em;
   font-size: 1.2em;
@@ -71,11 +71,10 @@
   text-shadow: 1px 1px 1px #333;
   display: inline-block;
 }
-#unep-upload-cancel {
+#upload-cancel {
   background: #E71D1D;
 }
-#unep-upload-submit:focus,
-#unep-upload-cancel:focus {
+#upload-submit:focus,
+#upload-cancel:focus {
   outline: none;
 }
-
