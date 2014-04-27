@@ -2,7 +2,7 @@
 
 from Products.Five.browser import BrowserView
 from plone.app.textfield import RichText
-from plone.app.widgets.dx import DatetimeWidget
+from plone.app.widgets.dx import DateWidget
 from plone.app.widgets.dx import RelatedItemsWidget
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
@@ -21,17 +21,17 @@ class IMeeting(model.Schema):
     """
     """
 
-    form.widget('start', DatetimeWidget)
-    start = schema.Datetime(
+    form.widget('start', DateWidget)
+    start = schema.Date(
         title=_(u'Meeting starts'),
-        description=_(u'Date and Time, when the meeting begins.'),
+        description=_(u'Date when the meeting begins.'),
         required=True,
     )
 
-    form.widget('end', DatetimeWidget)
-    end = schema.Datetime(
+    form.widget('end', DateWidget)
+    end = schema.Date(
         title=_(u'Meeting ends'),
-        description=_(u'Date and Time, when the meeting ends.'),
+        description=_(u'Date when the meeting ends.'),
         required=True,
     )
 
