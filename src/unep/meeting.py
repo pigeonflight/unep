@@ -4,6 +4,7 @@ from Products.Five.browser import BrowserView
 from plone.app.textfield import RichText
 from plone.app.widgets.dx import DateWidget
 from plone.app.widgets.dx import RelatedItemsWidget
+from plone.app.widgets.dx import SelectWidget
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
 from plone.supermodel import model
@@ -46,14 +47,14 @@ class IMeeting(model.Schema):
         title=_(u'Meeting type'),
         description=_(u'TODO'),
         values=[
-            ("CEP - IGM", u'CEP - IGM'),
-            ("CEP - MONCOM", u'CEP - MONCOM'),
-            ("SPAW - ISTAC", u'SPAW - ISTAC'),
-            ("SPAW - Workshop", u'SPAW - Workshop'),
-            ("SPAW - COP", u'SPAW - COP'),
-            ("SPAW - STAC", u'SPAW - STAC'),
-            ("LBS - ISTAC", u'LBS - ISTAC'),
-            ("LBS - Workshop", u'LBS - Workshop'),
+            u'CEP - IGM',
+            u'CEP - MONCOM',
+            u'SPAW - ISTAC',
+            u'SPAW - Workshop',
+            u'SPAW - COP',
+            u'SPAW - STAC',
+            u'LBS - ISTAC',
+            u'LBS - Workshop',
         ],
         required=False,
     )
