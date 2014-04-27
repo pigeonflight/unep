@@ -1,0 +1,72 @@
+#meeting-downloads {
+  margin: 1em 0 0 0;
+  border: 1px solid #286DA8;
+}
+
+#meeting-downloads h2 {
+  padding: 0.2em 0.5em;
+  background: #286DA8;
+  color: #FFF;
+  font-size: 1.3em;
+  margin-bottom: 1px;
+}
+#meeting-downloads h2 a:visited,
+#meeting-downloads h2 a:hover,
+#meeting-downloads h2 a {
+  color: #FFF !important;
+  display: inline-block;
+  width: 100%;
+}
+
+#meeting-downloads table {
+  width: 100%;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+#meeting-downloads table p {
+  margin: 0;
+}
+
+#meeting-downloads tr {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+#meeting-downloads th:first-child,
+#meeting-downloads td:first-child {
+  width: 80%;
+}
+
+#meeting-downloads th:last-child,
+#meeting-downloads td:last-child {
+  width: 20%;
+  text-align: center;
+}
+
+#meeting-downloads th,
+#meeting-downloads td {
+  padding: 0.5em;
+}
+
+#meeting-downloads th {
+  font-size: 0.9em;
+}
+
+#meeting-downloads-buttonbar {
+  background: #286DA8;
+  color: #FFF;
+  padding: 1em;
+  font-size: 0.8em;
+  line-height: 4.2em;
+}
+
+#meeting-downloads-button {
+  float: right;
+  border: 0;
+  padding: 1em;
+  font-size: 1.3em;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #333;
+  box-shadow: 0px 0px 1px #EEE;
+  background: #A92A55;
+}

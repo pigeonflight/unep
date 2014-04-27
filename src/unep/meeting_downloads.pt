@@ -30,139 +30,144 @@
     <script src="++resource++unep/language.js"></script>
 
     <div id="meeting-downloads">
-      <h2 class="open">Working documents</h2>
-      <h2>Information documents</h2>
-      <ul>
-        <li>
-          <h4 class="col1">Title</h4>
-          <h4 class="col2">Select</h4>
-        </li>
-      </ul>
-      <ol>
-        <li tal:repeat="file view/files_working">
-          <div class="col1">
-            <strong tal:content="file/title"/>
-            <p tal:content="file/description"/>
-          </div>
-          <div class="col2">
-            <input type="checkbox" name="file/id" />
-          </div>
-        </li>
-      </ol>
-      <h2>Information documents</h2>
-      <ul>
-        <li>
-          <h4 class="col1">Title</h4>
-          <h4 class="col2">Select</h4>
-        </li>
-      </ul>
-      <ol>
-        <li tal:repeat="file view/files_information">
-          <div class="col1">
-            <strong tal:content="file/title"/>
-            <p tal:content="file/description"/>
-          </div>
-          <div class="col2">
-            <input type="checkbox" name="file/id" />
-          </div>
-        </li>
-      </ol>
-      <h2>Reference documents</h2>
-      <ul>
-        <li>
-          <h4 class="col1">Title</h4>
-          <h4 class="col2">Select</h4>
-        </li>
-      </ul>
-      <ol>
-        <li tal:repeat="file view/files_reference">
-          <div class="col1">
-            <strong tal:content="file/title"/>
-            <p tal:content="file/description"/>
-          </div>
-          <div class="col2">
-            <input type="checkbox" name="file/id" />
-          </div>
-        </li>
-      </ol>
-      <h2>Conference papers</h2>
-      <ul>
-        <li>
-          <h4 class="col1">Title</h4>
-          <h4 class="col2">Select</h4>
-        </li>
-      </ul>
-      <ol>
-        <li tal:repeat="file view/files_conference_papers">
-          <div class="col1">
-            <strong tal:content="file/title"/>
-            <p tal:content="file/description"/>
-          </div>
-          <div class="col2">
-            <input type="checkbox" name="file/id" />
-          </div>
-        </li>
-      </ol>
-      <h2>Final reports</h2>
-      <ul>
-        <li>
-          <h4 class="col1">Title</h4>
-          <h4 class="col2">Select</h4>
-        </li>
-      </ul>
-      <ol>
-        <li tal:repeat="file view/files_final_reports">
-          <div class="col1">
-            <strong tal:content="file/title"/>
-            <p tal:content="file/description"/>
-          </div>
-          <div class="col2">
-            <input type="checkbox" name="file/id" />
-          </div>
-        </li>
-      </ol>
-      <h2>Presentations</h2>
-      <ul>
-        <li>
-          <h4 class="col1">Title</h4>
-          <h4 class="col2">Select</h4>
-        </li>
-      </ul>
-      <ol>
-        <li tal:repeat="file view/files_presentations">
-          <div class="col1">
-            <strong tal:content="file/title"/>
-            <p tal:content="file/description"/>
-          </div>
-          <div class="col2">
-            <input type="checkbox" name="file/id" />
-          </div>
-        </li>
-      </ol>
-      <h2>Other</h2>
-      <ul>
-        <li>
-          <h4 class="col1">Title</h4>
-          <h4 class="col2">Select</h4>
-        </li>
-      </ul>
-      <ol>
-        <li tal:repeat="file view/files_others">
-          <div class="col1">
-            <strong tal:content="file/title"/>
-            <p tal:content="file/description"/>
-          </div>
-          <div class="col2">
-            <input type="checkbox" name="file/id" />
-          </div>
-        </li>
-      </ol>
+      <tal:files condition="view/files_working"> 
+        <h2 class="open">Working documents</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Select</th>
+          </tr>
+          <tr tal:repeat="file view/files_working">
+            <td>
+              <strong tal:content="file/title"></strong>
+              <p tal:content="file/description"/>
+            </td>
+            <td>
+              <input type="checkbox" name="" value=""
+                tal:attributes="value file/url; name file/name;" />
+            </td>
+          </tr>
+        </table>
+      </tal:files>
+      <tal:files condition="view/files_information"> 
+        <h2>Information documents</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Select</th>
+          </tr>
+          <tr tal:repeat="file view/files_information">
+            <td>
+              <strong tal:content="file/title"></strong>
+              <p tal:content="file/description"/>
+            </td>
+            <td>
+              <input type="checkbox" name="" value=""
+                tal:attributes="value file/url; name file/name;" />
+            </td>
+          </tr>
+        </table>
+      </tal:files>
+      <tal:files condition="view/files_reference"> 
+        <h2>Reference documents</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Select</th>
+          </tr>
+          <tr tal:repeat="file view/files_reference">
+            <td>
+              <strong tal:content="file/title"></strong>
+              <p tal:content="file/description"/>
+            </td>
+            <td>
+              <input type="checkbox" name="" value=""
+                tal:attributes="value file/url; name file/name;" />
+            </td>
+          </tr>
+        </table>
+      </tal:files>
+      <tal:files condition="view/files_conference_papers"> 
+        <h2>Conference papers</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Select</th>
+          </tr>
+          <tr tal:repeat="file view/files_conference_papers">
+            <td>
+              <strong tal:content="file/title"></strong>
+              <p tal:content="file/description"/>
+            </td>
+            <td>
+              <input type="checkbox" name="" value=""
+                tal:attributes="value file/url; name file/name;" />
+            </td>
+          </tr>
+        </table>
+      </tal:files>
+      <tal:files condition="view/files_final_reports"> 
+        <h2>Final reports</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Select</th>
+          </tr>
+          <tr tal:repeat="file view/files_final_reports">
+            <td>
+              <strong tal:content="file/title"></strong>
+              <p tal:content="file/description"/>
+            </td>
+            <td>
+              <input type="checkbox" name="" value=""
+                tal:attributes="value file/url; name file/name;" />
+            </td>
+          </tr>
+        </table>
+      </tal:files>
+      <tal:files condition="view/files_presentations"> 
+        <h2>Presentations</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Select</th>
+          </tr>
+          <tr tal:repeat="file view/files_presentations">
+            <td>
+              <strong tal:content="file/title"></strong>
+              <p tal:content="file/description"/>
+            </td>
+            <td>
+              <input type="checkbox" name="" value=""
+                tal:attributes="value file/url; name file/name;" />
+            </td>
+          </tr>
+        </table>
+      </tal:files>
+      <tal:files condition="view/files_others"> 
+        <h2>Others</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Select</th>
+          </tr>
+          <tr tal:repeat="file view/files_others">
+            <td>
+              <strong tal:content="file/title"></strong>
+              <p tal:content="file/description"/>
+            </td>
+            <td>
+              <input type="checkbox" name="" value=""
+                tal:attributes="value file/url; name file/name;" />
+            </td>
+          </tr>
+        </table>
+      </tal:files>
     </div>
-    <div id="meeting-download-buttonbar">
-      <button id="meeting-download-button">Download</button>
+    <div id="meeting-downloads-buttonbar">
+      <button id="meeting-downloads-button">Download</button>
       <span id="meeting-downloads-number-of-documents">0</span>
-      <span> of items selected in </span>
-      <span id="meeting-downloads-language">English</span>
+      <span> of items selected</span>
     </div>
     <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
     <script src="++resource++unep/downloads.js"></script>

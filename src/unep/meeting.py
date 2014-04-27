@@ -9,6 +9,7 @@ from plone.dexterity.content import Item
 from plone.supermodel import model
 from unep import _
 from unep.utils import get_field
+from unep.utils import get_fieldname
 from unep.utils import get_translated
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
@@ -412,15 +413,27 @@ class MeetingDownloadsView(BrowserView):
         for item in getattr(self.context, field_name):
             description = ''
             title = get_translated(item.to_object, self.request, 'title', True)
+
             if item.to_object.code:
                 description = title
                 title = item.to_object.code
-            files.append({
-                'id': item.to_object.id,
-                'title': title,
-                'description': description,
-                'url': item.to_object.absolute_url(),
-            })
+
+            if not title:
+                title = item.to_object.id
+
+            field = get_field(item.to_object, 'file', None)
+            fieldname = get_fieldname(item.to_object, 'file')
+            if field:
+                files.append({
+                    'id': item.to_object.id,
+                    'title': title,
+                    'description': description,
+                    'name': field.filename,
+                    'url': '{url}/@@download/{fieldname}'.format(
+                        url=item.to_object.absolute_url(),
+                        fieldname=fieldname,
+                    )
+                })
         return files
 
     @property

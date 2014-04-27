@@ -134,4 +134,4 @@ class FileView(BrowserView):
 
     def __call__(self):
         self.request.response.redirect(
-            aq_parent(self.context).absolute_url())
+            self.context.absolute_url() + '/edit')
