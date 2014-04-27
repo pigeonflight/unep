@@ -31,14 +31,25 @@
     <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
     <script src="++resource++unep/language.js"></script>
 
+    <div id="meeting-navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="#meeting-text-announcement">Announcement</a></li>
+        <li><a href="#meeting-text-travel_info">Information note for participants</a></li>
+        <li><a href="#meeting-text-visa_info">Travel and visa information</a></li>
+        <li><a href="#meeting-text-other">Other</a></li>
+        <li><a href="" tal:attributes="href string:${context/absolute_url}/@@downloads">Downloads</a></li>
+      </ul>
+    </div>
+
     <div id="meeting-texts">
-      <h2 class="open">Announcement</h2>
+      <h2 id="meeting-text-announcement" class="open">Announcement</h2>
       <div tal:content="structure view/announcement"></div>
-      <h2>Information note for participants</h2>
+      <h2 id="meeting-text-travel_info">Information note for participants</h2>
       <div tal:content="structure view/travel_info"></div>
-      <h2>Travel and visa information</h2>
+      <h2 id="meeting-text-visa_info">Travel and visa information</h2>
       <div tal:content="structure view/visa_info"></div>
-      <h2>Other</h2>
+      <h2 id="meeting-text-other">Other</h2>
       <div tal:content="structure view/additional_text"></div>
     </div>
     <link rel="stylesheet" type="text/css" href="++resource++unep/meeting.css" />
