@@ -10,6 +10,23 @@
   margin-bottom: 0.5em;
 }
 
+#upload.upload-progress {
+  border: 3px solid #777;
+  position: relative;
+}
+#upload.upload-progress div {
+  background: #777;
+  color: #333;
+  text-align: center;
+  height: 5em;
+}
+#upload.upload-progress div span {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
 #upload-preview {
   position: relative;
   width: 100%;

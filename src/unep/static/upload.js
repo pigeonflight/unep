@@ -5,14 +5,26 @@ require([
 
   Dropzone.autoDiscover = false;
 
-  function addMessage(type, typeName,  message) {
+  function addMessage(type, typeName,  message, closeable) {
+    closeable = closeable || false;
+    if (closeable) {
+      message = '<div>' + message + '</div>' +
+          '<a class="notification-close">Close</a>';
+    }
     $('#upload-messages').append($('' +
       '<dl class="portalMessage ' + type + '">' +
       '<dt>' + typeName + '</dt>' +
       '<dd>' + message + '</dd>' +
       '</dl>'
     ));
+    $('#upload-messages a.notification-close').on('click', function() {
+      $('#upload-messages').html('');
+    });
   }
+
+  var uploadHtml = $('#upload').html(),
+      progress = $('<div><span>Uploading...<span></div>'),
+      uploaded = [];
 
   var dropzone = new Dropzone("#upload", {
     url: "@@upload",
@@ -26,10 +38,12 @@ require([
       var self = this;
 
       $('#upload-submit').on('click', function() {
+        uploaded = [];
+        progress.css('width', '0%');
+        $('#upload').html(progress).addClass('upload-progress');
         if (self.files.length !== 0) {
             self.processFile(self.files[0]);
         }
-        self.processFile(self);
       });
 
       $('#upload-cancel').on('click', function() {
@@ -54,12 +68,35 @@ require([
       });
 
       self.on("complete", function(file) {
-        $(file.previewElement).html(
-          '<div class="dz-feedback">Upload of "' + file.name + '" successful.</div>')
+        $(file.previewElement).html('<div class="dz-feedback">Upload of "' + file.name + '" successful.</div>')
+
+        uploaded.push(JSON.parse(file.xhr.responseText));
+
         setTimeout(function() {
           self.removeFile(file);
+          $('#upload > div').css('width',
+              Math.round(uploaded.length * 100 / (uploaded.length + self.files.length)) + '%');
           if (self.files.length !== 0) {
-              $('#upload-submit').trigger('click');
+             self.processFile(self.files[0]);
+          } else {
+            // when last file is uploaded we show all notifications what was
+            // uploaded
+            $('#upload').html(uploadHtml).removeClass('upload-progress');
+            //var message = '';
+            //uploaded
+            //  .reduce(function(prev, item) {
+            //    if (!prev[item.id]){
+            //      prev[item.id] = { url: item.url, languages: [ item.language ]};
+            //    } else {
+            //      prev[item.id].languages.push(item.language);
+            //    }
+            //    return prev;
+            //  }, {})
+            //  .forEach(function() {
+            //    debugger;
+            //  });
+            addMessage('info', 'Info',
+                       'all files were uploaded!', true);
           }
         }, 300);
       });

@@ -85,6 +85,7 @@ class FileFolderUpload(BrowserView):
             upload_lock.release()
 
         return json.dumps({
-            'id': obj.getId(),
+            'id': obj.UID(),
+            'language': language,
             'url': obj.absolute_url(),
         })
