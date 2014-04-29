@@ -5,12 +5,9 @@ require([
 
   Dropzone.autoDiscover = false;
 
-  function addMessage(type, typeName,  message, closeable) {
-    closeable = closeable || false;
-    if (closeable) {
-      message = '<div>' + message + '</div>' +
-          '<a class="notification-close">Close</a>';
-    }
+  function addMessage(type, typeName,  message) {
+    message = '<a href="#" class="notification-close">&times;</a>' +
+      '<div>' + message + '</div>';
     $('#upload-messages').append($('' +
       '<dl class="portalMessage ' + type + '">' +
       '<dt>' + typeName + '</dt>' +
@@ -18,7 +15,7 @@ require([
       '</dl>'
     ));
     $('#upload-messages a.notification-close').on('click', function() {
-      $('#upload-messages').html('');
+      $(this).parents('.portalMessage').remove();
     });
   }
 
@@ -82,21 +79,36 @@ require([
             // when last file is uploaded we show all notifications what was
             // uploaded
             $('#upload').html(uploadHtml).removeClass('upload-progress');
-            //var message = '';
-            //uploaded
-            //  .reduce(function(prev, item) {
-            //    if (!prev[item.id]){
-            //      prev[item.id] = { url: item.url, languages: [ item.language ]};
-            //    } else {
-            //      prev[item.id].languages.push(item.language);
-            //    }
-            //    return prev;
-            //  }, {})
-            //  .forEach(function() {
-            //    debugger;
-            //  });
-            addMessage('info', 'Info',
-                       'all files were uploaded!', true);
+            var message = '';
+                created = uploaded.reduce(function(prev, item) {
+                  if (!prev[item.id]){
+                    prev[item.id] = {
+                      url: item.url,
+                      title: item.title,
+                      languages: [ item.language ]
+                    };
+                  } else {
+                    prev[item.id].languages.push(item.language);
+                  }
+                  return prev;
+                }, {});
+
+            Object.keys(created).forEach(function(id) {
+              message += '' +
+                '<li>' +
+                ' <a href="' + created[id].url + '" target="_blank">' +
+                '  ' +  created[id].title +
+                ' (' + created[id].languages.join(',') +')' +
+                ' </a>'+
+                '</li>';
+            });
+            if (message !== '') {
+              addMessage('info', 'Info',
+                '<p>Following documents were created/updated.</p>' +
+                '<p>Click on link to edit their metadata.</p>' +
+                '<ul>' + message + '</ul>', true);
+
+            }
           }
         }, 300);
       });

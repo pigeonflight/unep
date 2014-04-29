@@ -27,6 +27,15 @@
   left: 0;
 }
 
+#upload-messages a.notification-close {
+  float: right;
+  border: 0 !important;
+  color: #333;
+}
+#upload-messages a.notification-close:hover {
+  color: #333;
+}
+
 #upload-preview {
   position: relative;
   width: 100%;

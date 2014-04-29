@@ -84,8 +84,16 @@ class FileFolderUpload(BrowserView):
         finally:
             upload_lock.release()
 
+        if language == 'en':
+            language = _('English')
+        elif language == 'es':
+            language = _('Spanish')
+        elif language == 'fr':
+            language = _('French')
+
         return json.dumps({
             'id': obj.UID(),
+            'title': obj.title_or_id(),
             'language': language,
             'url': obj.absolute_url(),
         })
