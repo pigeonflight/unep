@@ -10,7 +10,6 @@ from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from unep import _
 from unep.utils import get_field
-from unep.utils import get_fieldname
 from unep.utils import get_translated
 from unep.utils import get_language
 from z3c.relationfield.schema import RelationChoice
@@ -434,29 +433,20 @@ class MeetingDownloadsView(BrowserView):
     def get_files(self, field_name):
         files = []
         for item in getattr(self.context, field_name):
-            description = ''
-            title = get_translated(item.to_object, self.request, 'title', True)
-
-            if item.to_object.code:
-                description = title
-                title = item.to_object.code
+            code = item.to_object.code
+            title = get_field(item.to_object, 'title', '')
+            description = get_field(item.to_object, 'description', '')
 
             if not title:
                 title = item.to_object.id
 
-            field = get_field(item.to_object, 'file', None)
-            fieldname = get_fieldname(item.to_object, 'file')
-            if field:
-                files.append({
-                    'id': item.to_object.id,
-                    'title': title,
-                    'description': description,
-                    'name': field.filename,
-                    'url': '{url}/@@download/{fieldname}'.format(
-                        url=item.to_object.absolute_url(),
-                        fieldname=fieldname,
-                    )
-                })
+            files.append({
+                'code': code,
+                'title': title,
+                'description': description,
+                'uid': item.to_object.UID(),
+                'url': item.to_object.absolute_url(),
+            })
         return files
 
     @property

@@ -39,7 +39,7 @@ class IFile(model.Schema):
     )
 
     en_description = schema.Text(
-        title=_(u'Description'),
+        title=_(u'Notes'),
         required=False,
     )
 
@@ -60,7 +60,7 @@ class IFile(model.Schema):
     )
 
     es_description = schema.Text(
-        title=_(u'Description'),
+        title=_(u'Notes'),
         required=False,
     )
 
@@ -81,7 +81,7 @@ class IFile(model.Schema):
     )
 
     fr_description = schema.Text(
-        title=_(u'Description'),
+        title=_(u'Notes'),
         required=False,
     )
 
@@ -111,6 +111,13 @@ class File(Item):
         return title
 
     def setTitle(self, value):
+        return
+
+    @property
+    def description(self):
+        return get_field(self, 'description', '')
+
+    def setDescription(self, value):
         return
 
 

@@ -39,12 +39,15 @@
           </tr>
           <tr tal:repeat="file view/files_working">
             <td>
-              <strong tal:content="file/title"></strong>
-              <p tal:content="file/description"/>
+              <a href="" tal:attributes="href file/url">
+                <strong tal:content="file/code"></strong>
+                <p tal:content="file/title"/>
+                <p tal:content="file/description"/>
+              </a>
             </td>
             <td>
-              <input type="checkbox" name="" value=""
-                tal:attributes="value file/url; name file/name;" />
+              <input type="checkbox" name="files" value=""
+                tal:attributes="value file/uid" />
             </td>
           </tr>
         </table>
@@ -58,12 +61,15 @@
           </tr>
           <tr tal:repeat="file view/files_information">
             <td>
-              <strong tal:content="file/title"></strong>
-              <p tal:content="file/description"/>
+              <a href="" tal:attributes="href file/url">
+                <strong tal:content="file/code"></strong>
+                <p tal:content="file/title"/>
+                <p tal:content="file/description"/>
+              </a>
             </td>
             <td>
-              <input type="checkbox" name="" value=""
-                tal:attributes="value file/url; name file/name;" />
+              <input type="checkbox" name="files" value=""
+                tal:attributes="value file/uid" />
             </td>
           </tr>
         </table>
@@ -77,12 +83,15 @@
           </tr>
           <tr tal:repeat="file view/files_reference">
             <td>
-              <strong tal:content="file/title"></strong>
-              <p tal:content="file/description"/>
+              <a href="" tal:attributes="href file/url">
+                <strong tal:content="file/code"></strong>
+                <p tal:content="file/title"/>
+                <p tal:content="file/description"/>
+              </a>
             </td>
             <td>
-              <input type="checkbox" name="" value=""
-                tal:attributes="value file/url; name file/name;" />
+              <input type="checkbox" name="files" value=""
+                tal:attributes="value file/uid" />
             </td>
           </tr>
         </table>
@@ -96,12 +105,15 @@
           </tr>
           <tr tal:repeat="file view/files_conference_papers">
             <td>
-              <strong tal:content="file/title"></strong>
-              <p tal:content="file/description"/>
+              <a href="" tal:attributes="href file/url">
+                <strong tal:content="file/code"></strong>
+                <p tal:content="file/title"/>
+                <p tal:content="file/description"/>
+              </a>
             </td>
             <td>
-              <input type="checkbox" name="" value=""
-                tal:attributes="value file/url; name file/name;" />
+              <input type="checkbox" name="files" value=""
+                tal:attributes="value file/uid" />
             </td>
           </tr>
         </table>
@@ -115,12 +127,15 @@
           </tr>
           <tr tal:repeat="file view/files_final_reports">
             <td>
-              <strong tal:content="file/title"></strong>
-              <p tal:content="file/description"/>
+              <a href="" tal:attributes="href file/url">
+                <strong tal:content="file/code"></strong>
+                <p tal:content="file/title"/>
+                <p tal:content="file/description"/>
+              </a>
             </td>
             <td>
-              <input type="checkbox" name="" value=""
-                tal:attributes="value file/url; name file/name;" />
+              <input type="checkbox" name="files" value=""
+                tal:attributes="value file/uid" />
             </td>
           </tr>
         </table>
@@ -134,12 +149,15 @@
           </tr>
           <tr tal:repeat="file view/files_presentations">
             <td>
-              <strong tal:content="file/title"></strong>
-              <p tal:content="file/description"/>
+              <a href="" tal:attributes="href file/url">
+                <strong tal:content="file/code"></strong>
+                <p tal:content="file/title"/>
+                <p tal:content="file/description"/>
+              </a>
             </td>
             <td>
-              <input type="checkbox" name="" value=""
-                tal:attributes="value file/url; name file/name;" />
+              <input type="checkbox" name="files" value=""
+                tal:attributes="value file/uid" />
             </td>
           </tr>
         </table>
@@ -153,12 +171,15 @@
           </tr>
           <tr tal:repeat="file view/files_others">
             <td>
-              <strong tal:content="file/title"></strong>
-              <p tal:content="file/description"/>
+              <a href="" tal:attributes="href file/url">
+                <strong tal:content="file/code"></strong>
+                <p tal:content="file/title"/>
+                <p tal:content="file/description"/>
+              </a>
             </td>
             <td>
-              <input type="checkbox" name="" value=""
-                tal:attributes="value file/url; name file/name;" />
+              <input type="checkbox" name="files" value=""
+                tal:attributes="value file/uid" />
             </td>
           </tr>
         </table>
