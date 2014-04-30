@@ -10,16 +10,6 @@ require([
 ], function($) {
 
   var collapse = new jQueryCollapse($('#meeting-texts'));
-  $('#meeting-texts')
-    .on('opened', function(e, section) {
-      $(this)
-        .find('h2')
-        .each(function(i, el) {
-          if ($(el).hasClass('open') && el !== section.$summary[0]) {
-            section.parent.close(i);
-          }
-        });
-    });
 
   $('#meeting-navigation a')
     .on('click', function(e) {

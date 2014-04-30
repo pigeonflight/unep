@@ -32,17 +32,7 @@ require([
     return deferred;
   }
 
-  $('#meeting-downloads')
-    .collapse()
-    .on('opened', function(e, section) {
-      $(this)
-        .find('h2')
-        .each(function(i, el) {
-          if ($(el).hasClass('open') && el !== section.$summary[0]) {
-            section.parent.close(i);
-          }
-        });
-    });
+  var collapse = new jQueryCollapse($('#meeting-downloads'));
 
   $('#meeting-downloads').find('input[type="checkbox"]')
     .on('change', function() {
