@@ -4,14 +4,15 @@ from Products.Five.browser import BrowserView
 from plone.app.textfield import RichText
 from plone.app.widgets.dx import DateWidget
 from plone.app.widgets.dx import RelatedItemsWidget
-from plone.app.widgets.dx import SelectWidget
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
+from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from unep import _
 from unep.utils import get_field
 from unep.utils import get_fieldname
 from unep.utils import get_translated
+from unep.utils import get_language
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
@@ -250,13 +251,25 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    en_travel_info = RichText(
+    en_announcement_file = NamedBlobFile(
+        title=_(u'Announcement attachement'),
+        description=_(u''),
+        required=False,
+    )
+
+    en_information = RichText(
         title=_(u'Information note for participants'),
         description=_(u''),
         required=False,
     )
 
-    en_additional_text = RichText(
+    en_information_file = NamedBlobFile(
+        title=_(u'Information note attachement'),
+        description=_(u''),
+        required=False,
+    )
+
+    en_additional = RichText(
         title=_(u'Other'),
         description=_(u''),
         required=False,
@@ -268,8 +281,10 @@ class IMeeting(model.Schema):
         fields=[
             'en_title',
             'en_announcement',
-            'en_travel_info',
-            'en_additional_text',
+            'en_announcement_file',
+            'en_information',
+            'en_information_file',
+            'en_additional',
         ]
     )
 
@@ -284,13 +299,25 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    es_travel_info = RichText(
+    es_announcement_file = NamedBlobFile(
+        title=_(u'Announcement attachement'),
+        description=_(u''),
+        required=False,
+    )
+
+    es_information = RichText(
         title=_(u'Information note for participants'),
         description=_(u''),
         required=False,
     )
 
-    es_additional_text = RichText(
+    es_information_file = NamedBlobFile(
+        title=_(u'Information note attachement'),
+        description=_(u''),
+        required=False,
+    )
+
+    es_additional = RichText(
         title=_(u'Other'),
         description=_(u''),
         required=False,
@@ -302,8 +329,10 @@ class IMeeting(model.Schema):
         fields=[
             'es_title',
             'es_announcement',
-            'es_travel_info',
-            'es_additional_text',
+            'es_announcement_file',
+            'es_information',
+            'es_information_file',
+            'es_additional',
         ],
     )
 
@@ -318,13 +347,25 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    fr_travel_info = RichText(
+    fr_announcement_file = NamedBlobFile(
+        title=_(u'Announcement attachement'),
+        description=_(u''),
+        required=False,
+    )
+
+    fr_information = RichText(
         title=_(u'Information note for participants'),
         description=_(u''),
         required=False,
     )
 
-    fr_additional_text = RichText(
+    fr_information_file = NamedBlobFile(
+        title=_(u'Information note attachement'),
+        description=_(u''),
+        required=False,
+    )
+
+    fr_additional = RichText(
         title=_(u'Other'),
         description=_(u''),
         required=False,
@@ -336,8 +377,10 @@ class IMeeting(model.Schema):
         fields=[
             'fr_title',
             'fr_announcement',
-            'fr_travel_info',
-            'fr_additional_text',
+            'fr_announcement_file',
+            'fr_information',
+            'fr_information_file',
+            'fr_additional',
         ],
     )
 
@@ -372,12 +415,16 @@ class MeetingView(BrowserView):
         return get_translated(self.context, self.request, 'announcement')
 
     @property
-    def travel_info(self):
-        return get_translated(self.context, self.request, 'travel_info')
+    def information(self):
+        return get_translated(self.context, self.request, 'information')
 
     @property
-    def additional_text(self):
-        return get_translated(self.context, self.request, 'additional_text')
+    def additional(self):
+        return get_translated(self.context, self.request, 'additional')
+
+    @property
+    def language(self):
+        return get_language(self.request)
 
 
 class MeetingDownloadsView(BrowserView):
