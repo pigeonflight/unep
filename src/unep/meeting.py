@@ -256,12 +256,6 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    en_visa_info = RichText(
-        title=_(u'Travel and visa information'),
-        description=_(u''),
-        required=False,
-    )
-
     en_additional_text = RichText(
         title=_(u'Other'),
         description=_(u''),
@@ -275,7 +269,6 @@ class IMeeting(model.Schema):
             'en_title',
             'en_announcement',
             'en_travel_info',
-            'en_visa_info',
             'en_additional_text',
         ]
     )
@@ -297,12 +290,6 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    es_visa_info = RichText(
-        title=_(u'Travel and visa information'),
-        description=_(u''),
-        required=False,
-    )
-
     es_additional_text = RichText(
         title=_(u'Other'),
         description=_(u''),
@@ -316,7 +303,6 @@ class IMeeting(model.Schema):
             'es_title',
             'es_announcement',
             'es_travel_info',
-            'es_visa_info',
             'es_additional_text',
         ],
     )
@@ -338,12 +324,6 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    fr_visa_info = RichText(
-        title=_(u'Travel and visa information'),
-        description=_(u''),
-        required=False,
-    )
-
     fr_additional_text = RichText(
         title=_(u'Other'),
         description=_(u''),
@@ -357,7 +337,6 @@ class IMeeting(model.Schema):
             'fr_title',
             'fr_announcement',
             'fr_travel_info',
-            'fr_visa_info',
             'fr_additional_text',
         ],
     )
@@ -395,10 +374,6 @@ class MeetingView(BrowserView):
     @property
     def travel_info(self):
         return get_translated(self.context, self.request, 'travel_info')
-
-    @property
-    def visa_info(self):
-        return get_translated(self.context, self.request, 'visa_info')
 
     @property
     def additional_text(self):
