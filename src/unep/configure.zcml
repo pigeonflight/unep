@@ -75,6 +75,13 @@
     template="meeting_downloads.pt"
     />
 
+  <browser:page
+    for="unep.meeting.IMeeting"
+    name="downloadszip"
+    permission="zope2.Public"
+    class="unep.meeting.MeetingDownloadsZip"
+    />
+
   <genericsetup:registerProfile
     name="default"
     title="UNEP"

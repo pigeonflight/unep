@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
 from collective.dexteritytextindexer import searchable
 from plone.app.textfield import RichText
@@ -17,6 +18,10 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.interface import implements
+
+import os
+import tempfile
+import zipfile
 
 
 class IMeeting(model.Schema):
@@ -484,3 +489,70 @@ class MeetingDownloadsView(BrowserView):
 
     def files_others(self):
         return self.get_files('files_others')
+
+
+class MeetingDownloadsZip(BrowserView):
+    """
+    """
+
+    def __call__(self):
+        if self.request.REQUEST_METHOD != 'POST':
+            return
+
+        files = self.request.form.get("files", None)
+        if not files:
+            return
+
+        catalog = getToolByName(self.context, 'portal_catalog')
+
+        zip_tempfile = tempfile.mktemp()
+        ZIP = zipfile.ZipFile(zip_tempfile, 'w')
+
+        if type(files) not in [list, tuple]:
+            files = [files]
+
+        objects = {}
+        for item in files:
+            uid, lang = item.split(':')
+
+            if uid not in objects.keys():
+                objects[uid] = catalog(UID=uid)[0].getObject()
+
+            if hasattr(objects[uid], lang + '_file') and \
+                    getattr(objects[uid], lang + '_file'):
+                field = getattr(objects[uid], lang + '_file')
+                ZIP.writestr(field.filename, field.data)
+
+        ZIP.close()
+        data = file(zip_tempfile).read()
+        os.unlink(zip_tempfile)
+        response = self.request.RESPONSE
+        response.setHeader('content-type', 'application/zip')
+        response.setHeader('content-length', len(data))
+        response.setHeader('content-disposition',
+                           'attachment; filename="%s-documents.zip"' % (
+                               self.context.getId()))
+        return response.write(data)
+
+
+
+
+
+
+    
+    
+    
+
+
+
+        import pdb; pdb.set_trace();
+        ZIP.close()
+        data = file(zip_filename).read()
+        os.unlink(zip_filename)
+        response = self.request.RESPONSE
+        response.setHeader('content-type', 'application/zip')
+        response.setHeader('content-length', len(data))
+        response.setHeader('content-disposition', 'attachment; filename="%s-documents.zip"' % self.context.getId())
+        return response.write(data)
+
+        return
