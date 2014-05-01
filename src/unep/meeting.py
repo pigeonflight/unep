@@ -455,9 +455,17 @@ class MeetingDownloadsView(BrowserView):
             code = item.to_object.code
             title = get_field(item.to_object, 'title', '')
             description = get_field(item.to_object, 'description', '')
+            languages = []
 
             if not title:
                 title = item.to_object.id
+
+            if item.to_object.en_file:
+                languages.append('en')
+            if item.to_object.es_file:
+                languages.append('es')
+            if item.to_object.fr_file:
+                languages.append('fr')
 
             files.append({
                 'code': code,
@@ -465,30 +473,42 @@ class MeetingDownloadsView(BrowserView):
                 'description': description,
                 'uid': item.to_object.UID(),
                 'url': item.to_object.absolute_url(),
+                'languages': languages,
             })
         return files
 
-    @property
-    def files_working(self):
-        return self.get_files('files_working')
-
-    def files_information(self):
-        return self.get_files('files_information')
-
-    def files_reference(self):
-        return self.get_files('files_reference')
-
-    def files_conference_papers(self):
-        return self.get_files('files_conference_papers')
-
-    def files_final_reports(self):
-        return self.get_files('files_final_reports')
-
-    def files_presentations(self):
-        return self.get_files('files_presentations')
-
-    def files_others(self):
-        return self.get_files('files_others')
+    def sections(self):
+        return [
+            {
+                'klass': 'open',
+                'title': 'Working documents',
+                'files': self.get_files('files_working'),
+            }, {
+                'klass': '',
+                'title': 'Information documents',
+                'files': self.get_files('files_information'),
+            }, {
+                'klass': '',
+                'title': 'Reference documents',
+                'files': self.get_files('files_reference'),
+            }, {
+                'klass': '',
+                'title': 'Conference papers',
+                'files': self.get_files('files_conference_papers'),
+            }, {
+                'klass': '',
+                'title': 'Final reports',
+                'files': self.get_files('files_final_reports'),
+            }, {
+                'klass': '',
+                'title': 'Presentations',
+                'files': self.get_files('files_presentations'),
+            }, {
+                'klass': '',
+                'title': 'Others',
+                'files': self.get_files('files_others'),
+            }
+        ]
 
 
 class MeetingDownloadsZip(BrowserView):
@@ -510,6 +530,8 @@ class MeetingDownloadsZip(BrowserView):
 
         if type(files) not in [list, tuple]:
             files = [files]
+
+        files = list(set(files))
 
         objects = {}
         for item in files:
@@ -533,26 +555,3 @@ class MeetingDownloadsZip(BrowserView):
                            'attachment; filename="%s-documents.zip"' % (
                                self.context.getId()))
         return response.write(data)
-
-
-
-
-
-
-    
-    
-    
-
-
-
-        import pdb; pdb.set_trace();
-        ZIP.close()
-        data = file(zip_filename).read()
-        os.unlink(zip_filename)
-        response = self.request.RESPONSE
-        response.setHeader('content-type', 'application/zip')
-        response.setHeader('content-length', len(data))
-        response.setHeader('content-disposition', 'attachment; filename="%s-documents.zip"' % self.context.getId())
-        return response.write(data)
-
-        return

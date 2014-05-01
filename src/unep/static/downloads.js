@@ -20,4 +20,6 @@ require([
 
     });
 
+  $('.meeting-select-disabled input').attr('disabled', 'disabled');
+
 });
