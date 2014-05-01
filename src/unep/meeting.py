@@ -16,6 +16,7 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.interface import implements
+from collective.dexteritytextindexer import searchable
 
 
 class IMeeting(model.Schema):
@@ -36,6 +37,7 @@ class IMeeting(model.Schema):
         required=True,
     )
 
+    searchable('location')
     location = schema.TextLine(
         title=_(u'Location'),
         description=_(u'Location where meeting is going to happen '
@@ -238,12 +240,14 @@ class IMeeting(model.Schema):
         ],
     )
 
+    searchable('en_title')
     en_title = schema.TextLine(
         title=_(u'Meeting Name'),
         description=_(u'The name or title of the meeting'),
         required=False,
     )
 
+    searchable('en_announcement')
     en_announcement = RichText(
         title=_(u'Announcement'),
         description=_(u''),
@@ -256,6 +260,7 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('en_information')
     en_information = RichText(
         title=_(u'Information note for participants'),
         description=_(u''),
@@ -268,6 +273,7 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('en_additional')
     en_additional = RichText(
         title=_(u'Other'),
         description=_(u''),
@@ -287,11 +293,13 @@ class IMeeting(model.Schema):
         ]
     )
 
+    searchable('es_title')
     es_title = schema.TextLine(
         title=u'Title',
         required=False,
     )
 
+    searchable('es_announcement')
     es_announcement = RichText(
         title=_(u'Announcement'),
         description=_(u''),
@@ -304,6 +312,7 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('es_information')
     es_information = RichText(
         title=_(u'Information note for participants'),
         description=_(u''),
@@ -316,6 +325,7 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('es_additional')
     es_additional = RichText(
         title=_(u'Other'),
         description=_(u''),
@@ -335,11 +345,13 @@ class IMeeting(model.Schema):
         ],
     )
 
+    searchable('fr_title')
     fr_title = schema.TextLine(
         title=u'Title',
         required=False,
     )
 
+    searchable('fr_announcement')
     fr_announcement = RichText(
         title=_(u'Announcement'),
         description=_(u''),
@@ -352,6 +364,7 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('fr_information')
     fr_information = RichText(
         title=_(u'Information note for participants'),
         description=_(u''),
@@ -364,6 +377,7 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('fr_additional')
     fr_additional = RichText(
         title=_(u'Other'),
         description=_(u''),

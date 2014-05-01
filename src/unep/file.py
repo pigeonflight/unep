@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from Products.Five.browser import BrowserView
+from collective.dexteritytextindexer import searchable
 from os.path import splitext
 from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobFile
@@ -20,6 +21,7 @@ class IFile(model.Schema):
     """
     """
 
+    searchable('code')
     code = schema.TextLine(
         title=_(u'Code'),
         required=False,
@@ -33,11 +35,13 @@ class IFile(model.Schema):
         ],
     )
 
+    searchable('en_title')
     en_title = schema.TextLine(
         title=_(u'Title'),
         required=False,
     )
 
+    searchable('en_description')
     en_description = schema.Text(
         title=_(u'Notes'),
         required=False,
@@ -54,11 +58,13 @@ class IFile(model.Schema):
         fields=['en_title', 'en_description', 'en_file']
     )
 
+    searchable('es_title')
     es_title = schema.TextLine(
         title=_(u'Title'),
         required=False,
     )
 
+    searchable('es_description')
     es_description = schema.Text(
         title=_(u'Notes'),
         required=False,
@@ -75,11 +81,13 @@ class IFile(model.Schema):
         fields=['es_title', 'es_description', 'es_file']
     )
 
+    searchable('fr_title')
     fr_title = schema.TextLine(
         title=_(u'Title'),
         required=False,
     )
 
+    searchable('fr_description')
     fr_description = schema.Text(
         title=_(u'Notes'),
         required=False,

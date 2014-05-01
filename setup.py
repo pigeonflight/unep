@@ -26,6 +26,7 @@ setup(
         'plone.app.contenttypes',
         'plone.app.event[dexterity]',
         'plone.app.widgets[dexterity]',
+        'collective.dexteritytextindexer',
         #'wildcard.foldercontents',
     ],
     extras_require={

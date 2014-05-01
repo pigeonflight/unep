@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from plone.dexterity.utils import createContentInContainer
 from Products.CMFPlone.utils import safe_unicode
+from AccessControl import getSecurityManager
 from Products.Five.browser import BrowserView
 from mimetypes import guess_type
 from os.path import splitext
 from plone.dexterity.content import Container
+from plone.dexterity.utils import createContentInContainer
 from plone.namedfile.file import NamedBlobFile
 from plone.supermodel import model
 from thread import allocate_lock
@@ -39,6 +40,11 @@ class FileFolder(Container):
 class FileFolderView(BrowserView):
     """
     """
+
+    @property
+    def can_add_files(self):
+        sm = getSecurityManager()
+        return sm.checkPermission('unep: Add File', self.context) == 1
 
 
 class FileFolderUpload(BrowserView):
