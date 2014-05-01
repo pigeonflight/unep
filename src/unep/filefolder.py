@@ -97,6 +97,7 @@ class FileFolderUpload(BrowserView):
         elif language == 'fr':
             language = _('French')
 
+        self.request.RESPONSE.setHeader('content-type', 'application/json')
         return json.dumps({
             'id': obj.UID(),
             'title': obj.title_or_id(),
