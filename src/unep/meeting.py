@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from Products.Five.browser import BrowserView
+from collective.dexteritytextindexer import searchable
 from plone.app.textfield import RichText
 from plone.app.widgets.dx import DateWidget
 from plone.app.widgets.dx import RelatedItemsWidget
@@ -10,13 +11,12 @@ from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from unep import _
 from unep.utils import get_field
-from unep.utils import get_translated
 from unep.utils import get_language
+from unep.utils import get_translated
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.interface import implements
-from collective.dexteritytextindexer import searchable
 
 
 class IMeeting(model.Schema):
