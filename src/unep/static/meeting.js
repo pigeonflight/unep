@@ -9,7 +9,7 @@ require([
   'jquery.collapse'
 ], function($) {
 
-  var collapse = new jQueryCollapse($('#meeting-texts'));
+  var collapse = new jQueryCollapse($('#meeting-texts'), { query: '> h2' });
 
   $('#meeting-navigation a')
     .on('click', function(e) {

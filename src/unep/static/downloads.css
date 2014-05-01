@@ -34,12 +34,12 @@
 
 #meeting-downloads th:first-child,
 #meeting-downloads td:first-child {
-  width: 80%;
+  width: 100%;
 }
 
 #meeting-downloads th:last-child,
 #meeting-downloads td:last-child {
-  width: 20%;
+  min-width: 120px;
   text-align: center;
 }
 
