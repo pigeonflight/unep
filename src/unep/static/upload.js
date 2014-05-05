@@ -45,12 +45,13 @@ require([
 
       $('#upload-cancel').on('click', function() {
         self.removeAllFiles(true);
+        $('#upload').html(uploadHtml).removeClass('upload-progress');
       });
 
       self.on("addedfile", function(file) {
         if (file.name.indexOf('.') !== -1 &&
             file.name.split('.').slice(-2)[0].indexOf('-') !== -1 &&
-            ['en', 'fr', 'es'].indexOf('assasasa.zip'.split('.').slice(-2)[0].split('-').slice(-1)[0])) {
+            ['en', 'fr', 'es'].indexOf(file.name.split('.').slice(-2)[0].split('-').slice(-1)[0]) !== -1) {
           if (self.files
               .map(function(f) { return f.name; })
               .filter(function(f) { return f === file.name })
@@ -81,24 +82,24 @@ require([
             $('#upload').html(uploadHtml).removeClass('upload-progress');
             var message = '';
                 created = uploaded.reduce(function(prev, item) {
-                  if (!prev[item.id]){
-                    prev[item.id] = {
+                  if (!prev[item.uid]){
+                    prev[item.uid] = {
                       url: item.url,
                       title: item.title,
                       languages: [ item.language ]
                     };
                   } else {
-                    prev[item.id].languages.push(item.language);
+                    prev[item.uid].languages.push(item.language);
                   }
                   return prev;
                 }, {});
 
-            Object.keys(created).forEach(function(id) {
+            Object.keys(created).forEach(function(uid) {
               message += '' +
                 '<li>' +
-                ' <a href="' + created[id].url + '" target="_blank">' +
-                '  ' +  created[id].title +
-                ' (' + created[id].languages.join(',') +')' +
+                ' <a href="' + created[uid].url + '" target="_blank">' +
+                '  ' +  created[uid].title +
+                ' (' + created[uid].languages.join(',') +')' +
                 ' </a>'+
                 '</li>';
             });

@@ -116,6 +116,10 @@ class File(Item):
         title = get_field(self, 'title', '')
         if self.code:
             title = '(' + self.code + ')' + title
+        if not title:
+            field = get_field(self, 'file', None)
+            if field:
+                title = splitext(field.filename)[0]
         return title
 
     def setTitle(self, value):
