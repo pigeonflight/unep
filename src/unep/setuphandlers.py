@@ -31,8 +31,9 @@ def setupVarious(context):
 
     api.content.transition(meetings, transition='publish')
     api.content.transition(documents, transition='publish')
-    """
+    
     behavior = constrains.ISelectableConstrainTypes(meetings)
+    """
     behavior.setConstrainTypesMode(constrains.ENABLED)
     behavior.setLocallyAllowedTypes(['unep.meeting', 'Folder'])
     behavior.setImmediatelyAddableTypes(['unep.meeting', 'Folder'])
