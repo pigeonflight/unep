@@ -1,4 +1,4 @@
-requirejs({
+/* requirejs({
   paths: {
     'jquery.collapse': '++resource++unep/jquery.collapse'
   }
@@ -7,7 +7,9 @@ requirejs({
 require([
   'jquery',
   'jquery.collapse'
-], function($) {
+], 
+*/
+function($) {
   $(document).ready(function(){    
   var collapse = new jQueryCollapse($('#meeting-texts'), { query: '> h2' });
 
@@ -22,5 +24,8 @@ require([
       }
       
     });
+
+/*    
   });
 });
+*/
