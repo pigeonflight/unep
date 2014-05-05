@@ -65,7 +65,7 @@
       <div id="meeting-downloads-buttonbar">
         <button id="meeting-downloads-button">Download</button>
         <span id="meeting-downloads-number-of-documents">0</span>
-        <span> of items selected</span>
+        <span> items selected</span>
       </div>
       <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
       <script src="++resource++unep/downloads.js"></script>
