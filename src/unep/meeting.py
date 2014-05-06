@@ -453,7 +453,7 @@ class MeetingDownloadsView(BrowserView):
     def get_files(self, field_name):
         files = []
         for item in getattr(self.context, field_name):
-            if item:
+            if item.to_object:
                 code = item.to_object.code
                 title = get_field(item.to_object, 'title', '')
                 description = get_field(item.to_object, 'description', '')
