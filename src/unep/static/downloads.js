@@ -1,16 +1,5 @@
-requirejs({
-  paths: {
-    'jquery.collapse': '++resource++unep/jquery.collapse',
-    'jquery.cookie': '++resource++unep/jquery.cookie',
-  }
-});
-
-require([
-  'jquery',
-  'jquery.cookie',
-  'jquery.collapse'
-], function($) {
-
+$(document).ready(function(){   
+    
   var collapse = new jQueryCollapse($('#meeting-downloads'));
 
   $('#meeting-downloads').find('input[type="checkbox"]')
@@ -23,3 +12,4 @@ require([
   $('.meeting-select-disabled input').attr('disabled', 'disabled');
 
 });
+
