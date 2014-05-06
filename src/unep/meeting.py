@@ -61,6 +61,7 @@ class IMeeting(model.Schema):
             _(u'SPAW - COP'),
             _(u'SPAW - STAC'),
             _(u'LBS - ISTAC'),
+            _(u'LBS - STAC'),
             _(u'LBS - Workshop'),
         ],
         required=False,
