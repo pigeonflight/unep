@@ -47,10 +47,10 @@
                 <td><tal:maybe tal:condition="file/code">
                   <a href="" tal:attributes="href file/url">
                     
-                       <strong  tal:content="file/code"></strong>
+                       <strong class="document-code"  tal:content="file/code"></strong>
                     
-                    <p tal:content="file/title"/>
-                    <p tal:content="file/description"/>
+                    <p class="document-title" tal:content="file/title"/>
+                    <p class="document-description" tal:content="file/description"/>
                   </a></tal:maybe>
                 </td>
                 <td>
