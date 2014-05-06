@@ -44,12 +44,14 @@
                 <th>Select</th>
               </tr>
               <tr tal:repeat="file section/files">
-                <td>
+                <td><tal:maybe tal:condition="file/code">
                   <a href="" tal:attributes="href file/url">
-                    <strong tal:content="file/code"></strong>
+                    
+                       <strong  tal:content="file/code"></strong>
+                    
                     <p tal:content="file/title"/>
                     <p tal:content="file/description"/>
-                  </a>
+                  </a></tal:maybe>
                 </td>
                 <td>
                   <tal:languages repeat="lang python:['en','es','fr']">

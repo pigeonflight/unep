@@ -452,29 +452,30 @@ class MeetingDownloadsView(BrowserView):
     def get_files(self, field_name):
         files = []
         for item in getattr(self.context, field_name):
-            code = item.to_object.code
-            title = get_field(item.to_object, 'title', '')
-            description = get_field(item.to_object, 'description', '')
-            languages = []
+            if item:
+                code = item.to_object.code
+                title = get_field(item.to_object, 'title', '')
+                description = get_field(item.to_object, 'description', '')
+                languages = []
 
-            if not title:
-                title = item.to_object.id
+                if not title:
+                    title = item.to_object.id
 
-            if item.to_object.en_file:
-                languages.append('en')
-            if item.to_object.es_file:
-                languages.append('es')
-            if item.to_object.fr_file:
-                languages.append('fr')
+                if item.to_object.en_file:
+                    languages.append('en')
+                if item.to_object.es_file:
+                    languages.append('es')
+                if item.to_object.fr_file:
+                    languages.append('fr')
 
-            files.append({
-                'code': code,
-                'title': title,
-                'description': description,
-                'uid': item.to_object.UID(),
-                'url': item.to_object.absolute_url(),
-                'languages': languages,
-            })
+                files.append({
+                    'code': code,
+                    'title': title,
+                    'description': description,
+                    'uid': item.to_object.UID(),
+                    'url': item.to_object.absolute_url(),
+                    'languages': languages,
+                })
         return files
 
     def sections(self):
@@ -555,3 +556,4 @@ class MeetingDownloadsZip(BrowserView):
                            'attachment; filename="%s-documents.zip"' % (
                                self.context.getId()))
         return response.write(data)
+  
