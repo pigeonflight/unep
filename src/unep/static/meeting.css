@@ -24,3 +24,7 @@
 #meeting-navigation h3 {
   margin-bottom: 0.5em;
 }
+#meeting-text-downloads {
+font-size: 270%;
+line-height: 1.5em;
+}

@@ -55,7 +55,7 @@
         <a href="" tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file"><i class="fa fa-caret-right" /> Information note attachment</a>
       </div>
       <a class="meeting-downloads" href="" tal:attributes="href string:${context/absolute_url}/@@downloads">
-        <h2 id="meeting-text-downloads"><i class="fa fa-caret-files-o" /> Meeting documents</h2>
+        <div id="meeting-text-downloads"><i class="fa fa-folder-open" /> Meeting documents</div>
       </a>
       <h2 tal:condition="view/additional" id="meeting-text-other"><i class="fa fa-caret-right" /> Other</h2>
       <div tal:condition="view/additional" tal:content="structure view/additional"></div>
