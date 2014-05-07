@@ -30,17 +30,18 @@
     </ul>
     <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
    
-
+    <div class="alert alert-info">Select the documents you wish to download</div>
     <form action="@@downloadszip" method="post" tal:attributes="action string:${context/absolute_url}/@@downloadszip">
       <div id="meeting-downloads">
+      
         <tal:files repeat="section view/sections">
           <tal:maybe condition="section/files"> 
             <h2 class="" tal:attributes="class section/klass"><i class="fa fa-caret-right" /> <tal:section-title tal:content="section/title" /></h2>
             <table>
-              <tr>
+              <!-- <tr>
                 <th>Title</th>
                 <th>Select</th>
-              </tr>
+              </tr> -->
               <tr tal:repeat="file section/files">
                 <td><tal:maybe tal:condition="file/code">
                   <tal:can_add_files tal:condition="view/can_add_files">

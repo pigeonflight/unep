@@ -1,16 +1,15 @@
 #meeting-downloads {
   margin: 1em 0 0 0;
-  border: 1px solid #286DA8;
 }
 
 #meeting-downloads h2 {
-  padding: 0.2em 0.5em;
-  border-bottom: 1px solid #286DA8;
+  padding: 0;
+  border-bottom: 1px solid #dedede;
   color: #286DA8;
   font-size: 1.3em;
   margin-bottom: 1px;
   margin-top:0;
-  background: rgb(233, 233, 233);
+  background: rgb(241, 241, 241);
 }
 #meeting-downloads h2 a:visited,
 #meeting-downloads h2 a:hover,
@@ -26,7 +25,6 @@ text-decoration: none;
 #meeting-downloads table {
   width: 100%;
   margin: 0;
-  font-size: 0.9em;
 }
 
 #meeting-downloads table p {
@@ -44,17 +42,12 @@ text-decoration: none;
 
 #meeting-downloads th:last-child,
 #meeting-downloads td:last-child {
-  min-width: 120px;
+  min-width: 190px;
   text-align: center;
 }
 
-#meeting-downloads th,
-#meeting-downloads td {
-  padding: 0.5em;
-}
-
-#meeting-downloads th {
-  font-size: 0.9em;
+#meeting-downloads th, #meeting-downloads td {
+padding: 5px 20px 15px 20px;
 }
 
 #meeting-downloads-buttonbar {
