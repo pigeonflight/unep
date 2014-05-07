@@ -19,6 +19,9 @@
   display: inline-block;
   width: 100%;
 }
+#meeting-downloads h2 a:hover {
+text-decoration: none;
+}
 
 #meeting-downloads table {
   width: 100%;
