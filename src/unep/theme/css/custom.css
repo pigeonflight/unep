@@ -57,4 +57,12 @@ a.w-nav-link.navlink.w--nav-link-open {
 #meeting-downloads h2 > a:hover {
    
     background: #ccc;
+}           .cover-collection-tile .panel .panel-body a {
+float: right;
+}
+a.panel-title {
+display: block;
+text-decoration: none;
+border-bottom: none;
+font-size: 130%;
 }

@@ -17,7 +17,7 @@
         <before css:theme-children="html head" css:content="html head base" />
 
 
-   <!-- Copy link, style, meta tags from Plone head -->
+        <!-- Copy link, style, meta tags from Plone head -->
         <!-- #1 we first change this to add the Plone styles before the theme styles -->
         <before css:theme-children="html head"
                content="/html/head/link | /html/head/style | /html/head/meta" />
@@ -30,7 +30,7 @@
         
         <copy attributes="href" css:theme=".brand-wrapper a.w-nav-brand" css:content="a#portal-logo" />
         
-        <!-- Insert your own rules here -->
+       
         <!-- search bar -->
         <replace css:theme=".search-bar" css:content="#portal-searchbox" />
         <!-- menu -->
@@ -113,6 +113,21 @@
             <xsl:if test="@name[contains(., 'save') or contains(., 'Save') or contains(., 'RenameAll')]">btn-primary</xsl:if>
            </xsl:attribute>
           </input>
-</xsl:template>
+      </xsl:template>
     
-</rules>
+    <!-- #14 special rule that creates a new URL link -->
+    <xsl:template match='//*[@id="6b529c4191094871ae1e3dfe8ed2d300"]/*/*[@class="collection-item"]'>
+    <div class="panel panel-default meeting-documents-title">
+        <div class="panel-heading"><a><xsl:attribute name="class">panel-title</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="./h2/a/@href" /></xsl:attribute>
+        <xsl:copy-of select="./h2/a/text()" />
+    </a></div>
+  <div class="panel-body"><a><xsl:attribute name="href"><xsl:value-of select="./h2/a/@href" />/downloads</xsl:attribute>
+        <i class="fa fa-files-o"></i> Documents
+    </a><xsl:copy-of select="./p" />
+  </div>
+</div>    
+    </xsl:template>
+                                                                         
+                                                                         
+    
+        </rules>
