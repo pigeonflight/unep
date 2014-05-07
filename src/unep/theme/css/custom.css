@@ -1,0 +1,60 @@
+div.resources-section,.logos-section,footer div.w-row {
+    display: none;
+    /* hide some things temporarily */
+}
+
+#edit-bar{height:2.6em;}
+#contentActionMenus li {
+display: inline !important;
+}
+#contentActionMenus {
+float: none !important;
+}
+.xcontentViews a {
+font-size: 75%;
+}
+div.xcontentActions a {
+font-size: 90%;
+}
+div#portal-searchbox {
+top: 28px;
+position: relative;
+}
+#content-core label,#content label {
+display: inline-block;
+}
+body #content,body #content-core {
+    font-size: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+  margin-right:4px
+}
+body #content-core {
+font-size: 100%;
+}
+
+#content-core li{
+  margin-bottom: 0.25em;
+line-height: 1.5em;
+display: list-item;
+}
+
+#content.core ul.formTabs {
+background-color: #ddd;
+border: 0.3em solid #ddd;
+}
+a.w-nav-link.navlink.w--nav-link-open {
+    color: rgb(226, 224, 218);
+}
+#meeting-downloads h2 > a{
+     text-decoration: none;
+     padding:2px 15px;
+     margin:0 0 0 0;
+}
+
+#meeting-downloads h2 > a:hover {
+   
+    background: #ccc;
+}

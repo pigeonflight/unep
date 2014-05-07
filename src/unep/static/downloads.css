@@ -72,3 +72,9 @@
   box-shadow: 0px 0px 1px #EEE;
   background: #A92A55;
 }
+.document-note {
+color: rgb(201, 99, 111);
+}
+.document-title {
+opacity: .8;
+}

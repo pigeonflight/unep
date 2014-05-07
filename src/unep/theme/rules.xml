@@ -1,25 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <rules
     xmlns="http://namespaces.plone.org/diazo"
     xmlns:css="http://namespaces.plone.org/diazo/css"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <!-- copy the page title -->
-  <replace css:theme="title" css:content="title" />
+    <!-- Apply the following rules to standard Plone pages -->
+    <rules css:if-content="#visual-portal-wrapper">
 
-  <!-- copy the <base /> tag (necessary for Plone's links to work) -->
-  <before css:theme-children="head" css:content="base" />
+        <theme href="index.html" />
 
-  <!-- Drop styles in the head - these are added back by including them from Plone -->
-  <drop theme="/html/head/link" />
-  <drop theme="/html/head/style" />
+        <!-- Replace title with Plone's page title  -->
+        <replace css:theme="html head title" css:content="html head title" />
 
-  <!-- Pull in Plone CSS -->
-  <after theme-children="/html/head" content="/html/head/link | /html/head/style" />
+        <!-- Copy base tag from Plone -->
+        <before css:theme-children="html head" css:content="html head base" />
 
-  <!-- Pull in Plone JS -->
-  <after theme-children="/html/head" content="/html/head/script" />
 
-  <!-- Body -->
-  <merge attributes="class" css:theme="body" css:content="body" />
+   <!-- Copy link, style, meta tags from Plone head -->
+        <!-- #1 we first change this to add the Plone styles before the theme styles -->
+        <before css:theme-children="html head"
+               content="/html/head/link | /html/head/style | /html/head/meta" />
 
+        <!-- merge classes from Plone body with theme body -->
+        <merge attributes="class" css:theme="body" css:content="body" />
+
+        <!-- Copy script tags from Plone head to end of body -->
+        <after css:theme-children="html head" css:content="html head script" /> 
+        
+        <copy attributes="href" css:theme=".brand-wrapper a.w-nav-brand" css:content="a#portal-logo" />
+        
+        <!-- Insert your own rules here -->
+        <!-- search bar -->
+        <replace css:theme=".search-bar" css:content="#portal-searchbox" />
+        <!-- menu -->
+        <replace css:theme-children=".main-menu div.w-nav-menu">
+         <xsl:for-each css:select="ul#portal-globalnav li">
+          <a><xsl:attribute name="class"><xsl:value-of select="./@class" /> w-nav-link navlink</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="./a/@href" /></xsl:attribute><xsl:copy-of select="./a/text()" /></a>
+          </xsl:for-each>
+        </replace>
+        <replace css:theme-children=".main-section"
+                 css:content="#content" />
+        <!-- edit bar -->
+        <before css:theme-children=".main-section" css:content="#edit-bar" />
+        
+        <!-- main content -->
+        <drop css:theme=".hero-section" css:if-not-content=".section-front-cover" />
+        <drop css:content=".template-view .galleria" />
+        <drop css:content=".template-newsitem_view .galleria" />
+        <replace css:theme-children=".slider-column"
+                 css:content=".template-view .galleria" method="raw"/>
+        <replace css:theme-children=".slider-column"
+                 css:content=".template-newsitem_view .galleria" method="raw"/>
+                 
+        <!-- Put it at the bottom -->
+        <drop css:theme="#putitatthebottom" />
+        <before css:theme-children="body" css:content-children="#putitatthebottom" method="raw" />
+                 
+        <!-- Doormat Footer Columns -->
+        <replace css:theme-children=".logos-section .column-one"
+                 css:content-children=".doormatColumn.column-0 .doormatSectionBody" />
+        <replace css:theme-children=".logos-section .column-two"
+                 css:content-children=".doormatColumn.column-1 .doormatSectionBody" />
+        <replace css:theme-children=".logos-section .column-three"
+                 css:content-children=".doormatColumn.column-2 .doormatSectionBody" />
+        <replace css:theme-children=".logos-section .column-four"
+                 css:content-children=".doormatColumn.column-3 .doormatSectionBody" />
+                 
+        <replace css:theme-children="footer .column-one"
+                 css:content-children=".doormatColumn.column-4" />
+        <replace css:theme-children="footer .column-two"
+                 css:content-children=".doormatColumn.column-5" />
+        <replace css:theme-children="footer .column-three"
+                 css:content-children=".doormatColumn.column-6" />
+        <replace css:theme-children="footer .column-four"
+                 css:content-children=".doormatColumn.column-7" />
+                 
+         <merge attributes="class" css:theme="h3.footer-sm-heading" css:content=".doormatColumn h3" />
+         <!-- <merge attributes="class" 
+               css:theme=".footer-blocks h3" method="raw">
+            <b class="footer-sm-heading" /></merge>
+        -->         
+        <!-- rules for plone.app.toolbar -->
+    <!-- <before theme-children="/html/head">
+    <link rel="stylesheet" type="text/css"
+        href="++resource++plone.app.widgets.css"/>        
+    <script type="text/javascript"
+        src="++resource++plone.app.jquery.js"></script>
+    <script type="text/javascript"
+        src="++resource++plone.app.widgets.js"></script>
+        -->
+        
+        
+    <!-- <script type="text/javascript"
+        src="++resource++plone.app.toolbar_init.js"></script>
+    <script type="text/javascript"
+        src="++resource++plone.app.toolbar.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css"
+        href="++resource++plone.app.toolbar_init.css"/>
+    <link rel="stylesheet" type="text/css"
+        href="++resource++plone.app.toolbar.css"/> -->
+    <!-- </before> -->
+                 
+    </rules>
+    <xi:include href="bootstrap-rules.xml" /> 
+     <!-- #9 Bootstrap buttons -->
+         <xsl:template match="//input[@type[contains(., 'submit') or contains(., 'button')]]">
+           <input>
+             <xsl:copy-of select="attribute::*[not(name()='class')]" />
+             <xsl:attribute name="class"><xsl:value-of select="@class" /> btn btn-md
+            <xsl:if test="@value[contains(., 'delete') or contains(., 'Remove')]">btn-danger</xsl:if>
+            <xsl:if test="@name[contains(., 'save') or contains(., 'Save') or contains(., 'RenameAll')]">btn-primary</xsl:if>
+           </xsl:attribute>
+          </input>
+</xsl:template>
+    
 </rules>
