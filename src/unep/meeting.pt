@@ -3,7 +3,10 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master">
-  <metal:slot fill-slot="javascript_head_slot"><script src="++resource++unep/jquery.collapse.js"></script></metal:slot>
+  <metal:slot fill-slot="javascript_head_slot">
+   <script src="++resource++unep/jquery.collapse.js"></script>
+   <script src="++resource++unep/jquery.cookie.js"></script>
+   </metal:slot>
   <metal:block fill-slot="main">
 
     <h1 class="documentFirstHeading" tal:content="context/title"></h1>
@@ -11,25 +14,25 @@
     <ul id="unep-language">
       <li id="unep-language-en">
         <a href="#">
-          <img src="++resource++country-flags/us.gif" />
+          <img src="++resource++unep/en.png" />
           <span>English</span>
         </a>
       </li>
       <li id="unep-language-es">
         <a href="#">
-          <img src="++resource++country-flags/es.gif" />
+          <img src="++resource++unep/es.png" />
           <span>Spanish</span>
         </a>
       </li>
       <li id="unep-language-fr">
         <a href="#">
-          <img src="++resource++country-flags/fr.gif" />
+          <img src="++resource++unep/fr.png" />
           <span>French</span>
         </a>
       </li>
     </ul>
     <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
-    <script src="++resource++unep/language.js"></script>
+
 
     <div id="meeting-navigation">
       <h3>Navigation</h3>
@@ -51,16 +54,19 @@
         <div tal:content="structure view/information"></div>
         <a href="" tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file">Information note attachement</a>
       </div>
-      <a href="" tal:attributes="href string:${context/absolute_url}/@@downloads">
+      <a class="meeting-downloads" href="" tal:attributes="href string:${context/absolute_url}/@@downloads">
         <h2 id="meeting-text-downloads">Meeting documents</h2>
       </a>
       <h2 tal:condition="view/additional" id="meeting-text-other">Other</h2>
       <div tal:condition="view/additional" tal:content="structure view/additional"></div>
     </div>
     
-        <script src="++resource++unep/language.js"></script> 
+    
     <link rel="stylesheet" type="text/css" href="++resource++unep/meeting.css" />
+    <div id="putitatthebottom">
     <script src="++resource++unep/meeting.js"></script> 
+        <script src="++resource++unep/language.js"></script> 
+    </div>
   </metal:block>
 
 </html>

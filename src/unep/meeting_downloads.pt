@@ -1,11 +1,11 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+ <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master">
    <metal:slot fill-slot="javascript_head_slot">
    <script src="++resource++unep/jquery.collapse.js"></script>
-  <script src="++resource++unep/jquery.cookie.js"></script>
+   <script src="++resource++unep/jquery.cookie.js"></script>
    
    </metal:slot>
   <metal:block fill-slot="main">
@@ -13,19 +13,19 @@
     <ul id="unep-language">
       <li id="unep-language-en">
         <a href="#">
-          <img src="++resource++country-flags/us.gif" />
+          <img src="++resource++unep/en.png" />
           <span>English</span>
         </a>
       </li>
       <li id="unep-language-es">
         <a href="#">
-          <img src="++resource++country-flags/es.gif" />
+          <img src="++resource++unep/es.png" />
           <span>Spanish</span>
         </a>
       </li>
       <li id="unep-language-fr">
         <a href="#">
-          <img src="++resource++country-flags/fr.gif" />
+          <img src="++resource++unep/fr.png" />
           <span>French</span>
         </a>
       </li>
@@ -37,7 +37,7 @@
       <div id="meeting-downloads">
         <tal:files repeat="section view/sections">
           <tal:maybe condition="section/files"> 
-            <h2 class="" tal:attributes="class section/klass" tal:content="section/title">Section</h2>
+            <h2 class="" tal:attributes="class section/klass"><i class="fa fa-chevron-circle-right" /> <tal:section-title tal:content="section/title" /></h2>
             <table>
               <tr>
                 <th>Title</th>
@@ -45,21 +45,31 @@
               </tr>
               <tr tal:repeat="file section/files">
                 <td><tal:maybe tal:condition="file/code">
+                  <tal:can_add_files tal:condition="view/can_add_files">
                   <a href="" tal:attributes="href file/url">
                     
                        <strong class="document-code"  tal:content="file/code"></strong>
                     
                     <p class="document-title" tal:content="file/title"/>
                     <p class="document-description" tal:content="file/description"/>
-                  </a></tal:maybe>
+                  </a>
+                  </tal:can_add_files>
+                  <tal:cannot_add_files   tal:condition="not: view/can_add_files">
+                   <strong class="document-code"  tal:content="file/code"></strong>
+                    
+                    <p class="document-title" tal:content="file/title"/>
+                    <p class="document-description" tal:content="file/description"/>
+                   </tal:cannot_add_files>
+                  </tal:maybe>
                 </td>
                 <td>
                   <tal:languages repeat="lang python:['en','es','fr']">
                     <span class=""
                       tal:attributes="class python: lang in file['languages'] and 'meeting-select-'+lang or 'meeting-select-disabled meeting-select-'+lang">
-                      <span tal:content="lang">lang</span>
+                      <label><tal:lang tal:content="lang" />
                       <input type="checkbox" name="files" value=""
                           tal:attributes="value string:${file/uid}:${lang};" />
+                       </label>
                     </span>
                   </tal:languages>
                 </td>
@@ -69,13 +79,14 @@
         </tal:files>
       </div>
       <div id="meeting-downloads-buttonbar">
-        <button id="meeting-downloads-button">Download</button>
+        <button class="btn btn-lg" id="meeting-downloads-button">Download</button>
         <span id="meeting-downloads-number-of-documents">0</span>
         <span> items selected</span>
       </div>
       <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
       <script src="++resource++unep/downloads.js"></script>
     </form>
+  
   </metal:block>
 
 </html>

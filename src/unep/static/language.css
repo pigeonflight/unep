@@ -1,5 +1,5 @@
 #unep-language {
-  background: #EEE;
+  border-bottom: 1px solid #EEE;
   font-size: 0.8em;
   text-align: center;
   margin-left: 0 !important;
@@ -12,6 +12,9 @@
 
 #unep-language img {
   vertical-align: middle;
+    height: 15px;
+    width: 24px;
+    margin-right: 2px;
 }
 
 #unep-language a {

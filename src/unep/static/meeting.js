@@ -1,6 +1,6 @@
 $(document).ready(function(){    
   var collapse = new jQueryCollapse($('#meeting-texts'), { query: '> h2' });
-
+ 
   $('#meeting-texts h2 > a')
     .on('click', function(e) {
       if ($(this).attr('href').substr(0, 1) === '#') {

@@ -5,7 +5,7 @@ $(document).ready(function(){
       e.preventDefault();
       $.cookie('unep-language', $(el).parent().attr('id').substr(-2), { path: '/' });
       window.location.reload();
-    });
-  });
+                                          });
+                                 });
 
-});
+                            });

@@ -5,15 +5,17 @@
 
 #meeting-downloads h2 {
   padding: 0.2em 0.5em;
-  background: #286DA8;
-  color: #FFF;
+  border-bottom: 1px solid #286DA8;
+  color: #286DA8;
   font-size: 1.3em;
   margin-bottom: 1px;
+  margin-top:0;
+  background: rgb(233, 233, 233);
 }
 #meeting-downloads h2 a:visited,
 #meeting-downloads h2 a:hover,
 #meeting-downloads h2 a {
-  color: #FFF !important;
+  color: #286DA8 !important;
   display: inline-block;
   width: 100%;
 }

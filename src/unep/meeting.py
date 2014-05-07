@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from AccessControl import getSecurityManager
 from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
 from collective.dexteritytextindexer import searchable
@@ -444,6 +445,11 @@ class MeetingView(BrowserView):
     @property
     def language(self):
         return get_language(self.request)
+    
+    @property
+    def can_add_files(self):
+        sm = getSecurityManager()
+        return sm.checkPermission('unep: Add File', self.context) == 1
 
 
 class MeetingDownloadsView(BrowserView):
@@ -478,6 +484,11 @@ class MeetingDownloadsView(BrowserView):
                     'languages': languages,
                 })
         return files
+    
+    @property
+    def can_add_files(self):
+        sm = getSecurityManager()
+        return sm.checkPermission('unep: Add File', self.context) == 1
 
     def sections(self):
         return [
