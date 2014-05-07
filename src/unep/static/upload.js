@@ -97,7 +97,7 @@ require([
             Object.keys(created).forEach(function(uid) {
               message += '' +
                 '<li>' +
-                ' <a href="' + created[uid].url + '" target="_blank">' +
+                ' <a href="' + created[uid].url + '" class="uploaded-doc" target="_blank">' +
                 '  ' +  created[uid].title +
                 ' (' + created[uid].languages.join(',') +')' +
                 ' </a>'+
@@ -108,6 +108,12 @@ require([
                 '<p>Following documents were created/updated.</p>' +
                 '<p>Click on link to edit their metadata.</p>' +
                 '<ul>' + message + '</ul>', true);
+                
+                $('a.uploaded-doc').prepOverlay({
+    subtype: 'ajax',
+    filter: '#content>*',
+    formselector: 'form'
+    });
 
             }
           }
