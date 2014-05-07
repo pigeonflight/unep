@@ -1,16 +1,7 @@
-$(window).load(function(){   
+$(document).ready(function(){   
     
- // var collapse = new jQueryCollapse($('#meeting-downloads'));
- var docscollapse = $('#meeting-downloads').collapse({
- show: function() {
-    console.log("hello show"); 
-    this.slideDown(100);
-  },
-  hide: function() {
-    this.slideUp(100);
-   },
-     });
-
+   var collapse = new jQueryCollapse($('#meeting-downloads'));
+         
     $(".meeting-downloads-document-link").prepOverlay({
     subtype: 'ajax',
     filter: '#content>*',
@@ -20,26 +11,22 @@ $(window).load(function(){
   $("#meeting-downloads").on("open", function(e, section) {
   console.log(section, " is open");
 });
-  $("#meeting-downloads h2 > a").on("click",function(e){
+ 
+  $("#meeting-downloads h2").on("click",function(e){
        e.preventDefault();
-        icon = $(this).find('i');
-        if (icon.hasClass("fa-caret-right")) {
-            icon.removeClass("fa-caret-right")
-                  .addClass("fa-caret-down");
-                  return
-        } 
-       if (icon.hasClass("fa-caret-down")) {
+        clickeditem = $(this);
+        icon = clickeditem.find('i');
+        if (clickeditem.hasClass("open")) {
             icon.removeClass("fa-caret-down")
                   .addClass("fa-caret-right");
-                   return
-        } 
-      /* else {
-              icon.removeClass("fa-caret-down")
-              .addClass("fa-caret-right");
+            
+        } else {
+              icon.removeClass("fa-caret-right")
+              .addClass("fa-caret-down");
         }
-        */
+       
       
-  });
+  }); 
   $('#meeting-downloads').find('input[type="checkbox"]')
     .on('change', function() {
       $('#meeting-downloads-number-of-documents').html(

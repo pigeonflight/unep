@@ -83,8 +83,8 @@
       </div>
       <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
       <div id="putitatthebottom">
-      <script src="++resource++unep/jquery.cookie.js"></script>
-      <script src="++resource++unep/jquery.collapse.js"></script>
+       <script src="++resource++unep/jquery.cookie.js"></script>
+       <script src="++resource++unep/jquery.collapse.js"></script>
        <script src="++resource++unep/language.js"></script>
       <script src="++resource++unep/downloads.js"></script>
       </div>
