@@ -104,3 +104,10 @@
 #upload-cancel:focus {
   outline: none;
 }
+.portalMessage .error {
+font-style: italic;
+border-bottom: 1px dashed rgb(116, 116, 116);
+background: rgb(240, 240, 240);
+padding: 2px 9px;
+line-height: 1.9em;
+}

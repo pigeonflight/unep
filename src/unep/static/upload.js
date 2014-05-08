@@ -60,7 +60,7 @@ require([
           }
         } else {
           addMessage('error', 'Error',
-                     'Files need to end with language (-en,-es,-fr) to be able to upload it.');
+                    '<strong><span class="error">'+file.name+'</span> does not have a language identifier at the end of it\'s name (-en,-es,-fr).</strong> Please rename with a language identifier and attempt to upload again.');
           self.removeFile(file);
         }
       });
