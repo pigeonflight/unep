@@ -28,3 +28,10 @@
 font-size: 270%;
 line-height: 1.5em;
 }
+.meeting-attachment{
+    font-size:160%;
+}
+.meeting-downloads {
+margin-top: 20px;
+display: block;
+}

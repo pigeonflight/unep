@@ -66,3 +66,11 @@ text-decoration: none;
 border-bottom: none;
 font-size: 130%;
 }
+#content a,#content a:visited,#content a:link {
+    border-bottom: 0px;
+}
+#content a:hover{
+    text-decoration:none;
+    color: rgb(166, 153, 192) !important;
+    border-bottom: 0px;
+}
