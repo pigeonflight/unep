@@ -5,7 +5,8 @@ $(document).ready(function(){
     $(".meeting-downloads-document-link").prepOverlay({
     subtype: 'ajax',
     filter: '#content>*',
-    formselector: 'form'
+    formselector: 'form',
+    noform:'reload'
     });
     
   $("#meeting-downloads").on("open", function(e, section) {

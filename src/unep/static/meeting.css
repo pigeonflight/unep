@@ -1,7 +1,16 @@
 #meeting-texts {
   margin-right: 220px;
 }
-
+#meeting-texts .text-content {
+border: 1px solid #EEE;
+padding: 15px;
+margin-bottom: 10px;
+}
+a.meeting-attachment {
+    text-align: right;
+    display: block;
+    margin-bottom:1em;
+}
 #meeting-navigation {
   float: right;
   background: #EEE;

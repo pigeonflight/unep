@@ -45,20 +45,29 @@
 
     <div id="meeting-texts">
       <h2 tal:condition="view/announcement" id="meeting-text-announcement" class="open"><i class="fa fa-caret-down" /> Announcement</h2>
-      <div tal:condition="view/announcement">
+      <div class="text-content" tal:condition="view/announcement">
         <div tal:content="structure view/announcement"></div>
-        <a href="" class="meeting-attachment" tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_announcement_file"><i class="fa fa-file-o" /> Announcement attachment</a>
       </div>
-      <h2 tal:condition="view/information" id="meeting-text-information">Information note for participants</h2>
-      <div tal:condition="view/information">
+        <a href="" class="meeting-attachment" 
+           tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_announcement_file"><i class="fa fa-file-o" /> Announcement attachment</a>
+      
+      <h2 tal:condition="view/information" id="meeting-text-information"><i class="fa fa-caret-right" /> Information note for participants</h2>
+      <div class="text-content" tal:condition="view/information">
         <div tal:content="structure view/information"></div>
-        <a class="meeting-attachment" href="" tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file"><i class="fa fa-caret-right" /> Information note </a>
       </div>
+       <a class="meeting-attachment" 
+          tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file"><i class="fa fa-file-o" /> Information note attachment </a>
+              
+              
       <a class="meeting-downloads" href="" tal:attributes="href string:${context/absolute_url}/@@downloads">
         <div id="meeting-text-downloads"><i class="fa fa-folder-open" />Meeting documents</div>
       </a>
-      <h2 tal:condition="view/additional" id="meeting-text-other"><i class="fa fa-caret-right" /> Other</h2>
-      <div tal:condition="view/additional" tal:content="structure view/additional"></div>
+      
+      <h2 tal:condition="view/additional" id="meeting-text-other"><i class="fa fa-caret-right" /> Additional Information</h2>
+      <div  class="text-content" tal:condition="view/additional">
+         <div tal:content="structure view/additional"></div>
+      </div>
+       
     </div>
     
     
