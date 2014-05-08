@@ -45,22 +45,19 @@
                 <th>Select</th>
               </tr> -->
               <tr tal:repeat="file section/files">
-                <td><tal:maybe tal:condition="file/code">
+                <td>
                   <tal:can_add_files tal:condition="view/can_add_files">
+                  <div>
                   <a class="meeting-downloads-document-link" href="" tal:attributes="href file/url">
-                    
-                       <strong class="document-code"  tal:content="file/code"></strong>
-                    
-                    <p class="document-title" tal:content="file/title"/>
-                    <p class="document-note" tal:content="file/description"/>
+                    <i class="fa fa-edit"></i> edit
                   </a>
+                  </div>
                   </tal:can_add_files>
-                  <tal:cannot_add_files   tal:condition="not: view/can_add_files">
+                  <tal:maybe tal:condition="file/code">
                    <strong class="document-code"  tal:content="file/code"></strong>
                     
                     <p class="document-title" tal:content="file/title"/>
                     <p class="document-note" tal:content="file/description"/>
-                   </tal:cannot_add_files>
                   </tal:maybe>
                 </td>
                 <td>
