@@ -489,35 +489,42 @@ class MeetingDownloadsView(BrowserView):
     def can_add_files(self):
         sm = getSecurityManager()
         return sm.checkPermission('unep: Add File', self.context) == 1
-
+        
     def sections(self):
         return [
             {
-                'klass': 'open',
+                'klass': 'jqopen',
+                'cl' : 'working-documents',
                 'title': 'Working documents',
                 'files': self.get_files('files_working'),
             }, {
                 'klass': '',
+                'cl' : 'information-documents',
                 'title': 'Information documents',
                 'files': self.get_files('files_information'),
             }, {
                 'klass': '',
+                'cl' : 'reference-documents',
                 'title': 'Reference documents',
                 'files': self.get_files('files_reference'),
             }, {
                 'klass': '',
+                'cl' : 'conference-papers',
                 'title': 'Conference papers',
                 'files': self.get_files('files_conference_papers'),
             }, {
                 'klass': '',
+                'cl' : 'final-reports',
                 'title': 'Final reports',
                 'files': self.get_files('files_final_reports'),
             }, {
                 'klass': '',
+                'cl' : 'presentations',
                 'title': 'Presentations',
                 'files': self.get_files('files_presentations'),
             }, {
                 'klass': '',
+                'cl' : 'others',
                 'title': 'Others',
                 'files': self.get_files('files_others'),
             }

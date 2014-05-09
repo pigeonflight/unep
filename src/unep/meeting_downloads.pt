@@ -38,12 +38,12 @@
       
         <tal:files repeat="section view/sections">
           <tal:maybe condition="section/files"> 
-            <h2 class="" tal:attributes="class section/klass"><i class="fa fa-caret-right" /> <tal:section-title tal:content="section/title" /></h2>
-            <table>
-              <!-- <tr>
-                <th>Title</th>
-                <th>Select</th>
-              </tr> -->
+            <h2 class="" tal:attributes="class string:${section/klass} download-section"><i class="fa fa-caret-right" /> <tal:section-title tal:content="section/title" /></h2>
+            <table tal:attributes="class section/cl">
+              <tr>
+                <th> </th>
+                <th><span><label>Select All <input type="checkbox" name="all" tal:attributes="rel section/cl"></label></span></th>
+              </tr>
               <tr tal:repeat="file section/files">
                 <td>
                   <tal:can_add_files tal:condition="view/can_add_files">
@@ -63,7 +63,7 @@
                 <td>
                   <tal:languages repeat="lang python:['en','es','fr']">
                     <span class=""
-                      tal:attributes="class python: lang in file['languages'] and 'meeting-select-'+lang or 'meeting-select-disabled meeting-select-'+lang">
+                      tal:attributes="class python: lang in file['languages'] and 'meeting-select-active meeting-select-'+lang or 'meeting-select-disabled meeting-select-'+lang">
                       <label><tal:lang tal:content="lang" />
                       <input type="checkbox" name="files" value=""
                           tal:attributes="value string:${file/uid}:${lang};" />

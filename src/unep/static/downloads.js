@@ -1,23 +1,47 @@
 $(document).ready(function(){   
     
-   var collapse = new jQueryCollapse($('#meeting-downloads'));
+var collapse = new jQueryCollapse($('#meeting-downloads'));
          
-    $(".meeting-downloads-document-link").prepOverlay({
+$(".meeting-downloads-document-link").prepOverlay({
     subtype: 'ajax',
     filter: '#content>*',
     formselector: 'form',
     noform:'reload'
-    });
+}); 
+
+var countit = function(){ 
+  $('#meeting-downloads-number-of-documents').html(
+    $('#meeting-downloads').find('input[name="files"][type="checkbox"]:checked').size()
+         );
+     console.log("clicky clackety");
+                       }
+
+$('#meeting-downloads').find('input[name="all"][type="checkbox"]')
+        .on('click', function(){
+        section = $(this).attr('rel'); 
+        console.log(section);
+        // on click 
+        if(this.checked) { // check select status
+            $('.' + section + ' .meeting-select-active  input[name="files"]').each(function() { // loop through each checkbox
+                this.checked = true;  //select all active checkboxes with name "files"               
+                   }).promise().done( countit );
+             }
+              else{
+                  
+            $('.' + section + ' .meeting-select-active input[name="files"]').each(function() { // loop through each checkbox
+                this.checked = false; // deselect all active checkboxes with name "files"                       
+                    }).promise().done( countit ); 
+                  }
+         
+        }  
+         //,countit  
+                    );
     
-  $("#meeting-downloads").on("open", function(e, section) {
-  console.log(section, " is open");
-});
- 
-  $("#meeting-downloads h2").on("click",function(e){
+$("#meeting-downloads h2").on("click",function(e){
        e.preventDefault();
         clickeditem = $(this);
         icon = clickeditem.find('i');
-        if (clickeditem.hasClass("open")) {
+        if (clickeditem.hasClass("jqopen")) {
             icon.removeClass("fa-caret-down")
                   .addClass("fa-caret-right");
             
@@ -28,14 +52,21 @@ $(document).ready(function(){
        
       
   }); 
-  $('#meeting-downloads').find('input[type="checkbox"]')
+$('#meeting-downloads').find('input[name="all"][type="checkbox"]')
     .on('change', function() {
-      $('#meeting-downloads-number-of-documents').html(
-        $('#meeting-downloads').find('input[type="checkbox"]:checked').size());
-        
-
+       
+       //
+          
+       
     });
 
-  $('.meeting-select-disabled input').attr('disabled', 'disabled');
+$('#meeting-downloads').find('input[name="files"][type="checkbox"]')
+    .on('change', function() {
+      $('#meeting-downloads-number-of-documents').html(
+        $('#meeting-downloads').find('input[name="files"][type="checkbox"]:checked').size());
+        
+    });
 
-});
+$('.meeting-select-disabled input').attr('disabled', 'disabled');
+
+}); 

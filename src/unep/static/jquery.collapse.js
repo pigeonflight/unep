@@ -36,7 +36,7 @@
 
     // Capute ALL the clicks!
     (function(scope) {
-      _this.$el.on("click", "[data-collapse-summary] " + (scope.options.clickQuery || ""),
+      _this.$el.on("click", "[data-jqcollapse-summary] " + (scope.options.clickQuery || ""),
         $.proxy(_this.handleClick, scope));
 
       _this.$el.bind("toggle close open",
@@ -89,7 +89,7 @@
 
     $.extend(this, {
       isOpen : false,
-      $summary : $el.attr("data-collapse-summary",""),
+      $summary : $el.attr("data-jqcollapse-summary",""),
       $details : $el.next(),
       options: parent.options,
       parent: parent
@@ -102,7 +102,7 @@
     if(state === 0) {
       this.close(true)
     }
-    else if(this.$summary.is(".open") || state === 1) {
+    else if(this.$summary.is(".jqopen") || state === 1) {
       this.open(true);
     } else {
       this.close(true)
@@ -138,7 +138,7 @@
         _this.$details[_this.isOpen ? "show" : "hide"]();
       }
 
-      _this.$summary.toggleClass("open", state != "close")
+      _this.$summary.toggleClass("jqopen", state != "close")
       _this.$details.attr("aria-hidden", state == "close");
       _this.$summary.attr("aria-expanded", state == "open");
       _this.$summary.trigger(state == "open" ? "opened" : "closed", _this);
@@ -151,10 +151,10 @@
   // Expose in jQuery API
   $.fn.extend({
     collapse: function(options, scan) {
-      var nodes = (scan) ? $("body").find("[data-collapse]") : $(this);
+      var nodes = (scan) ? $("body").find("[data-jqcollapse]") : $(this);
       return nodes.each(function() {
         var settings = (scan) ? {} : options,
-          values = $(this).attr("data-collapse") || "";
+          values = $(this).attr("data-jqcollapse") || "";
         $.each(values.split(" "), function(i,v) {
           if(v) settings[v] = true;
         });
