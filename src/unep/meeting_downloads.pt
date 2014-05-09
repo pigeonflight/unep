@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master">
    <metal:slot fill-slot="javascript_head_slot">
-
+     <script src="++resource++unep/jquery.cookie.js"></script>
    </metal:slot>
   <metal:block fill-slot="main">
  <h1 class="documentFirstHeading" tal:content="context/title"></h1>
@@ -34,7 +34,7 @@
    
     <div class="alert alert-info">Select the documents you wish to download</div>
     <form action="@@downloadszip" method="post" tal:attributes="action string:${context/absolute_url}/@@downloadszip">
-      <div id="meeting-downloads">
+      <div id="meeting-downloads" tal:define="language python:request.cookies['unep-language'] or 'en'">
       
         <tal:files repeat="section view/sections">
           <tal:maybe condition="section/files"> 
@@ -49,7 +49,8 @@
                   <tal:maybe tal:condition="file/code">
                    <strong class="document-code"  tal:content="file/code"></strong>
                     
-                    <p class="document-title" tal:content="file/title"/>
+                    <!-- <p class="document-title" tal:content="file/title"/> -->
+                    <p class="document-title" tal:content="python:file['titles'][language] or file['titles']['en'] or ''" />
                     <p class="document-note" tal:content="file/description"/>
                   </tal:maybe>
                   <tal:can_add_files tal:condition="view/can_add_files">
@@ -83,7 +84,7 @@
       </div>
       <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
       <div id="putitatthebottom">
-       <script src="++resource++unep/jquery.cookie.js"></script>
+      
        <script src="++resource++unep/jquery.collapse.js"></script>
        <script src="++resource++unep/language.js"></script>
       <script src="++resource++unep/downloads.js"></script>

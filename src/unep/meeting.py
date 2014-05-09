@@ -458,6 +458,7 @@ class MeetingDownloadsView(BrowserView):
 
     def get_files(self, field_name):
         files = []
+        titles = {}
         for item in getattr(self.context, field_name):
             if item.to_object:
                 code = item.to_object.code
@@ -468,6 +469,15 @@ class MeetingDownloadsView(BrowserView):
                 if not title:
                     title = item.to_object.id
 
+                _file = {
+                    'code': code,
+                    'title': title,
+                    'description': description,
+                    'uid': item.to_object.UID(),
+                    'url': item.to_object.absolute_url(),
+                    
+                }
+
                 if item.to_object.en_file:
                     languages.append('en')
                 if item.to_object.es_file:
@@ -475,14 +485,18 @@ class MeetingDownloadsView(BrowserView):
                 if item.to_object.fr_file:
                     languages.append('fr')
 
-                files.append({
-                    'code': code,
-                    'title': title,
-                    'description': description,
-                    'uid': item.to_object.UID(),
-                    'url': item.to_object.absolute_url(),
-                    'languages': languages,
-                })
+                titles['en'] = titles['es'] = titles['fr'] = None    
+                if item.to_object.en_title:
+                    titles['en'] = item.to_object.en_title     
+                if item.to_object.es_title:
+                    titles['es'] = item.to_object.es_title
+                if item.to_object.fr_title:
+                    titles['fr'] = item.to_object.fr_title
+                    
+                _file['languages'] = languages
+                _file['titles'] = titles
+                
+                files.append(_file)
         return files
     
     @property
