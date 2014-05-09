@@ -7,6 +7,8 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="unep">
 
+  <i18n:registerTranslations directory="locales" />
+
   <permission
     id="unep.AddMeeting"
     title="unep: Add Meeting"

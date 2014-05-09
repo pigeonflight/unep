@@ -249,9 +249,17 @@ class IMeeting(model.Schema):
 
     searchable('en_title')
     en_title = schema.TextLine(
-        title=_(u'Meeting Name'),
+        title=_(u'Title'),
         description=_(u'The name or title of the meeting'),
         required=False,
+    )
+
+    searchable('en_description')
+    en_description = schema.Text(
+        title=_(u'Description'),
+        description=_(u'Used in item listings and search results.'),
+        required=False,
+        missing_value=u'',
     )
 
     searchable('en_announcement')
@@ -292,6 +300,7 @@ class IMeeting(model.Schema):
         label=u'English',
         fields=[
             'en_title',
+            'en_description',
             'en_announcement',
             'en_announcement_file',
             'en_information',
@@ -304,6 +313,14 @@ class IMeeting(model.Schema):
     es_title = schema.TextLine(
         title=u'Title',
         required=False,
+    )
+
+    searchable('es_description')
+    es_description = schema.Text(
+        title=_(u'Description'),
+        description=_(u'Used in item listings and search results.'),
+        required=False,
+        missing_value=u'',
     )
 
     searchable('es_announcement')
@@ -344,6 +361,7 @@ class IMeeting(model.Schema):
         label=u"Spanish",
         fields=[
             'es_title',
+            'es_description',
             'es_announcement',
             'es_announcement_file',
             'es_information',
@@ -356,6 +374,14 @@ class IMeeting(model.Schema):
     fr_title = schema.TextLine(
         title=u'Title',
         required=False,
+    )
+
+    searchable('fr_description')
+    fr_description = schema.Text(
+        title=_(u'Description'),
+        description=_(u'Used in item listings and search results.'),
+        required=False,
+        missing_value=u'',
     )
 
     searchable('fr_announcement')
@@ -396,6 +422,7 @@ class IMeeting(model.Schema):
         label=u"French",
         fields=[
             'fr_title',
+            'fr_description',
             'fr_announcement',
             'fr_announcement_file',
             'fr_information',
@@ -420,7 +447,7 @@ class Meeting(Item):
 
     @property
     def description(self):
-        return get_field(self, 'announcement', '')
+        return get_field(self, 'description', '')
 
     def setDescription(self, value):
         return
@@ -429,6 +456,13 @@ class Meeting(Item):
 class MeetingView(BrowserView):
     """
     """
+    @property
+    def title(self):
+        return get_translated(self.context, self.request, 'title')
+
+    @property
+    def description(self):
+        return get_translated(self.context, self.request, 'description')
 
     @property
     def announcement(self):
