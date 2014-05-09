@@ -23,13 +23,13 @@ var countit = function(){
   $('#meeting-downloads-number-of-documents').html(
     $('#meeting-downloads').find('input[name="files"][type="checkbox"]:checked').size()
          );
-     console.log("clicky clackety");
+     
                        }
 
 $('#meeting-downloads').find('input[name="all"][type="checkbox"]')
         .on('click', function(){
         section = $(this).attr('rel'); 
-        console.log(section);
+        //console.log(section);
         // on click 
         if(this.checked) { // check select status
             $('.' + section + ' .meeting-select-active  input[name="files"]').each(function() { // loop through each checkbox
