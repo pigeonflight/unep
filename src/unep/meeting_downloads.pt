@@ -50,7 +50,7 @@
                    <strong class="document-code"  tal:content="file/code"></strong>
                     
                     <!-- <p class="document-title" tal:content="file/title"/> -->
-                    <p class="document-title" tal:content="python:file['titles'] or file['titles']['en'] or ''" />
+                    <p class="document-title" tal:content="python:file['titles']['language'] or file['titles']['en'] or ''" />
                     <p class="document-note" tal:content="file/description"/>
                   </tal:maybe>
                   <tal:can_add_files tal:condition="view/can_add_files">
