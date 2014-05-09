@@ -14,9 +14,14 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./meeting.pt:66
+msgid "Additional Information"
+msgstr ""
+
+#: ./meeting.pt:40
 #: ./meeting.py:267
 msgid "Announcement"
-msgstr ""
+msgstr "Noticias"
 
 #: ./meeting.py:273
 msgid "Announcement attachement"
@@ -77,6 +82,7 @@ msgstr ""
 msgid "Information note attachement"
 msgstr ""
 
+#: ./meeting.pt:41
 #: ./meeting.py:280
 msgid "Information note for participants"
 msgstr "Nota informativa para los participantes"
@@ -106,6 +112,10 @@ msgstr ""
 msgid "Location where meeting is going to happen eg: Kingston, Jamaica"
 msgstr ""
 
+#: ./meeting.pt:63
+msgid "Meeting documents"
+msgstr "Documentos de la Reunión"
+
 #: ./meeting.py:41
 msgid "Meeting ends"
 msgstr ""
@@ -118,10 +128,15 @@ msgstr ""
 msgid "Meeting type"
 msgstr ""
 
+#: ./meeting.pt:38
+msgid "Navigation"
+msgstr "Navegación"
+
 #: ./file.py:46
 msgid "Notes"
 msgstr ""
 
+#: ./meeting.pt:42
 #: ./meeting.py:222
 msgid "Other"
 msgstr "Otro"

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-05-09 15:52+0000\n"
+"POT-Creation-Date: 2014-05-09 15:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,11 @@ msgstr ""
 msgid ""
 msgstr ""
 
+#: ./meeting.pt:66
+msgid "Additional Information"
+msgstr ""
+
+#: ./meeting.pt:40
 #: ./meeting.py:267
 msgid "Announcement"
 msgstr ""
@@ -84,6 +89,7 @@ msgstr ""
 msgid "Information note attachement"
 msgstr ""
 
+#: ./meeting.pt:41
 #: ./meeting.py:280
 msgid "Information note for participants"
 msgstr ""
@@ -113,6 +119,10 @@ msgstr ""
 msgid "Location where meeting is going to happen eg: Kingston, Jamaica"
 msgstr ""
 
+#: ./meeting.pt:63
+msgid "Meeting documents"
+msgstr ""
+
 #: ./meeting.py:41
 msgid "Meeting ends"
 msgstr ""
@@ -125,10 +135,15 @@ msgstr ""
 msgid "Meeting type"
 msgstr ""
 
+#: ./meeting.pt:38
+msgid "Navigation"
+msgstr ""
+
 #: ./file.py:46
 msgid "Notes"
 msgstr ""
 
+#: ./meeting.pt:42
 #: ./meeting.py:222
 msgid "Other"
 msgstr ""
