@@ -1,5 +1,15 @@
-$(document).ready(function(){   
-    
+requirejs({
+  paths: {
+    'jquery.collapse': '++resource++unep/jquery.collapse',
+    'jquery.cookie': '++resource++unep/jquery.cookie',
+  }
+});
+
+require([
+  'jquery',
+  'jquery.cookie',
+  'jquery.collapse'
+], function($) { 
 var collapse = new jQueryCollapse($('#meeting-downloads'));
          
 $(".meeting-downloads-document-link").prepOverlay({

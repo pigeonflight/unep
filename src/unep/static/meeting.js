@@ -1,4 +1,13 @@
-$(document).ready(function(){    
+requirejs({
+  paths: {
+    'jquery.collapse': '++resource++unep/jquery.collapse'
+  }
+});
+
+require([
+  'jquery',
+  'jquery.collapse'
+], function($) { 
   var collapse = new jQueryCollapse($('#meeting-texts'), { query: '> h2' });
  
      $("#meeting-texts h2").on("click",function(e){

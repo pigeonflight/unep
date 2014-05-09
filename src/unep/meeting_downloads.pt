@@ -3,9 +3,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master">
-   <metal:slot fill-slot="javascript_head_slot">
-     <script src="++resource++unep/jquery.cookie.js"></script>
-   </metal:slot>
+   
   <metal:block fill-slot="main">
  <h1 class="documentFirstHeading" tal:content="context/title"></h1>
 <h2>Meeting Documents</h2>
@@ -85,7 +83,7 @@
       <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
       <div id="putitatthebottom">
       
-       <script src="++resource++unep/jquery.collapse.js"></script>
+      
        <script src="++resource++unep/language.js"></script>
       <script src="++resource++unep/downloads.js"></script>
       </div>
