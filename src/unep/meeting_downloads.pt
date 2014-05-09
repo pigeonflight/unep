@@ -34,7 +34,7 @@
    
     <div class="alert alert-info">Select the documents you wish to download</div>
     <form action="@@downloadszip" method="post" tal:attributes="action string:${context/absolute_url}/@@downloadszip">
-      <div id="meeting-downloads" tal:define="language python:request.cookies['unep-language'] or 'en'">
+      <div id="meeting-downloads" tal:define="language python:request.cookies.get('unep-language','en')">
       
         <tal:files repeat="section view/sections">
           <tal:maybe condition="section/files"> 
