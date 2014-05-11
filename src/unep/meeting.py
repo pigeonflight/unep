@@ -78,6 +78,7 @@ class IMeeting(model.Schema):
         'files_working',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -100,6 +101,7 @@ class IMeeting(model.Schema):
         'files_information',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -122,6 +124,7 @@ class IMeeting(model.Schema):
         'files_reference',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -144,6 +147,7 @@ class IMeeting(model.Schema):
         'files_conference_papers',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -166,6 +170,7 @@ class IMeeting(model.Schema):
         'files_final_reports',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -188,6 +193,7 @@ class IMeeting(model.Schema):
         'files_presentations',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -210,6 +216,7 @@ class IMeeting(model.Schema):
         'files_others',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
