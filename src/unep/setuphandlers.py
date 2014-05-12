@@ -15,25 +15,29 @@ def setupVarious(context):
     api.content.delete(api.content.get('/events'))
 
     portal = api.portal.get()
-    """
-    meetings = api.content.create(
-        portal,
-        'Folder',
-        id='meetings',
-        title='Meetings'
-    )
-    documents = api.content.create(
-        portal,
-        'unep.filefolder',
-        id='documents',
-        title='Documents'
-    )
-
-    api.content.transition(meetings, transition='publish')
-    api.content.transition(documents, transition='publish')
     
-    behavior = constrains.ISelectableConstrainTypes(meetings)
-    behavior.setConstrainTypesMode(constrains.ENABLED)
-    behavior.setLocallyAllowedTypes(['unep.meeting', 'Folder'])
-    behavior.setImmediatelyAddableTypes(['unep.meeting', 'Folder'])
-    """
+    #check for the existence of meetings and documents
+    #
+    if not api.content.get('/meetings'):
+        meetings = api.content.create(
+            portal,
+            'Folder',
+            id='meetings',
+            title='Meetings'
+        )
+        api.content.transition(meetings, transition='publish')
+        behavior = constrains.ISelectableConstrainTypes(meetings)
+        behavior.setConstrainTypesMode(constrains.ENABLED)
+        behavior.setLocallyAllowedTypes(['unep.meeting', 'Folder'])
+        behavior.setImmediatelyAddableTypes(['unep.meeting', 'Folder'])
+        
+    if not api.content.get('/documents'):
+        documents = api.content.create(
+            portal,
+            'unep.filefolder',
+            id='documents',
+            title='Documents'
+        )
+
+        api.content.transition(documents, transition='publish')
+    
