@@ -109,11 +109,33 @@ require([
                 '<p>Click on link to edit their metadata.</p>' +
                 '<ul>' + message + '</ul>', true);
                 
-                $('a.uploaded-doc').prepOverlay({
+          /*      $('a.uploaded-doc').prepOverlay({
     subtype: 'ajax',
     filter: '#content>*',
     formselector: 'form'
-    });
+    }); */
+                overlays = [];
+                $('a.uploaded-doc').each(function(index) {
+                 var href = $(this).attr('href');
+                 overlay = $( this ).prepOverlay({
+                    subtype: 'ajax',
+                    filter: '#content>*',
+                    formselector: 'form',
+                    closeselector: 'input#form-buttons-cancel',
+                     afterpost: function(data,more){console.log(data,more)},
+                     config: {
+                         url : index + "|"  + href ,
+                        onBeforeLoad : function (e) {
+                         console.log(this.getConf().url);
+                           return true; }
+                         
+                            }
+                       });
+                    overlays.push(overlay);
+                     });
+                
+                
+                
 
             }
           }
