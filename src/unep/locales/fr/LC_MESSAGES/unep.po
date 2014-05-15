@@ -19,12 +19,16 @@ msgid "Additional Information"
 msgstr ""
 
 #: ./meeting.pt:40
-#: ./meeting.py:267
+#: ./meeting.py:274
 msgid "Announcement"
 msgstr "Annonces"
 
-#: ./meeting.py:273
+#: ./meeting.py:280
 msgid "Announcement attachement"
+msgstr ""
+
+#: ./meeting_downloads.pt:12
+msgid "Back to Meeting"
 msgstr ""
 
 #: ./meeting.py:58
@@ -39,7 +43,7 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: ./meeting.py:156
+#: ./meeting.py:160
 msgid "Conference papers"
 msgstr ""
 
@@ -51,41 +55,55 @@ msgstr ""
 msgid "Date when the meeting ends."
 msgstr ""
 
-#: ./meeting.py:259
+#: ./meeting.py:266
 msgid "Description"
+msgstr ""
+
+#: ./meeting_downloads.pt:82
+msgid "Download"
+msgstr ""
+
+#: ./meeting_downloads.pt:60
+msgid "Edit"
 msgstr ""
 
 #: ./file.py:57
 #: ./filefolder.py:100
+#: ./meeting_downloads.pt:17
 msgid "English"
 msgstr "Anglai"
 
 #: ./file.py:51
-#: ./meeting.py:93
+#: ./meeting.py:94
 msgid "File"
 msgstr ""
 
-#: ./meeting.py:178
+#: ./meeting.py:183
 msgid "Final reports"
 msgstr ""
 
 #: ./file.py:103
 #: ./filefolder.py:104
+#: ./meeting_downloads.pt:29
 msgid "French"
 msgstr "Français"
 
-#: ./meeting.py:112
+#: ./meeting.py:114
 msgid "Information documents"
 msgstr ""
 
-#: ./meeting.py:286
+#: ./meeting.py:293
 msgid "Information note attachement"
 msgstr ""
 
 #: ./meeting.pt:41
-#: ./meeting.py:280
+#: ./meeting.py:287
 msgid "Information note for participants"
 msgstr "Note d'information pour les participants"
+
+#: ./meeting_downloads.pt:83
+msgid "Items selected:"
+msgstr ""
 
 #: ./meeting.py:64
 msgid "LBS - ISTAC"
@@ -100,7 +118,7 @@ msgid "LBS - Workshop"
 msgstr ""
 
 #: ./file.py:32
-#: ./meeting.py:233
+#: ./meeting.py:240
 msgid "Language independent"
 msgstr ""
 
@@ -113,6 +131,7 @@ msgid "Location where meeting is going to happen eg: Kingston, Jamaica"
 msgstr ""
 
 #: ./meeting.pt:63
+#: ./meeting_downloads.pt:11
 msgid "Meeting documents"
 msgstr "Documents de la réunion"
 
@@ -137,15 +156,15 @@ msgid "Notes"
 msgstr ""
 
 #: ./meeting.pt:42
-#: ./meeting.py:222
+#: ./meeting.py:229
 msgid "Other"
 msgstr "Autre"
 
-#: ./meeting.py:200
+#: ./meeting.py:206
 msgid "Presentations"
 msgstr ""
 
-#: ./meeting.py:134
+#: ./meeting.py:137
 msgid "Reference documents"
 msgstr ""
 
@@ -169,12 +188,21 @@ msgstr ""
 msgid "SPAW - Workshop"
 msgstr ""
 
+#: ./meeting_downloads.pt:45
+msgid "Select All"
+msgstr ""
+
+#: ./meeting_downloads.pt:35
+msgid "Select the documents you wish to download"
+msgstr ""
+
 #: ./file.py:80
 #: ./filefolder.py:102
+#: ./meeting_downloads.pt:23
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: ./meeting.py:253
+#: ./meeting.py:260
 msgid "The name or title of the meeting"
 msgstr ""
 
@@ -184,7 +212,7 @@ msgstr ""
 
 #: ./file.py:40
 #: ./filefolder.py:30
-#: ./meeting.py:252
+#: ./meeting.py:259
 msgid "Title"
 msgstr "Titre"
 
@@ -200,11 +228,11 @@ msgstr ""
 msgid "UNEP Meeting"
 msgstr ""
 
-#: ./meeting.py:260
+#: ./meeting.py:267
 msgid "Used in item listings and search results."
 msgstr ""
 
-#: ./meeting.py:90
+#: ./meeting.py:91
 msgid "Working documents"
 msgstr ""
 

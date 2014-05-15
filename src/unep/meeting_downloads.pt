@@ -2,35 +2,37 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="context/main_template/macros/master">
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="unep">
    
   <metal:block fill-slot="main">
- <h1 class="documentFirstHeading" tal:content="context/title"></h1>
-<h2>Meeting Documents</h2>
-<a href="" tal:attributes="href context/absolute_url">Back to Meeting</a>
+
+<h1 class="documentFirstHeading" tal:content="context/title"></h1>
+<h2 i18n:translate="">Meeting documents</h2>
+<a href="" tal:attributes="href context/absolute_url" i18n:translate="">Back to Meeting</a>
     <ul id="unep-language">
       <li id="unep-language-en">
         <a href="#">
           <img src="++resource++unep/en.png" />
-          <span>English</span>
+          <span i18n:translate="">English</span>
         </a>
       </li>
       <li id="unep-language-es">
         <a href="#">
           <img src="++resource++unep/es.png" />
-          <span>Spanish</span>
+          <span i18n:translate="">Spanish</span>
         </a>
       </li>
       <li id="unep-language-fr">
         <a href="#">
           <img src="++resource++unep/fr.png" />
-          <span>French</span>
+          <span i18n:translate="">French</span>
         </a>
       </li>
     </ul>
     <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
    
-    <div class="alert alert-info">Select the documents you wish to download</div>
+    <div class="alert alert-info" i18n:translate="">Select the documents you wish to download</div>
     <form action="@@downloadszip" method="post" tal:attributes="action string:${context/absolute_url}/@@downloadszip">
       <div id="meeting-downloads" tal:define="language python:request.cookies.get('unep-language','en')">
       
@@ -40,7 +42,7 @@
             <table tal:attributes="class section/cl">
               <tr>
                 <th> </th>
-                <th><span><label>Select All <input type="checkbox" name="all" tal:attributes="rel section/cl"></label></span></th>
+                <th><span><label><span i18n:translate="">Select All</span><input type="checkbox" name="all" tal:attributes="rel section/cl"></label></span></th>
               </tr>
               <tr tal:repeat="file section/files">
                 <td>
@@ -54,7 +56,8 @@
                   <tal:can_add_files tal:condition="view/can_add_files">
                   <div>
                   <a class="meeting-downloads-document-link" href="" tal:attributes="href file/url">
-                    <i class="fa fa-edit"></i> edit
+                    <i class="fa fa-edit"></i>
+                    <span i18n:translate="">Edit</span>
                   </a>
                   </div>
                   </tal:can_add_files>
@@ -76,9 +79,9 @@
         </tal:files>
       </div>
       <div id="meeting-downloads-buttonbar">
-        <button class="btn btn-lg" id="meeting-downloads-button">Download</button>
+        <button class="btn btn-lg" id="meeting-downloads-button" i18n:translate="">Download</button>
+        <span i18n:translate="">Items selected:</span>
         <span id="meeting-downloads-number-of-documents">0</span>
-        <span> items selected</span>
       </div>
       <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
       <div id="putitatthebottom">
