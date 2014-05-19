@@ -18,9 +18,9 @@ require([
       $(this).parents('.portalMessage').remove();
     });
   }
-
-  var uploadHtml = $('#upload').html(),
-      progress = $('<div><span>Uploading...<span></div>'),
+  var I18N = JSON.parse($('#upload').data('i18n')),
+      uploadHtml = $('#upload').html(),
+      progress = $('<div><span>' + I18N['Uploading ...'] + '<span></div>'),
       uploaded = [];
 
   var dropzone = new Dropzone("#upload", {
@@ -59,14 +59,16 @@ require([
             self.removeFile(file);
           }
         } else {
-          addMessage('error', 'Error',
-                    '<strong><span class="error">'+file.name+'</span> does not have a language identifier at the end of it\'s name (-en,-es,-fr).</strong> Please rename with a language identifier and attempt to upload again.');
+          addMessage('error', I18N['Error'],
+                     '<strong><span class="error">' + file.name + '</span>' +
+                      I18N[' does not have a language identifier at the end of it\'s name (-en,-es,-fr). Please rename with a language identifier and attempt to upload again.'] + '</strong>');
           self.removeFile(file);
         }
       });
 
       self.on("complete", function(file) {
-        $(file.previewElement).html('<div class="dz-feedback">Upload of "' + file.name + '" successful.</div>')
+        $(file.previewElement).html(
+          '<div class="dz-feedback">' + I18N['Upload successful: '] + file.name + '</div>')
 
         uploaded.push(JSON.parse(file.xhr.responseText));
 
@@ -105,8 +107,8 @@ require([
             });
             if (message !== '') {
               addMessage('info', 'Info',
-                '<p>Following documents were created/updated.</p>' +
-                '<p>Click on link to edit their metadata.</p>' +
+                '<p>' + I18N['Following documents were created/updated.'] + '</p>' +
+                '<p>' + I18N['Click on link to edit their metadata.'] + '</p>' +
                 '<ul>' + message + '</ul>', true);
                 
           /*      $('a.uploaded-doc').prepOverlay({

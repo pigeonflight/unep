@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
-<object name="unep.meeting" meta_type="Dexterity FTI"
-    i18n:domain="unep"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object name="unep.meeting" meta_type="Dexterity FTI">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">UNEP Meeting</property>
-  <property name="description"
-    i18n:translate=""></property>
+  <property name="title">UNEP Meeting</property>
+  <property name="description"></property>
   <property name="icon_expr">string:${portal_url}/document_icon.png</property>
   <property name="factory">unep.meeting</property>
   <property name="global_allow">True</property>

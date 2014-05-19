@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from Products.CMFPlone.utils import safe_unicode
 from AccessControl import getSecurityManager
+from Products.CMFPlone.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from mimetypes import guess_type
 from os.path import splitext
@@ -12,6 +13,7 @@ from plone.namedfile.file import NamedBlobFile
 from plone.supermodel import model
 from thread import allocate_lock
 from unep import _
+from unep.utils import get_language
 from zope import schema
 from zope.interface import implements
 
@@ -27,7 +29,7 @@ class IFileFolder(model.Schema):
     """
 
     title = schema.TextLine(
-        title=_(u'Title'),
+        title=u'Title',
         required=False,
     )
 
@@ -47,6 +49,31 @@ class FileFolderView(BrowserView):
     def can_add_files(self):
         sm = getSecurityManager()
         return sm.checkPermission('unep: Add File', self.context) == 1
+
+    @property
+    def js_i18n(self):
+        i18n = {}
+        for item in [
+                'Uploading...',
+                'Error',
+                ' does not have a language identifier at the end of it\'s name (-en,-es,-fr). Please rename with a language identifier and attempt to upload again.',
+                'Upload successful: ',
+                'Following documents were created/updated.',
+                'Click on link to edit their metadata.',
+                ]:
+            i18n[item] = self.translate(item)
+        return json.dumps(i18n)
+
+    def translate(self, text):
+        language = get_language(self.request)
+        tool = getToolByName(self.context, 'translation_service')
+        return tool.translate(
+            text,
+            'unep',
+            context=self.context,
+            target_language=language,
+            default=text
+        )
 
 
 class FileFolderUpload(BrowserView):
@@ -97,11 +124,11 @@ class FileFolderUpload(BrowserView):
             upload_lock.release()
 
         if language == 'en':
-            language = _('English')
+            language = 'English'
         elif language == 'es':
-            language = _('Spanish')
+            language = 'Spanish'
         elif language == 'fr':
-            language = _('French')
+            language = 'French'
 
         self.request.RESPONSE.setHeader('content-type', 'application/json')
         return json.dumps({

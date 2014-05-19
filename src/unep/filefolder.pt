@@ -1,17 +1,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master">
 
   <metal:block fill-slot="content-core">
     <div tal:condition="view/can_add_files">
       <div id="upload-messages"></div>
-      <div id="upload">Drag/Click to upload documents.</div>
+      <div id="upload"
+        tal:content="python:view.translate('Drag/Click to upload documents.')"
+        tal:attributes="data-i18n view.js_i18n">
+        Drag/Click to upload documents.
+      </div>
       <div id="upload-preview"></div>
       <div style="clear: both;"></div>
-      <button id="upload-submit">Upload</button>
-      <button id="upload-cancel">Cancel</button>
+      <button id="upload-submit" tal:content="python:view.translate('Upload')">Upload</button>
+      <button id="upload-cancel" tal:content="python:view.translate('Cancel')">Cancel</button>
       <link rel="stylesheet" type="text/css" href="++resource++unep/upload.css" />
       <script src="++resource++unep/upload.js"></script>
     </div>

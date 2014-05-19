@@ -31,46 +31,46 @@ class IMeeting(model.Schema):
 
     form.widget('start', DateWidget)
     start = schema.Date(
-        title=_(u'Meeting starts'),
-        description=_(u'Date when the meeting begins.'),
+        title=u'Meeting starts',
+        description=u'Date when the meeting begins.',
         required=True,
     )
 
     form.widget('end', DateWidget)
     end = schema.Date(
-        title=_(u'Meeting ends'),
-        description=_(u'Date when the meeting ends.'),
+        title=u'Meeting ends',
+        description=u'Date when the meeting ends.',
         required=True,
     )
 
     searchable('location')
     location = schema.TextLine(
-        title=_(u'Location'),
-        description=_(u'Location where meeting is going to happen '
-                      u'eg: Kingston, Jamaica'),
+        title=u'Location',
+        description=u'Location where meeting is going to happen '
+                    u'eg: Kingston, Jamaica',
         required=False,
     )
 
     meeting_type = schema.Choice(
-        title=_(u'Meeting type'),
-        description=_(u'The type of meeting'),
+        title=u'Meeting type',
+        description=u'The type of meeting',
         values=[
-            _(u'CEP - IGM'),
-            _(u'CEP - MONCOM'),
-            _(u'SPAW - ISTAC'),
-            _(u'SPAW - Workshop'),
-            _(u'SPAW - COP'),
-            _(u'SPAW - STAC'),
-            _(u'LBS - ISTAC'),
-            _(u'LBS - STAC'),
-            _(u'LBS - Workshop'),
+            u'CEP - IGM',
+            u'CEP - MONCOM',
+            u'SPAW - ISTAC',
+            u'SPAW - Workshop',
+            u'SPAW - COP',
+            u'SPAW - STAC',
+            u'LBS - ISTAC',
+            u'LBS - STAC',
+            u'LBS - Workshop',
         ],
         required=False,
     )
 
     registration_url = schema.URI(
-        title=_(u'Registration URL'),
-        description=_(u''),
+        title=u'Registration URL',
+        description=u'',
         required=False,
     )
 
@@ -88,10 +88,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_working = RelationList(
-        title=_(u'Working documents'),
-        description=_(u''),
+        title=u'Working documents',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -111,10 +111,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_information = RelationList(
-        title=_(u'Information documents'),
-        description=_(u''),
+        title=u'Information documents',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -134,10 +134,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_reference = RelationList(
-        title=_(u'Reference documents'),
-        description=_(u''),
+        title=u'Reference documents',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -157,10 +157,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_conference_papers = RelationList(
-        title=_(u'Conference papers'),
-        description=_(u''),
+        title=u'Conference papers',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -180,10 +180,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_final_reports = RelationList(
-        title=_(u'Final reports'),
-        description=_(u''),
+        title=u'Final reports',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -203,10 +203,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_presentations = RelationList(
-        title=_(u'Presentations'),
-        description=_(u''),
+        title=u'Presentations',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -226,10 +226,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_others = RelationList(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -237,7 +237,7 @@ class IMeeting(model.Schema):
 
     model.fieldset(
         'language_independent',
-        label=_(u'Language independent'),
+        label=u'Language independent',
         fields=[
             'start',
             'end',
@@ -256,49 +256,49 @@ class IMeeting(model.Schema):
 
     searchable('en_title')
     en_title = schema.TextLine(
-        title=_(u'Title'),
-        description=_(u'The name or title of the meeting'),
+        title=u'Title',
+        description=u'The name or title of the meeting',
         required=False,
     )
 
     searchable('en_description')
     en_description = schema.Text(
-        title=_(u'Description'),
-        description=_(u'Used in item listings and search results.'),
+        title=u'Description',
+        description=u'Used in item listings and search results.',
         required=False,
         missing_value=u'',
     )
 
     searchable('en_announcement')
     en_announcement = RichText(
-        title=_(u'Announcement'),
-        description=_(u''),
+        title=u'Announcement',
+        description=u'',
         required=False,
     )
 
     en_announcement_file = NamedBlobFile(
-        title=_(u'Announcement attachement'),
-        description=_(u''),
+        title=u'Announcement attachement',
+        description=u'',
         required=False,
     )
 
     searchable('en_information')
     en_information = RichText(
-        title=_(u'Information note for participants'),
-        description=_(u''),
+        title=u'Information note for participants',
+        description=u'',
         required=False,
     )
 
     en_information_file = NamedBlobFile(
-        title=_(u'Information note attachement'),
-        description=_(u''),
+        title=u'Information note attachement',
+        description=u'',
         required=False,
     )
 
     searchable('en_additional')
     en_additional = RichText(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         required=False,
     )
 
@@ -324,42 +324,42 @@ class IMeeting(model.Schema):
 
     searchable('es_description')
     es_description = schema.Text(
-        title=_(u'Description'),
-        description=_(u'Used in item listings and search results.'),
+        title=u'Description',
+        description=u'Used in item listings and search results.',
         required=False,
         missing_value=u'',
     )
 
     searchable('es_announcement')
     es_announcement = RichText(
-        title=_(u'Announcement'),
-        description=_(u''),
+        title=u'Announcement',
+        description=u'',
         required=False,
     )
 
     es_announcement_file = NamedBlobFile(
-        title=_(u'Announcement attachement'),
-        description=_(u''),
+        title=u'Announcement attachement',
+        description=u'',
         required=False,
     )
 
     searchable('es_information')
     es_information = RichText(
-        title=_(u'Information note for participants'),
-        description=_(u''),
+        title=u'Information note for participants',
+        description=u'',
         required=False,
     )
 
     es_information_file = NamedBlobFile(
-        title=_(u'Information note attachement'),
-        description=_(u''),
+        title=u'Information note attachement',
+        description=u'',
         required=False,
     )
 
     searchable('es_additional')
     es_additional = RichText(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         required=False,
     )
 
@@ -385,42 +385,42 @@ class IMeeting(model.Schema):
 
     searchable('fr_description')
     fr_description = schema.Text(
-        title=_(u'Description'),
-        description=_(u'Used in item listings and search results.'),
+        title=u'Description',
+        description=u'Used in item listings and search results.',
         required=False,
         missing_value=u'',
     )
 
     searchable('fr_announcement')
     fr_announcement = RichText(
-        title=_(u'Announcement'),
-        description=_(u''),
+        title=u'Announcement',
+        description=u'',
         required=False,
     )
 
     fr_announcement_file = NamedBlobFile(
-        title=_(u'Announcement attachement'),
-        description=_(u''),
+        title=u'Announcement attachement',
+        description=u'',
         required=False,
     )
 
     searchable('fr_information')
     fr_information = RichText(
-        title=_(u'Information note for participants'),
-        description=_(u''),
+        title=u'Information note for participants',
+        description=u'',
         required=False,
     )
 
     fr_information_file = NamedBlobFile(
-        title=_(u'Information note attachement'),
-        description=_(u''),
+        title=u'Information note attachement',
+        description=u'',
         required=False,
     )
 
     searchable('fr_additional')
     fr_additional = RichText(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         required=False,
     )
 
@@ -492,6 +492,17 @@ class MeetingView(BrowserView):
         sm = getSecurityManager()
         return sm.checkPermission('unep: Add File', self.context) == 1
 
+    def translate(self, text):
+        language = get_language(self.request)
+        tool = getToolByName(self.context, 'translation_service')
+        return tool.translate(
+            text,
+            'unep',
+            context=self.context,
+            target_language=language,
+            default=text
+        )
+
 
 class MeetingDownloadsView(BrowserView):
     """
@@ -550,41 +561,52 @@ class MeetingDownloadsView(BrowserView):
         return [
             {
                 'klass': 'jqopen',
-                'cl' : 'working-documents',
+                'cl': 'working-documents',
                 'title': 'Working documents',
                 'files': self.get_files('files_working'),
             }, {
                 'klass': '',
-                'cl' : 'information-documents',
+                'cl': 'information-documents',
                 'title': 'Information documents',
                 'files': self.get_files('files_information'),
             }, {
                 'klass': '',
-                'cl' : 'reference-documents',
+                'cl': 'reference-documents',
                 'title': 'Reference documents',
                 'files': self.get_files('files_reference'),
             }, {
                 'klass': '',
-                'cl' : 'conference-papers',
+                'cl': 'conference-papers',
                 'title': 'Conference papers',
                 'files': self.get_files('files_conference_papers'),
             }, {
                 'klass': '',
-                'cl' : 'final-reports',
+                'cl': 'final-reports',
                 'title': 'Final reports',
                 'files': self.get_files('files_final_reports'),
             }, {
                 'klass': '',
-                'cl' : 'presentations',
+                'cl': 'presentations',
                 'title': 'Presentations',
                 'files': self.get_files('files_presentations'),
             }, {
                 'klass': '',
-                'cl' : 'others',
+                'cl': 'others',
                 'title': 'Others',
                 'files': self.get_files('files_others'),
             }
         ]
+
+    def translate(self, text):
+        language = get_language(self.request)
+        tool = getToolByName(self.context, 'translation_service')
+        return tool.translate(
+            text,
+            'unep',
+            context=self.context,
+            target_language=language,
+            default=text
+        )
 
 
 class MeetingDownloadsZip(BrowserView):
@@ -631,4 +653,3 @@ class MeetingDownloadsZip(BrowserView):
                            'attachment; filename="%s-documents.zip"' % (
                                self.context.getId()))
         return response.write(data)
-  

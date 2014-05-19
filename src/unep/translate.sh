@@ -21,21 +21,6 @@ done
 # Assume i18ndude is installed with buildout
 I18NDUDE=../../bin/i18ndude
 
-#
-# Do we need to merge manual PO entries from a file called manual.pot.
-# this option is later passed to i18ndude
-#
-if test -e locales/manual.pot; then
-        echo "Manual PO entries detected"
-        MERGE="--merge locales/manual.pot"
-else
-        echo "No manual PO entries detected"
-        MERGE=""
-fi
-
-# Rebuild .pot
-$I18NDUDE rebuild-pot --pot locales/$CATALOGNAME.pot $MERGE --create $CATALOGNAME .
-
 
 # Compile po files
 for lang in $(find locales -mindepth 1 -maxdepth 1 -type d); do

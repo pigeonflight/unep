@@ -1,9 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="context/main_template/macros/master"
-      i18n:domain="unep">
+      metal:use-macro="context/main_template/macros/master">
   
   <metal:block fill-slot="main">
 
@@ -15,69 +13,86 @@
       <li id="unep-language-en">
         <a href="#">
           <img src="++resource++unep/en.png" />
-          <span>English</span>
+          <span tal:content="python:view.translate('English')">English</span>
         </a>
       </li>
       <li id="unep-language-es">
         <a href="#">
           <img src="++resource++unep/es.png" />
-          <span>Spanish</span>
+          <span tal:content="python:view.translate('Spanish')">Spanish</span>
         </a>
       </li>
       <li id="unep-language-fr">
         <a href="#">
           <img src="++resource++unep/fr.png" />
-          <span>French</span>
+          <span tal:content="python:view.translate('French')">French</span>
         </a>
       </li>
     </ul>
+
     <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
 
-
     <div id="meeting-navigation">
-      <h3 i18n:translate="">Navigation</h3>
+      <h3 tal:content="python:view.translate('Navigation')">Navigation</h3>
       <ul>
-        <li tal:condition="view/announcement"><a href="#meeting-text-announcement" i18n:translate="">Announcement</a></li>
-        <li tal:condition="view/information"><a href="#meeting-text-information" i18n:translate="">Information note for participants</a></li>
-        <li tal:condition="view/additional"><a href="#meeting-text-other" i18n:translate="">Other</a></li>
+        <li tal:condition="view/announcement"><a href="#meeting-text-announcement" tal:content="python:view.translate('Announcements')">Announcements</a></li>
+        <li tal:condition="view/information"><a href="#meeting-text-information" tal:content="python:view.translate('Information note for participants')">Information note for participants</a></li>
+        <li tal:condition="view/additional"><a href="#meeting-text-other" tal:content="python:view.translate('Other')">Other</a></li>
       </ul>
     </div>
 
     <div id="meeting-texts">
-      <h2 tal:condition="view/announcement" id="meeting-text-announcement" class="open"><i class="fa fa-caret-down" /> <span i18n:translate="">Announcement</span></h2>
+
+      <h2 tal:condition="view/announcement" id="meeting-text-announcement" class="open">
+        <i class="fa fa-caret-down" />
+        <span tal:content="python:view.translate('Announcements')">Announcements</span>
+      </h2>
       <div class="text-content" tal:condition="view/announcement">
         <div tal:content="structure view/announcement"></div>
       </div>
-        <a href="" class="meeting-attachment" 
-           tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_announcement_file"><i class="fa fa-file-o" /> Announcement attachment</a>
-      
-           <h2 tal:condition="view/information" id="meeting-text-information"><i class="fa fa-caret-right" /> <span i18n:translate="">Information note for participants</span></h2>
+      <a href="" class="meeting-attachment" 
+         tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_announcement_file">
+         <i class="fa fa-file-o" />
+         <span tal:content="python:view.translate('Announcements attachment')">Announcements attachment</span>
+      </a>
+
+      <h2 tal:condition="view/information" id="meeting-text-information">
+        <i class="fa fa-caret-right" />
+        <span tal:content="python:view.translate('Information note for participants')">Information note for participants</span>
+      </h2>
       <div class="text-content" tal:condition="view/information">
         <div tal:content="structure view/information"></div>
       </div>
-       <a class="meeting-attachment" 
-          tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file"><i class="fa fa-file-o" /> Information note attachment </a>
-              
+      <a class="meeting-attachment" 
+        tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file">
+        <i class="fa fa-file-o" />
+        <span tal:content="python:view.translate('Information note attachment')">Information note attachment</span>
+      </a>
               
       <a class="meeting-downloads" href="" tal:attributes="href string:${context/absolute_url}/@@downloads">
-        <div id="meeting-text-downloads"><i class="fa fa-folder-open" /><span i18n:translate="">Meeting documents</span></div>
+        <div id="meeting-text-downloads">
+          <i class="fa fa-folder-open" />
+          <span tal:content="python:view.translate('Meeting documents')">Meeting documents</span>
+        </div>
       </a>
       
-      <h2 tal:condition="view/additional" id="meeting-text-other"><i class="fa fa-caret-right" /> <span i18n:translate="">Additional Information</span></h2>
+      <h2 tal:condition="view/additional" id="meeting-text-other">
+        <i class="fa fa-caret-right" />
+        <span tal:content="python:view.translate('Additional Information')">Additional Information</span>
+      </h2>
       <div  class="text-content" tal:condition="view/additional">
          <div tal:content="structure view/additional"></div>
       </div>
        
     </div>
     
-    
     <link rel="stylesheet" type="text/css" href="++resource++unep/meeting.css" />
+
     <div id="putitatthebottom">
-   
- 
-    <script src="++resource++unep/meeting.js"></script> 
-        <script src="++resource++unep/language.js"></script> 
+      <script src="++resource++unep/meeting.js"></script> 
+      <script src="++resource++unep/language.js"></script> 
     </div>
+
   </metal:block>
 
 </html>

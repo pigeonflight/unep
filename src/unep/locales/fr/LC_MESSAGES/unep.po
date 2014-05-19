@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"POT-Creation-Date: 2014-05-19 12:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,229 +14,81 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./meeting.pt:66
+msgid " does not have a language identifier at the end of it\'s name (-en,-es,-fr). Please rename with a language identifier and attempt to upload again."
+msgstr ""
+
 msgid "Additional Information"
 msgstr ""
 
-#: ./meeting.pt:40
-#: ./meeting.py:274
-msgid "Announcement"
-msgstr "Annonces"
-
-#: ./meeting.py:280
-msgid "Announcement attachement"
+msgid "Announcements"
 msgstr ""
 
-#: ./meeting_downloads.pt:12
+msgid "Announcements attachment"
+msgstr ""
+
 msgid "Back to Meeting"
 msgstr ""
 
-#: ./meeting.py:58
-msgid "CEP - IGM"
+msgid "Cancel"
 msgstr ""
 
-#: ./meeting.py:59
-msgid "CEP - MONCOM"
+msgid "Click on link to edit their metadata."
 msgstr ""
 
-#: ./file.py:26
-msgid "Code"
-msgstr ""
-
-#: ./meeting.py:160
-msgid "Conference papers"
-msgstr ""
-
-#: ./meeting.py:35
-msgid "Date when the meeting begins."
-msgstr ""
-
-#: ./meeting.py:42
-msgid "Date when the meeting ends."
-msgstr ""
-
-#: ./meeting.py:266
-msgid "Description"
-msgstr ""
-
-#: ./meeting_downloads.pt:82
 msgid "Download"
 msgstr ""
 
-#: ./meeting_downloads.pt:60
+msgid "Drag/Click to upload documents."
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
-#: ./file.py:57
-#: ./filefolder.py:100
-#: ./meeting_downloads.pt:17
 msgid "English"
-msgstr "Anglai"
-
-#: ./file.py:51
-#: ./meeting.py:94
-msgid "File"
 msgstr ""
 
-#: ./meeting.py:183
-msgid "Final reports"
+msgid "Error"
 msgstr ""
 
-#: ./file.py:103
-#: ./filefolder.py:104
-#: ./meeting_downloads.pt:29
+msgid "Following documents were created/updated."
+msgstr ""
+
 msgid "French"
-msgstr "Français"
-
-#: ./meeting.py:114
-msgid "Information documents"
 msgstr ""
 
-#: ./meeting.py:293
-msgid "Information note attachement"
+msgid "Information note attachment"
 msgstr ""
 
-#: ./meeting.pt:41
-#: ./meeting.py:287
 msgid "Information note for participants"
-msgstr "Note d'information pour les participants"
+msgstr ""
 
-#: ./meeting_downloads.pt:83
 msgid "Items selected:"
 msgstr ""
 
-#: ./meeting.py:64
-msgid "LBS - ISTAC"
-msgstr ""
-
-#: ./meeting.py:65
-msgid "LBS - STAC"
-msgstr ""
-
-#: ./meeting.py:66
-msgid "LBS - Workshop"
-msgstr ""
-
-#: ./file.py:32
-#: ./meeting.py:240
-msgid "Language independent"
-msgstr ""
-
-#: ./meeting.py:48
-msgid "Location"
-msgstr ""
-
-#: ./meeting.py:49
-msgid "Location where meeting is going to happen eg: Kingston, Jamaica"
-msgstr ""
-
-#: ./meeting.pt:63
-#: ./meeting_downloads.pt:11
 msgid "Meeting documents"
-msgstr "Documents de la réunion"
-
-#: ./meeting.py:41
-msgid "Meeting ends"
 msgstr ""
 
-#: ./meeting.py:34
-msgid "Meeting starts"
-msgstr ""
-
-#: ./meeting.py:55
-msgid "Meeting type"
-msgstr ""
-
-#: ./meeting.pt:38
 msgid "Navigation"
-msgstr "Navigation"
-
-#: ./file.py:46
-msgid "Notes"
 msgstr ""
 
-#: ./meeting.pt:42
-#: ./meeting.py:229
 msgid "Other"
-msgstr "Autre"
-
-#: ./meeting.py:206
-msgid "Presentations"
 msgstr ""
 
-#: ./meeting.py:137
-msgid "Reference documents"
-msgstr ""
-
-#: ./meeting.py:72
-msgid "Registration URL"
-msgstr ""
-
-#: ./meeting.py:62
-msgid "SPAW - COP"
-msgstr ""
-
-#: ./meeting.py:60
-msgid "SPAW - ISTAC"
-msgstr ""
-
-#: ./meeting.py:63
-msgid "SPAW - STAC"
-msgstr ""
-
-#: ./meeting.py:61
-msgid "SPAW - Workshop"
-msgstr ""
-
-#: ./meeting_downloads.pt:45
 msgid "Select All"
 msgstr ""
 
-#: ./meeting_downloads.pt:35
 msgid "Select the documents you wish to download"
 msgstr ""
 
-#: ./file.py:80
-#: ./filefolder.py:102
-#: ./meeting_downloads.pt:23
 msgid "Spanish"
-msgstr "Espagnol"
-
-#: ./meeting.py:260
-msgid "The name or title of the meeting"
 msgstr ""
 
-#: ./meeting.py:56
-msgid "The type of meeting"
+msgid "Upload"
 msgstr ""
 
-#: ./file.py:40
-#: ./filefolder.py:30
-#: ./meeting.py:259
-msgid "Title"
-msgstr "Titre"
-
-#: ./profiles/default/types/unep.file.xml
-msgid "UNEP File"
+msgid "Upload successful: "
 msgstr ""
 
-#: ./profiles/default/types/unep.filefolder.xml
-msgid "UNEP File Folder"
-msgstr ""
-
-#: ./profiles/default/types/unep.meeting.xml
-msgid "UNEP Meeting"
-msgstr ""
-
-#: ./meeting.py:267
-msgid "Used in item listings and search results."
-msgstr ""
-
-#: ./meeting.py:91
-msgid "Working documents"
-msgstr ""
-
-#: ./file.py:17
-msgid "You need to upload at least one file."
+msgid "Uploading..."
 msgstr ""
 
