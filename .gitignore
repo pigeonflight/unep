@@ -1,4 +1,5 @@
 *.pyc
+*.mo
 /.installed.cfg
 /src/UNEP.egg-info/
 /bin/
@@ -8,4 +9,5 @@
 /nixenv
 /parts/
 /var/
-unep.mo
+/.mr.developer.cfg
+/src/plone.app.widgets
