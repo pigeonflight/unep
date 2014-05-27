@@ -8,7 +8,7 @@
       <div id="upload-messages"></div>
       <div id="upload"
         tal:content="python:view.translate('Drag/Click to upload documents.')"
-        tal:attributes="data-i18n view.js_i18n">
+        tal:attributes="data-i18n view/js_i18n">
         Drag/Click to upload documents.
       </div>
       <div id="upload-preview"></div>
