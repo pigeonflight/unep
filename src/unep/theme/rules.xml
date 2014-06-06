@@ -90,8 +90,21 @@
     <script type="text/javascript"
         src="++resource++plone.app.widgets.js"></script>
         -->
-        
-        
+        <!-- slide show from collective.cover collection tile -->
+         <replace css:content=".tile-default .cover-collection-tile" css:if-content=".tile-default .cover-collection-tile">
+            <div class="flexslider"> 
+            <ul class="slides">
+              <xsl:for-each css:select=".collection-item">
+              <li><xsl:copy-of css:select=".collection-item > a"/>
+               <div class="flex-caption right"><xsl:copy-of css:select=".collection-item p.description"/></div>
+               <xsl:copy-of css:select=".collection-item h2"/></li>
+               </xsl:for-each>
+             </ul>
+             </div> 
+         </replace>  
+         <after css:if-content=".tile-default .cover-collection-tile" css:theme-children="body"><script src="++theme++unep.theme/js/flexslider.js"></script></after>
+
+            
     <!-- <script type="text/javascript"
         src="++resource++plone.app.toolbar_init.js"></script>
     <script type="text/javascript"
