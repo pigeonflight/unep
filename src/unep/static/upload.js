@@ -18,7 +18,7 @@ require([
       $(this).parents('.portalMessage').remove();
     });
   }
-  var I18N = JSON.parse($('#upload').data('i18n')),
+  var I18N = JSON.parse($('#upload').attr('data-i18n')),
       uploadHtml = $('#upload').html(),
       progress = $('<div><span>' + I18N['Uploading ...'] + '<span></div>'),
       uploaded = [];
