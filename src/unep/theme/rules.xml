@@ -42,10 +42,9 @@
         <replace css:theme-children=".main-section"
                  css:content="#content" />
         <!-- edit bar -->
-        <before css:theme-children=".main-section" css:content="#edit-bar" />
+        <after css:theme-children="header .top-container" css:content="#edit-bar" />
         
         <!-- main content -->
-        <drop css:theme=".hero-section" css:if-not-content=".section-front-cover" />
         <drop css:content=".template-view .galleria" />
         <drop css:content=".template-newsitem_view .galleria" />
         <replace css:theme-children=".slider-column"
@@ -77,21 +76,84 @@
                  css:content-children=".doormatColumn.column-7" />
                  
          <merge attributes="class" css:theme="h3.footer-sm-heading" css:content=".doormatColumn h3" />
-         <!-- <merge attributes="class" 
-               css:theme=".footer-blocks h3" method="raw">
-            <b class="footer-sm-heading" /></merge>
-        -->         
-        <!-- rules for plone.app.toolbar -->
-    <!-- <before theme-children="/html/head">
-    <link rel="stylesheet" type="text/css"
-        href="++resource++plone.app.widgets.css"/>        
-    <script type="text/javascript"
-        src="++resource++plone.app.jquery.js"></script>
-    <script type="text/javascript"
-        src="++resource++plone.app.widgets.js"></script>
-        -->
+     
+        <!-- embed first row in hero section -->
+         <drop css:theme=".hero-section" />
+         <before css:theme=".main-section" css:if-content="body.template-view.section-front-cover" method="raw">
+            <section class="hero-section"> 
+                <!-- <xsl:copy-of css:select=".row-1" /> -->
+                <!-- raw code -->
+                <div class="w-container slider-etc">
+      <div class="w-row">
+        <div class="w-col w-col-8 slider-column">
+          <div>
+            <div class="w-slider main-slider" data-animation="slide" data-duration="1000" data-infinite="1" data-delay="4000" data-autoplay="1">
+              <div class="w-slider-mask">
+               <xsl:for-each css:select=".row-1 .tile-default .collection-item">
+                <div class="w-slide">
+                    <xsl:copy-of css:select=".collection-item > a"/>
+                    <div class="slide-text">
+                    <h4 class="slide-title"><xsl:value-of css:select=".collection-item h2"/></h4>
+                    <div class="slide-description"><xsl:value-of css:select=".collection-item p.description"/></div>
+                   </div>
+                 </div>
+                </xsl:for-each>
+                </div>
+              
+              <div class="w-slider-arrow-left slider-arrows">
+                <div class="w-icon-slider-left"></div>
+              </div>
+              <div class="w-slider-arrow-right">
+                <div class="w-icon-slider-right slider-arrows"></div>
+              </div>
+               <div class="w-slider-nav w-shadow w-round slider-nav"></div>
+              </div>
+            </div>
+          </div>
+        
+        <div class="w-col w-col-4">
+          <div class="w-clearfix upcoming-meetings">
+            <h2 class="meetings-area"><xsl:value-of css:select=".row-1 .col-2 .tile-header h2"/></h2>
+            <xsl:for-each css:select=".row-1 .col-2 .collection-item">
+             <div class="meetings-holder">
+                 
+            <div class="meetings-bg seats-1">
+                <h4 class="meetings-bg"><xsl:copy-of css:select=".collection-item h2 a"/></h4>
+                <!-- <div class="meeting-desc">Nov 24 – 29, 2014</div> -->
+              </div>
+            </div>
+            </xsl:for-each>
+              
+           <!--
+            <div class="meetings-holder">
+              <div class="meetings-bg seats-2">
+                <h4 class="meetings-bg">SPAW STAC 6</h4>
+                <div class="meeting-desc">Nov 24 – 29, 2014</div>
+              </div>
+            </div>
+            <div class="meetings-holder">
+                
+              <div class="meetings-bg seats-3">
+                <h4 class="meetings-bg">IGM 16</h4>
+                <div class="meeting-desc">Nov 24 – 29, 2014</div>
+              </div>
+            </div>
+            -->
+            <xsl:for-each css:select=".row-1 .col-2 .tile-footer a">  
+            <a class="cep-links ondark" href="#"><xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute><xsl:value-of select="." /></a>
+            </xsl:for-each>
+          </div>
+        </div>
+      </div></div>
+    <!-- ? -->
+                <!-- raw code -->
+             </section> 
+           
+         </before>  
+         <drop css:content=".row-1" css:if-content="body.section-front-cover.template-view"/>
+        
         <!-- slide show from collective.cover collection tile -->
-         <replace css:content=".tile-default .cover-collection-tile" css:if-content=".tile-default .cover-collection-tile">
+         <replace css:content=".tile-default .cover-collection-tile" css:if-content=".zzztile-default .cover-collection-tile" method="raw">
             <div class="flexslider"> 
             <ul class="slides">
               <xsl:for-each css:select=".collection-item">
@@ -102,7 +164,7 @@
              </ul>
              </div> 
          </replace>  
-         <after css:if-content=".tile-default .cover-collection-tile" css:theme-children="body"><script src="++theme++unep.theme/js/flexslider.js"></script></after>
+         <after css:if-content=".zzztile-default .cover-collection-tile" css:theme-children="body"><script src="++theme++unep.theme/js/flexslider.js"></script></after>
 
             
     <!-- <script type="text/javascript"

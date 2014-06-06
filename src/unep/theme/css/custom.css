@@ -81,3 +81,18 @@ background: rgb(240, 240, 240);
 padding: 2px 9px;
 line-height: 1.9em;
 }
+
+.footer-container p {color:#fff;}
+
+.meetings-bg a {
+color: white;
+    text-decoration:none;
+}
+.meetings-bg a:hover {
+color: #888;
+    text-decoration:none;
+}
+
+.cep-header {
+    background-size:cover;
+}

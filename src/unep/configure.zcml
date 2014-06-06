@@ -25,6 +25,17 @@
     />
 
   <plone:static name="unep.theme" directory="theme" type="theme" />
+  
+  <!-- <plone:tile name="unep.meeting_collection"
+      title="Meeting Collection Tile"
+      description="A special tile for UNEP meetings shows the result of a collection includes start and end date."
+      icon="++resource++unep/tile-meeting_collection.png"
+      add_permission="cmf.ModifyPortalContent"
+      schema=".meeting_collection_tile.IMeetingCollectionTile"
+      class=".meeting_collection_tile.MeetingCollectionTile"
+      permission="zope2.View"
+      for="*"
+      /> -->
 
   <browser:resourceDirectory
       name="unep"
@@ -98,5 +109,7 @@
     description=""
     handler="unep.setuphandlers.setupVarious"
     />
+    
+   
 
 </configure>
