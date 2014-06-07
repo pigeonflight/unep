@@ -135,7 +135,7 @@ p {
   float: none;
   clear: none;
   border-radius: 5px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.58);
   color: white;
   font-size: 14px;
   font-weight: 300;
@@ -745,7 +745,7 @@ p {
 .nav-bar {
   background-color: transparent;
 }
-.super-menu-wrapper {
+.xsuper-menu-wrapper {
   background-color: #28558f;
 }
 .nav-menu {

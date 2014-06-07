@@ -1,21 +1,71 @@
-div.resources-section,.logos-section,footer div.w-row {
-    wasdisplay: none;
-    /* hide some things temporarily */
+#edit-bar{height:2.6em;margin-bottom:0}
+#edit-bar a:hover,#contentActionMenus dl.actionMenu a:hover{text-decoration:none;color:#444;}
+#edit-bar #contentActionMenus {
+margin-right: .5em;
 }
+#contentActionMenus dl.actionMenu.activated dd {
+min-width: 11em;
+}
+a.w-nav-link.super-menu-nav:visited {
+    color: rgb(211, 222, 206);
+}
+a.w-nav-link.super-menu-nav {
+    color: white;
+}
+.nav-bar a:hover,nav a:hover {
+    text-decoration: none;
+    color: rgb(194, 194, 194);
+}
+a.w-nav-link.super-menu-nav:hover{
+    color:rgb(120, 120, 120);
+}
+.btn {
+margin-right: 3px;
+}
+input[value="Delete"] {
+    background: rgb(224, 124, 124);
+}
+.w-slider img {
+    position: absolute;
+    top: 0;
+    right:0;
+    width:auto;
+    height:100%;
+}
+.w-slider  {
+    background:#333;
+    }
+.w-slider .slide-text {
+position: absolute;
+left: 49px;
+top: 10px;
+z-index: auto;
+width: 33%;
+margin-right: 0px;
+margin-left: 0px;
+padding: 0px 10px 0px 15px;
+background-color: rgba(18, 18, 18, 0.70);
+}
+/* hide some things temporarily 
+div.resources-section,.logos-section,footer div.w-row {
+    display: none;
+    
+}
+*/
 
-#edit-bar{height:2.6em;}
-#contentActionMenus li {
+/* #contentActionMenus li {
 display: inline !important;
 }
 #contentActionMenus {
 float: none !important;
 }
-.xcontentViews a {
+.contentViews a {
 font-size: 75%;
 }
-div.xcontentActions a {
+div.contentActions a {
 font-size: 90%;
 }
+*/
 div#portal-searchbox {
 top: 28px;
 position: relative;
