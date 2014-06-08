@@ -30,6 +30,9 @@
         
         <copy attributes="href" css:theme=".brand-wrapper a.w-nav-brand" css:content="a#portal-logo" />
         
+        <!-- add personal tools -->
+        <before css:theme='header' css:content='#portal-personaltools-wrapper' 
+                css:if-content=".userrole-authenticated" />
        
         <!-- search bar -->
         <replace css:theme=".search-bar" css:content="#portal-searchbox" />
@@ -44,6 +47,15 @@
         <!-- edit bar -->
         <after css:theme-children="header .top-container" css:content="#edit-bar" />
         
+        <!-- topmost menu -->
+        <replace css:theme="nav.super-menu">
+        <nav class="w-nav-menu w-hidden-small w-hidden-tiny super-menu" role="navigation">
+            <a class="w-nav-link w-hidden-small w-hidden-tiny super-menu-nav" href="{$portal_url}/contact-us">Contact</a>
+            <a class="w-nav-link w-hidden-small w-hidden-tiny super-menu-nav" href="{$portal_url}/vacancies-and-internships">Vacancies and Internships</a>
+            <a class="w-nav-link super-menu-nav" href="{$portal_url}/staff-directory">Staff Directory</a>
+            <a class="w-nav-link super-menu-nav" href="http://unep.org">UNEP</a>
+         </nav>
+        </replace>
         <!-- main content -->
         <drop css:content=".template-view .galleria" />
         <drop css:content=".template-newsitem_view .galleria" />
