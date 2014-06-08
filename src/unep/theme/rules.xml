@@ -86,7 +86,7 @@
         <before css:theme-children="body" css:content-children="#putitatthebottom" method="raw" />
                  
         <!-- Doormat Footer Columns -->
-        <replace css:theme-children=".logos-section .column-one"
+        <!-- <replace css:theme-children=".logos-section .column-one"
                  css:content-children=".doormatColumn.column-0 .doormatSectionBody" />
         <replace css:theme-children=".logos-section .column-two"
                  css:content-children=".doormatColumn.column-1 .doormatSectionBody" />
@@ -105,7 +105,8 @@
                  css:content-children=".doormatColumn.column-7" />
                  
          <merge attributes="class" css:theme="h3.footer-sm-heading" css:content=".doormatColumn h3" />
-     
+         -->
+        
         <!-- embed first row in hero section -->
          <drop css:theme=".hero-section" />
          <before css:theme=".main-section" css:if-content="body.template-view.section-front-cover" method="raw">
