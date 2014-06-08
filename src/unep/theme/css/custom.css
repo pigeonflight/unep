@@ -143,6 +143,13 @@ font-size: 130%;
     color: rgb(166, 153, 192) !important;
     border-bottom: 0px;
 }
+#content .badges a {
+    color: white;
+}
+#content .badges a:visited {
+    color: white;
+}
+
 .portalMessage .error {
 font-style: italic;
 border-bottom: 1px dashed rgb(116, 116, 116);
