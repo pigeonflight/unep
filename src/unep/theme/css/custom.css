@@ -3,6 +3,9 @@
 #edit-bar #contentActionMenus {
 margin-right: .5em;
 }
+div#LSResult {
+z-index: 1500;
+}
 #contentActionMenus dl.actionMenu.activated dd {
 min-width: 11em;
 }
