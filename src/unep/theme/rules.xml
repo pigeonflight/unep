@@ -56,7 +56,7 @@
             <a class="w-nav-link super-menu-nav" href="http://unep.org">UNEP</a>
          </nav>
         </replace>
-        
+        <drop css:theme=".resources-section" css:if-not-content=".section-front-cover" />
         <!-- hard coded footer for now -->
         <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks">
           <a class="footer-links" href="{$portal_url}/contact-us">Contact</a><br />

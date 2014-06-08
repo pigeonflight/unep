@@ -150,7 +150,10 @@ background: rgb(240, 240, 240);
 padding: 2px 9px;
 line-height: 1.9em;
 }
-
+.logos-section {
+border-top: 1px solid #EEE;
+padding-top: 10px;
+}
 .footer-container p {color:#fff;}
 
 .meetings-bg a {
