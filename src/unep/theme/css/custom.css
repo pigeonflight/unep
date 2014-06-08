@@ -173,3 +173,12 @@ color: #888;
 .badges {
     margin: 0px auto 15px;
 }
+.footer-social a {
+    margin-right: -6px;
+}
+a.footer-links {
+color: white;
+}
+a.footer-links:hover {
+text-decoration:none;
+}

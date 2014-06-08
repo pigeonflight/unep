@@ -56,6 +56,31 @@
             <a class="w-nav-link super-menu-nav" href="http://unep.org">UNEP</a>
          </nav>
         </replace>
+        
+        <!-- hard coded footer for now -->
+        <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks">
+          <a class="footer-links" href="{$portal_url}/contact-us">Contact</a><br />
+            <a class="footer-links" href="{$portal_url}/vacancies-and-internships">Vacancies and Internships</a><br />
+            <a class="footer-links" href="{$portal_url}/staff-directory">Staff Directory</a><br />
+            <a class="footer-links" href="http://unep.org">UNEP</a><br />
+        </replace>
+        <replace css:theme-children="div.footer-blocks.column-one .footer-offices">   
+              <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3214&amp;l=en">UNEP Divisions</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3302&amp;l=en">UNEP Regional Offices</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3401&amp;l=en">UNEP Liaison Offices</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=166&amp;ArticleID=3322&amp;l=en">UNEP Out-Posted Offices</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=296&amp;ArticleID=3501&amp;l=en">UNEP Collaborating Centres</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=43&amp;ArticleID=234&amp;l=en">Conventions Secretariats</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=43&amp;ArticleID=201&amp;l=en">Scientific Advisory Groups</a><br />
+        </replace>
+        <replace css:theme-children="div.footer-blocks.column-three .footer-resources"> 
+                <a class="footer-links" href="{$portal_url}/fact-sheets">CEP Fact Sheets</a><br />
+                <a class="footer-links" href="{$portal_url}/newsletters">Newsletters</a><br />
+                <a class="footer-links" href="{$portal_url}/press">Press Releases</a><br />
+                <a class="footer-links" href="{$portal_url}/photo-gallery">Photo Gallery</a><br />
+        </replace>
+       
+      
         <!-- main content -->
         <drop css:content=".template-view .galleria" />
         <drop css:content=".template-newsitem_view .galleria" />
