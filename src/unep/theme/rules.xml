@@ -57,6 +57,15 @@
          </nav>
         </replace>
         <drop css:theme=".resources-section" css:if-not-content=".section-front-cover" />
+        <!-- hard coded kids corner for now -->
+        <replace css:theme-children=".resources-badge.clearing-houses">
+           <a href="{$portal_url}/clearing-house-and-databases"><h3 class="resources-heading">Clearing Houses and Databases</h3>
+            <img class="resources-image" src="{$portal_url}/cep-images/databases.jpg" width="200" alt="clearing houses and databases" />
+        </a></replace>
+        <replace css:theme-children=".resources-badge.kids-corner">
+            <a href="{$portal_url}/kids-corner"><img class="resources-image" src="{$portal_url}/cep-images/kids-corner.jpg" width="200" alt="kids corner" /></a>
+            <a href="{$portal_url}/kids-corner"><h3 class="resources-heading">Kid’s Corner</h3></a>
+        </replace>
         <!-- hard coded footer for now -->
         <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks">
           <a class="footer-links" href="{$portal_url}/contact-us">Contact</a><br />

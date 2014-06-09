@@ -127,15 +127,14 @@ p {
   right: 0px;
   width: auto;
   height: auto;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-right: 20px;
   margin-bottom: 0px;
-  padding-top: 2px;
   padding-bottom: 3px;
   float: none;
   clear: none;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.58);
+  /*background-color: rgba(0, 0, 0, 0.58);*/
   color: white;
   font-size: 14px;
   font-weight: 300;
@@ -760,6 +759,9 @@ p {
 }
 .brand-wrapper {
   background-color: white;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  border-bottom-right-radius: 10px;
 }
 .header {
   border-bottom: 1px solid #7e859c;
