@@ -178,6 +178,17 @@ color: #888;
     -webkit-border-bottom-right-radius: 10px;
     -moz-border-radius-bottomright: 10px;
     border-bottom-right-radius: 10px;
+    -webkit-box-shadow: 1px 1px 5px 1px #E0E0E0;
+    -moz-box-shadow: 1px 1px 5px 1px #E0E0E0;
+    box-shadow: 1px 1px 5px 1px #E0E0E0;
+}
+.brand-wrapper{
+-moz-box-shadow: -1px 1px 1px 0px #BBBBBB;
+-webkit-border-bottom-left-radius: 3px;
+-moz-box-shadow: -1px 1px 1px 0px #BBBBBB;
+-webkit-border-bottom-left-radius: 3px;
+ box-shadow: -1px 1px 1px 0px #BBBBBB;
+ border-bottom-left-radius: 3px;
 }
 
 .main-section .row-3 {
