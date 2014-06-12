@@ -126,8 +126,8 @@
         </replace>
         -->         
         <!-- Put it at the bottom -->
-        <drop css:theme="#putitatthebottom" />
-        <before css:theme-children="body" css:content-children="#putitatthebottom" method="raw" />
+        <drop css:content="#putitatthebottom" />
+        <!--<before css:theme-children="body" css:content-children="#putitatthebottom" method="raw" /> -->
                  
         <!-- Doormat Footer Columns -->
         <!-- <replace css:theme-children=".logos-section .column-one"

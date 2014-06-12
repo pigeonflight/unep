@@ -470,7 +470,15 @@ class MeetingView(BrowserView):
     @property
     def description(self):
         return get_translated(self.context, self.request, 'description')
-
+    
+    @property
+    def end(self):
+        return self.context.end
+    
+    @property
+    def start(self):
+        return self.context.start
+    
     @property
     def announcement(self):
         return get_translated(self.context, self.request, 'announcement')

@@ -3,13 +3,20 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       metal:use-macro="context/main_template/macros/master">
   
+  <metal:block fill-slot="style_slot">
+     <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
+     <link rel="stylesheet" type="text/css" href="++resource++unep/meeting.css" />
+  </metal:block>
   <metal:block fill-slot="main">
-
-    <h1 class="documentFirstHeading" tal:content="view/title">Title</h1>
-
-    <p class="documentDescription" tal:content="view/description">Description</p>
-
-    <ul id="unep-language">
+  <tal:defs
+       tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                   enddate context/end;
+                   startdate context/start;
+                   end python:toLocalizedTime(enddate);
+                   start python:toLocalizedTime(startdate);
+                   ">
+    
+     <ul id="unep-language">
       <li id="unep-language-en">
         <a href="#">
           <img src="++resource++unep/en.png" />
@@ -29,17 +36,24 @@
         </a>
       </li>
     </ul>
+    <div class="documentHeading">
+    <h1 class="documentFirstHeading" tal:content="view/title">Title</h1>
+    <p class="documentDate"><span class="documentStart" tal:content="startdate">Start</span> &ndash;
+    <span class="documentEnd" tal:content="enddate">Start</span></p>
+    <p class="documentMeetingLocation" tal:content="context/location">Meeting Location</p>
+    <span class="documentMeetingType" tal:content="context/meeting_type">Meeting Type</span>
 
-    <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
+    <p class="documentDescription" tal:content="view/description">Description</p>
+    </div>
 
-    <div id="meeting-navigation">
+    <!-- <div id="meeting-navigation">
       <h3 tal:content="python:view.translate('Navigation')">Navigation</h3>
       <ul>
         <li tal:condition="view/announcement"><a href="#meeting-text-announcement" tal:content="python:view.translate('Announcements')">Announcements</a></li>
         <li tal:condition="view/information"><a href="#meeting-text-information" tal:content="python:view.translate('Information note for participants')">Information note for participants</a></li>
         <li tal:condition="view/additional"><a href="#meeting-text-other" tal:content="python:view.translate('Other')">Other</a></li>
       </ul>
-    </div>
+    </div> -->
 
     <div id="meeting-texts">
 
@@ -86,13 +100,13 @@
        
     </div>
     
-    <link rel="stylesheet" type="text/css" href="++resource++unep/meeting.css" />
+    
 
     <div id="putitatthebottom">
       <script src="++resource++unep/meeting.js"></script> 
       <script src="++resource++unep/language.js"></script> 
     </div>
-
+  </tal:defs>
   </metal:block>
 
 </html>
