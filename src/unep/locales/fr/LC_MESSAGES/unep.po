@@ -9,86 +9,86 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
 msgid " does not have a language identifier at the end of it\'s name (-en,-es,-fr). Please rename with a language identifier and attempt to upload again."
-msgstr ""
+msgstr " ne pas avoir un identificateur de langue à la fin de celui-ci s '\ nom (-en,-es,-fr). S'il vous plaît renommer un identificateur de langue et de tenter de télécharger à nouveau."
 
-msgid "Additional Information"
-msgstr ""
+msgid "Informations complémentaires"
+msgstr "Informations complémentaires"
 
 msgid "Announcements"
-msgstr ""
+msgstr "Annonces"
 
 msgid "Announcements attachment"
-msgstr ""
+msgstr "annonces attachement"
 
 msgid "Back to Meeting"
-msgstr ""
+msgstr "Retour à la réunion"
 
 msgid "Cancel"
-msgstr ""
+msgstr "annuler"
 
 msgid "Click on link to edit their metadata."
-msgstr ""
+msgstr "Cliquez sur le lien pour modifier leurs métadonnées"
 
 msgid "Download"
-msgstr ""
+msgstr "télécharger"
 
 msgid "Drag/Click to upload documents."
-msgstr ""
+msgstr "Glisser / Cliquer pour télécharger des documents."
 
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 msgid "English"
-msgstr ""
+msgstr "anglais"
 
 msgid "Error"
-msgstr ""
+msgstr "erreur"
 
 msgid "Following documents were created/updated."
-msgstr ""
+msgstr "Les documents suivants ont été créés / mis à jour."
 
 msgid "French"
-msgstr ""
+msgstr "français"
 
 msgid "Information note attachment"
-msgstr ""
+msgstr "Note d'information attachement"
 
 msgid "Information note for participants"
-msgstr ""
+msgstr "Note d'information pour les participants"
 
 msgid "Items selected:"
-msgstr ""
+msgstr "Les éléments sélectionnés:"
 
 msgid "Meeting documents"
-msgstr ""
+msgstr "documents de la réunion"
 
 msgid "Navigation"
-msgstr ""
+msgstr "navigation"
 
 msgid "Other"
-msgstr ""
+msgstr "autre"
 
 msgid "Select All"
-msgstr ""
+msgstr "Sélectionner tout"
 
 msgid "Select the documents you wish to download"
-msgstr ""
+msgstr "Sélectionnez les documents que vous souhaitez télécharger"
 
 msgid "Spanish"
-msgstr ""
+msgstr "espagnol"
 
 msgid "Upload"
-msgstr ""
+msgstr "Télécharger"
 
 msgid "Upload successful: "
-msgstr ""
+msgstr "Téléchargez succès: "
 
 msgid "Uploading..."
-msgstr ""
+msgstr "Téléchargement ..."
 
