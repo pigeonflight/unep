@@ -42,8 +42,21 @@
           <a><xsl:attribute name="class"><xsl:value-of select="./@class" /> w-nav-link navlink</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="./a/@href" /></xsl:attribute><xsl:copy-of select="./a/text()" /></a>
           </xsl:for-each>
         </replace>
+        
+        <!-- main section -->
+        <replace css:theme-children=".main"
+                       css:content="#content"
+              css:if-content="#portal-column-two" />
+        <replace css:theme-children=".side"
+                          css:content-children="#portal-column-two"
+              css:if-content="#portal-column-two" />
+        <drop css:theme=".about-info" css:if-content="#portal-column-two"/>
+        <drop css:theme=".projects-section" css:if-content="#portal-column-two"/>
+        
+        
         <replace css:theme-children=".main-section"
-                 css:content="#content" />
+                 css:content="#content" 
+                 css:if-not-content="#portal-column-two" />
         <!-- edit bar -->
         <after css:theme-children="header .top-container" css:content="#edit-bar" />
         
@@ -100,13 +113,15 @@
         </replace>
        
       
-        <!-- main content -->
+        <!-- drop galleria for collective.cover -->
         <drop css:content=".template-view .galleria" />
         <drop css:content=".template-newsitem_view .galleria" />
         <replace css:theme-children=".slider-column"
                  css:content=".template-view .galleria" method="raw"/>
         <replace css:theme-children=".slider-column"
                  css:content=".template-newsitem_view .galleria" method="raw"/>
+        
+        
         
         <!-- switch to w-grid -->
        <!-- <replace content="//div[contains(@class,'row')]/@class">

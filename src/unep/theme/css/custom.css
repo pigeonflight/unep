@@ -171,7 +171,9 @@ color: white;
 color: #888;
     text-decoration:none;
 }
-
+.two-column .side {
+margin-top: 2em;
+}
 .cep-header {
     background-image: url('../images/waves.png');
     background-size:cover;
