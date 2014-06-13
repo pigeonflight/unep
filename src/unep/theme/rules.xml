@@ -108,8 +108,8 @@
                 <a class="footer-links" href="{$portal_url}/fact-sheets">CEP Fact Sheets</a><br />
                 <a class="footer-links" href="{$portal_url}/newsletters">Newsletters</a><br />
                 <a class="footer-links" href="{$portal_url}/press">Press Releases</a><br />
-                <a class="footer-links" href="{$portal_url}/photo-gallery">Photo Gallery</a><br />
-                <a class="footer-links" href="{$portal_url}/publications-and-resources/databases/cep-photo-gallery">Publications and Resources</a><br />
+                <a class="footer-links" href="{$portal_url}/publications-and-resources/databases/cep-photo-gallery">Photo Gallery</a><br />
+                <a class="footer-links" href="{$portal_url}/publications-and-resources">Publications and Resources</a><br />
         </replace>
        
       
