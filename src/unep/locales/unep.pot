@@ -94,3 +94,12 @@ msgstr ""
 
 msgid "Cancel"
 msgstr ""
+
+msgid "Announcements attachment"
+msgstr ""
+
+msgid "Information note attachment"
+msgstr ""
+
+msgid "Meeting Documents"
+msgstr ""

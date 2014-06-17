@@ -92,3 +92,11 @@ msgstr "Téléchargez succès: "
 msgid "Uploading..."
 msgstr "Téléchargement ..."
 
+msgid "Announcements attachment"
+msgstr "Annonces attachement" 
+
+msgid "Information note attachment"
+msgstr "Note d'information attachement" 
+
+msgid "Meeting Documents" 
+msgstr "Documents de réunion" 

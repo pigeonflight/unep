@@ -92,3 +92,11 @@ msgstr "Carga exitoso: "
 msgid "Uploading..."
 msgstr "Subiendo...:"
 
+msgid "Announcements attachment"
+msgstr "Anuncios apego" 
+
+msgid "Information note attachment"
+msgstr "Nota informativa apego" 
+
+msgid "Meeting Documents"
+msgstr "documentos de la reunión" 
