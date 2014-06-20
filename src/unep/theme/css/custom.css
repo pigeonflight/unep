@@ -209,3 +209,19 @@ color: white;
 a.footer-links:hover {
 text-decoration:none;
 }
+.tweetBody {
+color: white;
+display: block;
+font-weight: 200;
+padding-bottom: 10px;
+border-bottom: 1px solid #4DA4DD;
+font-size: 13px;
+font-family: 'Gentium Basic', sans-serif;
+margin-bottom: 7px;
+}
+.tweetBody a {
+    color: white;
+    border-bottom: 1px dashed #ADC5E9;
+    text-decoration:none;
+}
+.tweetBody a:hover{color:#ffd126; border-bottom:none}
