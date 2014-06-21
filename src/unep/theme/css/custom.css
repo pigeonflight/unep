@@ -209,6 +209,12 @@ color: white;
 a.footer-links:hover {
 text-decoration:none;
 }
+div.portalMessage.info {
+background: rgb(222, 165, 45);
+padding: 10px 20px;
+margin-bottom: 1em;
+border-radius: 5px;
+}
 .tweetBody {
 color: white;
 display: block;
@@ -250,4 +256,16 @@ a#sfc-ical-export img{
 a#sfc-ical-export:hover img{
     opacity:1;
     margin-right:3px;
+}
+a.manage-portlets {
+    display: inline;
+    background: rgb(212, 182, 182);
+    position: relative;
+    padding: 3px 9px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+a.manage-portlets:hover {color:#333}
+div.social-more {
+margin-top: 1em;
 }

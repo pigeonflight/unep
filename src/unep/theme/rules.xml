@@ -43,20 +43,36 @@
           </xsl:for-each>
         </replace>
         
-        <!-- main section -->
+        <!-- *****  main section ***** -->
+        <!-- custom side bars -->
         <replace css:theme-children=".main"
                        css:content="#content"
               css:if-content="#portal-column-two" />
         <replace css:theme-children=".side"
                           css:content-children="#portal-column-two"
               css:if-content="#portal-column-two" />
+        <after css:theme-children=".side" css:if-content=".userrole-manager"><a class="manage-portlets" href="manage-portlets">manage portlets</a></after>
+        
+        <!-- customizations for the manage portlets screen -->
+        <replace css:theme-children=".footer-and-left"
+                       css:content="#portal-column-one"
+              css:if-content=".template-manage-portlets #portal-column-one" />
+          <before css:theme-children=".footer-and-left"
+              css:if-content=".template-manage-portlets #portal-column-one"><h2>Footer Portlets</h2></before>
+        <before css:theme-children=".side"
+              css:if-content=".template-manage-portlets #portal-column-two"><h2>Sidebar Portlets</h2></before>
+        
+        <drop attributes="class" css:content="#portal-column-one" />
         <drop css:theme=".about-info" css:if-content="#portal-column-two"/>
         <drop css:theme=".projects-section" css:if-content="#portal-column-two"/>
         
-        
+        <!-- no side bars -->
         <replace css:theme-children=".main-section"
                  css:content="#content" 
                  css:if-not-content="#portal-column-two" />
+        <rules css:if-not-content="#portal-column-two">
+         <after css:theme-children=".main-section" css:if-content=".userrole-manager"><a class="manage-portlets" href="manage-portlets">manage portlets</a></after>
+        </rules>        
         <!-- edit bar -->
         <after css:theme-children="header .top-container" css:content="#edit-bar" />
         
@@ -89,7 +105,7 @@
         
         
         <!-- hard coded footer for now -->
-        
+        <!--
         <replace css:theme-children="div.footer-blocks.column-one .footer-offices">   
               <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3214&amp;l=en">UNEP Divisions</a><br />
             <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3302&amp;l=en">UNEP Regional Offices</a><br />
@@ -98,19 +114,34 @@
             <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=296&amp;ArticleID=3501&amp;l=en">UNEP Collaborating Centres</a><br />
             <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=43&amp;ArticleID=234&amp;l=en">Conventions Secretariats</a><br />
             <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=43&amp;ArticleID=201&amp;l=en">Scientific Advisory Groups</a><br />
-        </replace>
+        </replace> -->
 
-        <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks"> 
+        <!--
+          <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks"> 
                 <a class="footer-links" href="{$portal_url}/fact-sheets">CEP Fact Sheets</a><br />
                 <a class="footer-links" href="{$portal_url}/newsletters">Newsletters</a><br />
                 <a class="footer-links" href="{$portal_url}/press">Press Releases</a><br />
                 <a class="footer-links" href="{$portal_url}/publications-and-resources/databases/cep-photo-gallery">Photo Gallery</a><br />
                 <a class="footer-links" href="{$portal_url}/publications-and-resources">Publications and Resources</a><br />
         </replace>
-        <drop css:content=".portletTwitterPortlet" />
+        -->
+        <!-- logos row -->
+        <replace css:theme-children=".logos-row .column-one" css:content-children=".portlet-static-logo-one dd"/>
+        <replace css:theme-children=".logos-row .column-two" css:content-children=".portlet-static-logo-two dd"/>
+        <replace css:theme-children=".logos-row .column-three" css:content-children=".portlet-static-logo-three dd"/>
+        <replace css:theme-children=".logos-row .column-four" css:content-children=".portlet-static-logo-four dd"/>
+        
+        
+        
+        <!-- footer -->
+        <replace css:theme-children="div.footer-blocks.column-one .footer-offices" css:content=".portlet-static-unep-offices dd"/>
+        <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks" css:content=".portlet-static-quick-links dd" />
         <replace css:theme-children="div.footer-blocks.column-three .footer-resources">
             <xsl:for-each css:select=".portletTwitterPortlet dd"><xsl:copy-of css:select=".tweetBody"/></xsl:for-each>
-        </replace>       
+        </replace> 
+        <replace css:theme-children="div.footer-blocks.column-four .footer-social .social-more" css:content=".portlet-static-social-media dd" />
+                                                                                                   
+              
       
         <!-- drop galleria for collective.cover -->
         <drop css:content=".template-view .galleria" />
