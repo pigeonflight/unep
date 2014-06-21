@@ -225,3 +225,9 @@ margin-bottom: 7px;
     text-decoration:none;
 }
 .tweetBody a:hover{color:#ffd126; border-bottom:none}
+.fc-event {
+background-color: #84D5FD;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+border: none;
+}
