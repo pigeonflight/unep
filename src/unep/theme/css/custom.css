@@ -231,3 +231,23 @@ background-color: #84D5FD;
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
 border: none;
 }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+background: #ABABAB;
+}
+#content a#sfc-ical-export {
+    background: rgb(88, 57, 5);
+    padding: 3px 5px;
+    border-radius: 2px;
+    color: #ddd;
+}
+body #content a#sfc-ical-export:hover{
+    color:white !important;
+}
+a#sfc-ical-export img{
+    opacity:.7;
+    margin-right:3px;
+}
+a#sfc-ical-export:hover img{
+    opacity:1;
+    margin-right:3px;
+}

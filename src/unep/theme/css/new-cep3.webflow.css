@@ -22,7 +22,7 @@ h2 {
   font-size: 25px;
   line-height: 30px;
   font-weight: 800;
-  text-transform: uppercase;
+ /* text-transform: uppercase; */
 }
 h3 {
   margin-top: 20px;
@@ -32,7 +32,7 @@ h3 {
   font-size: 22px;
   line-height: 26px;
   font-weight: 800;
-  text-transform: uppercase;
+ /*  text-transform: uppercase; */
 }
 h4 {
   margin-top: 10px;
@@ -291,7 +291,7 @@ p {
   font-size: 17px;
   line-height: 19px;
   font-weight: 800;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 .slide-description {
   position: static;
