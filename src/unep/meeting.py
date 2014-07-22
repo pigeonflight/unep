@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from AccessControl import getSecurityManager
 from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
 from collective.dexteritytextindexer import searchable
@@ -30,45 +31,46 @@ class IMeeting(model.Schema):
 
     form.widget('start', DateWidget)
     start = schema.Date(
-        title=_(u'Meeting starts'),
-        description=_(u'Date when the meeting begins.'),
+        title=u'Meeting starts',
+        description=u'Date when the meeting begins.',
         required=True,
     )
 
     form.widget('end', DateWidget)
     end = schema.Date(
-        title=_(u'Meeting ends'),
-        description=_(u'Date when the meeting ends.'),
+        title=u'Meeting ends',
+        description=u'Date when the meeting ends.',
         required=True,
     )
 
     searchable('location')
     location = schema.TextLine(
-        title=_(u'Location'),
-        description=_(u'Location where meeting is going to happen '
-                      u'eg: Kingston, Jamaica'),
+        title=u'Location',
+        description=u'Location where meeting is going to happen '
+                    u'eg: Kingston, Jamaica',
         required=False,
     )
 
     meeting_type = schema.Choice(
-        title=_(u'Meeting type'),
-        description=_(u'The type of meeting'),
+        title=u'Meeting type',
+        description=u'The type of meeting',
         values=[
-            _(u'CEP - IGM'),
-            _(u'CEP - MONCOM'),
-            _(u'SPAW - ISTAC'),
-            _(u'SPAW - Workshop'),
-            _(u'SPAW - COP'),
-            _(u'SPAW - STAC'),
-            _(u'LBS - ISTAC'),
-            _(u'LBS - Workshop'),
+            u'CEP - IGM',
+            u'CEP - MONCOM',
+            u'SPAW - ISTAC',
+            u'SPAW - Workshop',
+            u'SPAW - COP',
+            u'SPAW - STAC',
+            u'LBS - ISTAC',
+            u'LBS - STAC',
+            u'LBS - Workshop',
         ],
         required=False,
     )
 
     registration_url = schema.URI(
-        title=_(u'Registration URL'),
-        description=_(u''),
+        title=u'Registration URL',
+        description=u'',
         required=False,
     )
 
@@ -76,6 +78,7 @@ class IMeeting(model.Schema):
         'files_working',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -85,10 +88,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_working = RelationList(
-        title=_(u'Working documents'),
-        description=_(u''),
+        title=u'Working documents',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -98,6 +101,7 @@ class IMeeting(model.Schema):
         'files_information',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -107,10 +111,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_information = RelationList(
-        title=_(u'Information documents'),
-        description=_(u''),
+        title=u'Information documents',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -120,6 +124,7 @@ class IMeeting(model.Schema):
         'files_reference',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -129,10 +134,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_reference = RelationList(
-        title=_(u'Reference documents'),
-        description=_(u''),
+        title=u'Reference documents',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -142,6 +147,7 @@ class IMeeting(model.Schema):
         'files_conference_papers',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -151,10 +157,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_conference_papers = RelationList(
-        title=_(u'Conference papers'),
-        description=_(u''),
+        title=u'Conference papers',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -164,6 +170,7 @@ class IMeeting(model.Schema):
         'files_final_reports',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -173,10 +180,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_final_reports = RelationList(
-        title=_(u'Final reports'),
-        description=_(u''),
+        title=u'Final reports',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -186,6 +193,7 @@ class IMeeting(model.Schema):
         'files_presentations',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -195,10 +203,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_presentations = RelationList(
-        title=_(u'Presentations'),
-        description=_(u''),
+        title=u'Presentations',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -208,6 +216,7 @@ class IMeeting(model.Schema):
         'files_others',
         RelatedItemsWidget,
         pattern_options={
+            "orderable": True,
             "selectableTypes": ["UNEP File"],
             "folderTypes": ['UNEP File Folder'],
             "baseCriteria": [{
@@ -217,10 +226,10 @@ class IMeeting(model.Schema):
             }],
         })
     files_others = RelationList(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         value_type=RelationChoice(
-            title=_(u'File'),
+            title=u'File',
             vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
@@ -228,7 +237,7 @@ class IMeeting(model.Schema):
 
     model.fieldset(
         'language_independent',
-        label=_(u'Language independent'),
+        label=u'Language independent',
         fields=[
             'start',
             'end',
@@ -247,41 +256,49 @@ class IMeeting(model.Schema):
 
     searchable('en_title')
     en_title = schema.TextLine(
-        title=_(u'Meeting Name'),
-        description=_(u'The name or title of the meeting'),
+        title=u'Title',
+        description=u'The name or title of the meeting',
         required=False,
+    )
+
+    searchable('en_description')
+    en_description = schema.Text(
+        title=u'Description',
+        description=u'Used in item listings and search results.',
+        required=False,
+        missing_value=u'',
     )
 
     searchable('en_announcement')
     en_announcement = RichText(
-        title=_(u'Announcement'),
-        description=_(u''),
+        title=u'Announcement',
+        description=u'',
         required=False,
     )
 
     en_announcement_file = NamedBlobFile(
-        title=_(u'Announcement attachement'),
-        description=_(u''),
+        title=u'Announcement attachement',
+        description=u'',
         required=False,
     )
 
     searchable('en_information')
     en_information = RichText(
-        title=_(u'Information note for participants'),
-        description=_(u''),
+        title=u'Information note for participants',
+        description=u'',
         required=False,
     )
 
     en_information_file = NamedBlobFile(
-        title=_(u'Information note attachement'),
-        description=_(u''),
+        title=u'Information note attachement',
+        description=u'',
         required=False,
     )
 
     searchable('en_additional')
     en_additional = RichText(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         required=False,
     )
 
@@ -290,6 +307,7 @@ class IMeeting(model.Schema):
         label=u'English',
         fields=[
             'en_title',
+            'en_description',
             'en_announcement',
             'en_announcement_file',
             'en_information',
@@ -304,36 +322,44 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('es_description')
+    es_description = schema.Text(
+        title=u'Description',
+        description=u'Used in item listings and search results.',
+        required=False,
+        missing_value=u'',
+    )
+
     searchable('es_announcement')
     es_announcement = RichText(
-        title=_(u'Announcement'),
-        description=_(u''),
+        title=u'Announcement',
+        description=u'',
         required=False,
     )
 
     es_announcement_file = NamedBlobFile(
-        title=_(u'Announcement attachement'),
-        description=_(u''),
+        title=u'Announcement attachement',
+        description=u'',
         required=False,
     )
 
     searchable('es_information')
     es_information = RichText(
-        title=_(u'Information note for participants'),
-        description=_(u''),
+        title=u'Information note for participants',
+        description=u'',
         required=False,
     )
 
     es_information_file = NamedBlobFile(
-        title=_(u'Information note attachement'),
-        description=_(u''),
+        title=u'Information note attachement',
+        description=u'',
         required=False,
     )
 
     searchable('es_additional')
     es_additional = RichText(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         required=False,
     )
 
@@ -342,6 +368,7 @@ class IMeeting(model.Schema):
         label=u"Spanish",
         fields=[
             'es_title',
+            'es_description',
             'es_announcement',
             'es_announcement_file',
             'es_information',
@@ -356,36 +383,44 @@ class IMeeting(model.Schema):
         required=False,
     )
 
+    searchable('fr_description')
+    fr_description = schema.Text(
+        title=u'Description',
+        description=u'Used in item listings and search results.',
+        required=False,
+        missing_value=u'',
+    )
+
     searchable('fr_announcement')
     fr_announcement = RichText(
-        title=_(u'Announcement'),
-        description=_(u''),
+        title=u'Announcement',
+        description=u'',
         required=False,
     )
 
     fr_announcement_file = NamedBlobFile(
-        title=_(u'Announcement attachement'),
-        description=_(u''),
+        title=u'Announcement attachement',
+        description=u'',
         required=False,
     )
 
     searchable('fr_information')
     fr_information = RichText(
-        title=_(u'Information note for participants'),
-        description=_(u''),
+        title=u'Information note for participants',
+        description=u'',
         required=False,
     )
 
     fr_information_file = NamedBlobFile(
-        title=_(u'Information note attachement'),
-        description=_(u''),
+        title=u'Information note attachement',
+        description=u'',
         required=False,
     )
 
     searchable('fr_additional')
     fr_additional = RichText(
-        title=_(u'Other'),
-        description=_(u''),
+        title=u'Other',
+        description=u'',
         required=False,
     )
 
@@ -394,6 +429,7 @@ class IMeeting(model.Schema):
         label=u"French",
         fields=[
             'fr_title',
+            'fr_description',
             'fr_announcement',
             'fr_announcement_file',
             'fr_information',
@@ -418,7 +454,7 @@ class Meeting(Item):
 
     @property
     def description(self):
-        return get_field(self, 'announcement', '')
+        return get_field(self, 'description', '')
 
     def setDescription(self, value):
         return
@@ -427,7 +463,22 @@ class Meeting(Item):
 class MeetingView(BrowserView):
     """
     """
+    @property
+    def title(self):
+        return get_translated(self.context, self.request, 'title')
 
+    @property
+    def description(self):
+        return get_translated(self.context, self.request, 'description')
+    
+    @property
+    def end(self):
+        return self.context.end
+    
+    @property
+    def start(self):
+        return self.context.start
+    
     @property
     def announcement(self):
         return get_translated(self.context, self.request, 'announcement')
@@ -443,6 +494,22 @@ class MeetingView(BrowserView):
     @property
     def language(self):
         return get_language(self.request)
+    
+    @property
+    def can_add_files(self):
+        sm = getSecurityManager()
+        return sm.checkPermission('unep: Add File', self.context) == 1
+
+    def translate(self, text):
+        language = get_language(self.request)
+        tool = getToolByName(self.context, 'translation_service')
+        return tool.translate(
+            text,
+            'unep',
+            context=self.context,
+            target_language=language,
+            default=text
+        )
 
 
 class MeetingDownloadsView(BrowserView):
@@ -451,64 +518,103 @@ class MeetingDownloadsView(BrowserView):
 
     def get_files(self, field_name):
         files = []
+        
         for item in getattr(self.context, field_name):
-            code = item.to_object.code
-            title = get_field(item.to_object, 'title', '')
-            description = get_field(item.to_object, 'description', '')
-            languages = []
+            titles = {}
+            if item.to_object:
+                code = item.to_object.code
+                title = get_field(item.to_object, 'title', '')
+                description = get_field(item.to_object, 'description', '')
+                languages = []
 
-            if not title:
-                title = item.to_object.id
+                if not title:
+                    title = item.to_object.id
 
-            if item.to_object.en_file:
-                languages.append('en')
-            if item.to_object.es_file:
-                languages.append('es')
-            if item.to_object.fr_file:
-                languages.append('fr')
+                _file = {
+                    'code': code,
+                    'title': title,
+                    'description': description,
+                    'uid': item.to_object.UID(),
+                    'url': item.to_object.absolute_url(),
+                    
+                }
 
-            files.append({
-                'code': code,
-                'title': title,
-                'description': description,
-                'uid': item.to_object.UID(),
-                'url': item.to_object.absolute_url(),
-                'languages': languages,
-            })
+                if item.to_object.en_file:
+                    languages.append('en')
+                if item.to_object.es_file:
+                    languages.append('es')
+                if item.to_object.fr_file:
+                    languages.append('fr')
+
+                titles['en'] = titles['es'] = titles['fr'] = None    
+                if item.to_object.en_title:
+                    titles['en'] = item.to_object.en_title     
+                if item.to_object.es_title:
+                    titles['es'] = item.to_object.es_title
+                if item.to_object.fr_title:
+                    titles['fr'] = item.to_object.fr_title
+                    
+                _file['languages'] = languages
+                _file['titles'] = titles
+                
+                files.append(_file)
         return files
-
+    
+    @property
+    def can_add_files(self):
+        sm = getSecurityManager()
+        return sm.checkPermission('unep: Add File', self.context) == 1
+        
     def sections(self):
         return [
             {
-                'klass': 'open',
+                'klass': 'jqopen',
+                'cl': 'working-documents',
                 'title': 'Working documents',
                 'files': self.get_files('files_working'),
             }, {
                 'klass': '',
+                'cl': 'information-documents',
                 'title': 'Information documents',
                 'files': self.get_files('files_information'),
             }, {
                 'klass': '',
+                'cl': 'reference-documents',
                 'title': 'Reference documents',
                 'files': self.get_files('files_reference'),
             }, {
                 'klass': '',
+                'cl': 'conference-papers',
                 'title': 'Conference papers',
                 'files': self.get_files('files_conference_papers'),
             }, {
                 'klass': '',
+                'cl': 'final-reports',
                 'title': 'Final reports',
                 'files': self.get_files('files_final_reports'),
             }, {
                 'klass': '',
+                'cl': 'presentations',
                 'title': 'Presentations',
                 'files': self.get_files('files_presentations'),
             }, {
                 'klass': '',
+                'cl': 'others',
                 'title': 'Others',
                 'files': self.get_files('files_others'),
             }
         ]
+
+    def translate(self, text):
+        language = get_language(self.request)
+        tool = getToolByName(self.context, 'translation_service')
+        return tool.translate(
+            text,
+            'unep',
+            context=self.context,
+            target_language=language,
+            default=text
+        )
 
 
 class MeetingDownloadsZip(BrowserView):

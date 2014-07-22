@@ -1,7 +1,27 @@
 #meeting-texts {
-  margin-right: 220px;
+    margin-top: 1em;
+}
+#meeting-texts .text-content {
+border: 1px solid #EEE;
+padding: 15px;
+margin-bottom: 10px;
+}
+.documentHeading .documentFirstHeading,
+#content div.documentHeading p {
+    margin-bottom: .2em;
+}
+#content div.documentHeading p {
+ font-size:18px
+}
+p.documentDescription {
+    margin-top: 10px;
 }
 
+a.meeting-attachment {
+    text-align: right;
+    display: block;
+    margin-bottom:1em;
+}
 #meeting-navigation {
   float: right;
   background: #EEE;
@@ -23,4 +43,16 @@
 
 #meeting-navigation h3 {
   margin-bottom: 0.5em;
+}
+#meeting-text-downloads {
+font-size: 215%;
+/* line-height: 1.5em; */
+text-align: right;
+}
+.meeting-attachment{
+    font-size:160%;
+}
+.meeting-downloads {
+margin-top: 20px;
+display: block;
 }

@@ -1,25 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <rules
     xmlns="http://namespaces.plone.org/diazo"
     xmlns:css="http://namespaces.plone.org/diazo/css"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <!-- copy the page title -->
-  <replace css:theme="title" css:content="title" />
+    <!-- Apply the following rules to standard Plone pages -->
+    <rules css:if-content="#visual-portal-wrapper">
 
-  <!-- copy the <base /> tag (necessary for Plone's links to work) -->
-  <before css:theme-children="head" css:content="base" />
+        <theme href="index.html" />
 
-  <!-- Drop styles in the head - these are added back by including them from Plone -->
-  <drop theme="/html/head/link" />
-  <drop theme="/html/head/style" />
+        <!-- Replace title with Plone's page title  -->
+        <replace css:theme="html head title" css:content="html head title" />
 
-  <!-- Pull in Plone CSS -->
-  <after theme-children="/html/head" content="/html/head/link | /html/head/style" />
+        <!-- Copy base tag from Plone -->
+        <before css:theme-children="html head" css:content="html head base" />
 
-  <!-- Pull in Plone JS -->
-  <after theme-children="/html/head" content="/html/head/script" />
+      
+        <!-- Copy link, style, meta tags from Plone head -->
+        <!-- #1 we first change this to add the Plone styles before the theme styles -->
+        <before css:theme-children="html head"
+               content="/html/head/link | /html/head/style | /html/head/meta" />
 
-  <!-- Body -->
-  <merge attributes="class" css:theme="body" css:content="body" />
+        <!-- merge classes from Plone body with theme body -->
+        <merge attributes="class" css:theme="body" css:content="body" />
 
-</rules>
+        <!-- Copy script tags from Plone head to end of body -->
+        <after css:theme-children="html head" css:content="html head script" /> 
+        
+        <copy attributes="href" css:theme=".brand-wrapper a.w-nav-brand" css:content="a#portal-logo" />
+        
+        <!-- add personal tools -->
+        <before css:theme='header' css:content='#portal-personaltools-wrapper' 
+                css:if-content=".userrole-authenticated" />
+       
+        <!-- search bar -->
+        <replace css:theme=".search-bar" css:content="#portal-searchbox" />
+        <!-- menu -->
+        <replace css:theme-children=".main-menu div.w-nav-menu">
+         <xsl:for-each css:select="ul#portal-globalnav li">
+          <a><xsl:attribute name="class"><xsl:value-of select="./@class" /> w-nav-link navlink</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="./a/@href" /></xsl:attribute><xsl:copy-of select="./a/text()" /></a>
+          </xsl:for-each>
+        </replace>
+        
+        <!-- *****  main section ***** -->
+        <!-- custom side bars -->
+        <replace css:theme-children=".main"
+                       css:content="#content"
+              css:if-content="#portal-column-two" />
+        <replace css:theme-children=".side"
+                          css:content-children="#portal-column-two"
+              css:if-content="#portal-column-two" />
+        <after css:theme-children=".side" css:if-content=".userrole-manager"><a class="manage-portlets" href="manage-portlets">manage portlets</a></after>
+        
+        <!-- customizations for the manage portlets screen -->
+        <replace css:theme-children=".footer-and-left"
+                       css:content="#portal-column-one"
+              css:if-content=".template-manage-portlets #portal-column-one" />
+          <before css:theme-children=".footer-and-left"
+              css:if-content=".template-manage-portlets #portal-column-one"><h2>Footer Portlets</h2></before>
+        <before css:theme-children=".side"
+              css:if-content=".template-manage-portlets #portal-column-two"><h2>Sidebar Portlets</h2></before>
+        
+        <drop attributes="class" css:content="#portal-column-one" />
+        <drop css:theme=".about-info" css:if-content="#portal-column-two"/>
+        <drop css:theme=".projects-section" css:if-content="#portal-column-two"/>
+        
+        <!-- no side bars -->
+        <replace css:theme-children=".main-section"
+                 css:content="#content" 
+                 css:if-not-content="#portal-column-two" />
+        <rules css:if-not-content="#portal-column-two">
+         <after css:theme-children=".main-section" css:if-content=".userrole-manager"><a class="manage-portlets" href="manage-portlets">manage portlets</a></after>
+        </rules>        
+        <!-- edit bar -->
+        <after css:theme-children="header .top-container" css:content="#edit-bar" />
+        
+        <!-- topmost menu -->
+        <replace css:theme="nav.super-menu">
+        <nav class="w-nav-menu w-hidden-small w-hidden-tiny super-menu" role="navigation">
+            <a class="w-nav-link w-hidden-small w-hidden-tiny super-menu-nav" href="{$portal_url}/contact-us">Contact</a>
+            <a class="w-nav-link w-hidden-small w-hidden-tiny super-menu-nav" href="{$portal_url}/vacancies-and-internships">Vacancies and Internships</a>
+            <a class="w-nav-link super-menu-nav" href="{$portal_url}/staff-directory">Staff Directory</a>
+            <a class="w-nav-link super-menu-nav" href="http://unep.org">UNEP</a>
+         </nav>
+        </replace>
+        <drop css:theme=".resources-section" css:if-not-content=".section-front-cover" />
+        <!-- hard coded kids corner for now -->
+        <replace css:theme-children=".resources-badge.clearing-houses">
+           <a href="{$portal_url}/clearing-house-and-databases"><h3 class="resources-heading">Clearing Houses and Databases</h3>
+            <img class="resources-image" src="{$portal_url}/cep-images/databases.jpg" width="200" alt="clearing houses and databases" />
+        </a></replace>
+        <replace css:theme-children=".resources-badge.kids-corner">
+            <a href="{$portal_url}/kids-corner"><img class="resources-image" src="{$portal_url}/cep-images/kids-corner.jpg" width="200" alt="kids corner" /></a>
+            <a href="{$portal_url}/kids-corner"><h3 class="resources-heading">Kid’s Corner</h3></a>
+        </replace>
+        
+        <!-- #portlet-column-one .portlet -->
+        <after css:theme-children="footer">
+               <xsl:for-each css:select="#portlet-column-one .portlet">
+                   count
+               </xsl:for-each>
+        </after>
+        
+        
+        <!-- hard coded footer for now -->
+        <!--
+        <replace css:theme-children="div.footer-blocks.column-one .footer-offices">   
+              <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3214&amp;l=en">UNEP Divisions</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3302&amp;l=en">UNEP Regional Offices</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=296&amp;ArticleID=3401&amp;l=en">UNEP Liaison Offices</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=166&amp;ArticleID=3322&amp;l=en">UNEP Out-Posted Offices</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=296&amp;ArticleID=3501&amp;l=en">UNEP Collaborating Centres</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.Multilingual/default.asp?DocumentID=43&amp;ArticleID=234&amp;l=en">Conventions Secretariats</a><br />
+            <a class="footer-links" href="http://www.unep.org/Documents.multilingual/Default.asp?DocumentID=43&amp;ArticleID=201&amp;l=en">Scientific Advisory Groups</a><br />
+        </replace> -->
+
+        <!--
+          <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks"> 
+                <a class="footer-links" href="{$portal_url}/fact-sheets">CEP Fact Sheets</a><br />
+                <a class="footer-links" href="{$portal_url}/newsletters">Newsletters</a><br />
+                <a class="footer-links" href="{$portal_url}/press">Press Releases</a><br />
+                <a class="footer-links" href="{$portal_url}/publications-and-resources/databases/cep-photo-gallery">Photo Gallery</a><br />
+                <a class="footer-links" href="{$portal_url}/publications-and-resources">Publications and Resources</a><br />
+        </replace>
+        -->
+        <!-- logos row -->
+        <replace css:theme-children=".logos-row .column-one" css:content-children=".portlet-static-logo-one dd"/>
+        <replace css:theme-children=".logos-row .column-two" css:content-children=".portlet-static-logo-two dd"/>
+        <replace css:theme-children=".logos-row .column-three" css:content-children=".portlet-static-logo-three dd"/>
+        <replace css:theme-children=".logos-row .column-four" css:content-children=".portlet-static-logo-four dd"/>
+        
+        
+        
+        <!-- footer -->
+        <replace css:theme-children="div.footer-blocks.column-one .footer-offices" css:content=".portlet-static-unep-offices dd"/>
+        <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks" css:content=".portlet-static-quick-links dd" />
+        <replace css:theme-children="div.footer-blocks.column-three .footer-resources">
+            <xsl:for-each css:select=".portletTwitterPortlet dd"><xsl:copy-of css:select=".tweetBody"/></xsl:for-each>
+        </replace> 
+        <replace css:theme-children="div.footer-blocks.column-four .footer-social .social-more" css:content=".portlet-static-social-media dd" />
+                                                                                                   
+              
+      
+        <!-- drop galleria for collective.cover -->
+        <drop css:content=".template-view .galleria" />
+        <drop css:content=".template-newsitem_view .galleria" />
+        <replace css:theme-children=".slider-column"
+                 css:content=".template-view .galleria" method="raw"/>
+        <replace css:theme-children=".slider-column"
+                 css:content=".template-newsitem_view .galleria" method="raw"/>
+        
+        
+        
+        <!-- switch to w-grid -->
+       <!-- <replace content="//div[contains(@class,'row')]/@class">
+            <xsl:attribute name="class">
+            <xsl:if test='contains(current(),"row")'>w-row</xsl:if>
+            </xsl:attribute>
+        </replace>
+        <replace content="//div[contains(@class,'cell')]/@class">
+            <xsl:attribute name="class">
+            <xsl:if test='contains(current(),"width-3:4")'>w-col w-col-9</xsl:if>
+            <xsl:if test='contains(current(),"width-2:3")'>w-col w-col-8</xsl:if>
+            <xsl:if test='contains(current(),"width-1:2")'>w-col w-col-6</xsl:if>
+            <xsl:if test='contains(current(),"width-1:3")'>w-col w-col-4</xsl:if>
+            <xsl:if test='contains(current(),"width-1:4")'>w-col w-col-3</xsl:if>
+            <xsl:if test='contains(current(),"width-full")'>w-col w-col-12</xsl:if>
+            </xsl:attribute>
+        </replace>
+        -->         
+        <!-- Put it at the bottom -->
+        <drop css:content="#putitatthebottom" />
+        <!--<before css:theme-children="body" css:content-children="#putitatthebottom" method="raw" /> -->
+                 
+        <!-- Doormat Footer Columns -->
+        <!-- <replace css:theme-children=".logos-section .column-one"
+                 css:content-children=".doormatColumn.column-0 .doormatSectionBody" />
+        <replace css:theme-children=".logos-section .column-two"
+                 css:content-children=".doormatColumn.column-1 .doormatSectionBody" />
+        <replace css:theme-children=".logos-section .column-three"
+                 css:content-children=".doormatColumn.column-2 .doormatSectionBody" />
+        <replace css:theme-children=".logos-section .column-four"
+                 css:content-children=".doormatColumn.column-3 .doormatSectionBody" />
+                 
+        <replace css:theme-children="footer .column-one"
+                 css:content-children=".doormatColumn.column-4" />
+        <replace css:theme-children="footer .column-two"
+                 css:content-children=".doormatColumn.column-5" />
+        <replace css:theme-children="footer .column-three"
+                 css:content-children=".doormatColumn.column-6" />
+        <replace css:theme-children="footer .column-four"
+                 css:content-children=".doormatColumn.column-7" />
+                 
+         <merge attributes="class" css:theme="h3.footer-sm-heading" css:content=".doormatColumn h3" />
+         -->
+        
+        <!-- embed first row in hero section -->
+         <drop css:theme=".hero-section" />
+         <before css:theme=".main-section" css:if-content="body.template-view.section-front-cover" method="raw">
+            <section class="hero-section"> 
+                <!-- <xsl:copy-of css:select=".row-1" /> -->
+                <!-- raw code -->
+                <div class="w-container slider-etc">
+      <div class="w-row">
+        <div class="w-col w-col-8 slider-column">
+          <div>
+            <div class="w-slider main-slider" data-animation="slide" data-duration="1000" data-infinite="1" data-delay="4000" data-autoplay="1">
+              <div class="w-slider-mask">
+               <xsl:for-each css:select=".row-1 .tile-default .collection-item">
+                <div class="w-slide">
+                    <xsl:copy-of css:select=".collection-item > a"/>
+                    <div class="slide-text">
+                    <h4 class="slide-title"><xsl:value-of css:select=".collection-item h2"/></h4>
+                    <div class="slide-description"><xsl:value-of css:select=".collection-item p.description"/></div>
+                   </div>
+                 </div>
+                </xsl:for-each>
+                </div>
+              
+              <div class="w-slider-arrow-left slider-arrows">
+                <div class="w-icon-slider-left"></div>
+              </div>
+              <div class="w-slider-arrow-right">
+                <div class="w-icon-slider-right slider-arrows"></div>
+              </div>
+               <div class="w-slider-nav w-shadow w-round slider-nav"></div>
+              </div>
+            </div>
+          </div>
+        
+        <div class="w-col w-col-4">
+          <div class="w-clearfix upcoming-meetings">
+            <h2 class="meetings-area"><xsl:value-of css:select=".row-1 .col-2 .tile-header h2"/></h2>
+            <xsl:for-each css:select=".row-1 .col-2 .collection-item">
+             <div class="meetings-holder">
+                 
+            <div class="meetings-bg seats-1">
+                <h4 class="meetings-bg"><xsl:copy-of css:select=".collection-item h2 a"/></h4>
+                <!-- <div class="meeting-desc">Nov 24 – 29, 2014</div> -->
+              </div>
+            </div>
+            </xsl:for-each>
+              
+           <!--
+            <div class="meetings-holder">
+              <div class="meetings-bg seats-2">
+                <h4 class="meetings-bg">SPAW STAC 6</h4>
+                <div class="meeting-desc">Nov 24 – 29, 2014</div>
+              </div>
+            </div>
+            <div class="meetings-holder">
+                
+              <div class="meetings-bg seats-3">
+                <h4 class="meetings-bg">IGM 16</h4>
+                <div class="meeting-desc">Nov 24 – 29, 2014</div>
+              </div>
+            </div>
+            -->
+            <xsl:for-each css:select=".row-1 .col-2 .tile-footer a">  
+            <a class="cep-links ondark" href="#"><xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute><xsl:value-of select="." /></a>
+            </xsl:for-each>
+          </div>
+        </div>
+      </div></div>
+    <!-- ? -->
+                <!-- raw code -->
+             </section> 
+           
+         </before>  
+         <drop css:content=".row-1" css:if-content="body.section-front-cover.template-view"/>
+        
+        <!-- slide show from collective.cover collection tile -->
+         <replace css:content=".tile-default .cover-collection-tile" css:if-content=".zzztile-default .cover-collection-tile" method="raw">
+            <div class="flexslider"> 
+            <ul class="slides">
+              <xsl:for-each css:select=".collection-item">
+              <li><xsl:copy-of css:select=".collection-item > a"/>
+               <div class="flex-caption right"><xsl:copy-of css:select=".collection-item p.description"/></div>
+               <xsl:copy-of css:select=".collection-item h2"/></li>
+               </xsl:for-each>
+             </ul>
+             </div> 
+         </replace>  
+         <after css:if-content=".zzztile-default .cover-collection-tile" css:theme-children="body"><script src="++theme++unep.theme/js/flexslider.js"></script></after>
+
+   <!-- add scripts at the bottom -->
+   <after css:content='#visual-portal-wrapper script' css:theme-children='body'/>
+            
+    <!-- <script type="text/javascript"
+        src="++resource++plone.app.toolbar_init.js"></script>
+    <script type="text/javascript"
+        src="++resource++plone.app.toolbar.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css"
+        href="++resource++plone.app.toolbar_init.css"/>
+    <link rel="stylesheet" type="text/css"
+        href="++resource++plone.app.toolbar.css"/> -->
+    <!-- </before> -->
+                 
+    </rules>
+    <xi:include href="bootstrap-rules.xml" /> 
+     <!-- #9 Bootstrap buttons -->
+         <xsl:template match="//input[@type[contains(., 'submit') or contains(., 'button')]]">
+           <input>
+             <xsl:copy-of select="attribute::*[not(name()='class')]" />
+             <xsl:attribute name="class"><xsl:value-of select="@class" /> btn btn-md
+            <xsl:if test="@value[contains(., 'delete') or contains(., 'Remove')]">btn-danger</xsl:if>
+            <xsl:if test="@name[contains(., 'save') or contains(., 'Save') or contains(., 'RenameAll')]">btn-primary</xsl:if>
+           </xsl:attribute>
+          </input>
+      </xsl:template>
+    
+    <!-- #14 special rule that creates a new URL link -->
+    
+    <xsl:template match='//*[@id="d54a81d31b364cff83abfcb7c8a7ef96"]/*/*[@class="collection-item"]'>
+    <div class="panel panel-default meeting-documents-title">
+        <div class="panel-heading"><a><xsl:attribute name="class">panel-title</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="./h2/a/@href" /></xsl:attribute>
+        <xsl:copy-of select="./h2/a/text()" />
+    </a></div>
+      <div class="panel-body"><a><xsl:attribute name="href"><xsl:value-of select="./h2/a/@href" />/downloads</xsl:attribute>
+            <i class="fa fa-files-o"></i> Documents
+        </a><xsl:copy-of select="./p" />
+      </div>
+    </div>    
+    </xsl:template>
+
+    <xsl:template match='//*[@id="6b529c4191094871ae1e3dfe8ed2d300"]/*/*[@class="collection-item"]'>
+    <div class="panel panel-default meeting-documents-title">
+        <div class="panel-heading"><a><xsl:attribute name="class">panel-title</xsl:attribute><xsl:attribute name="href"><xsl:value-of select="./h2/a/@href" /></xsl:attribute>
+        <xsl:copy-of select="./h2/a/text()" />
+    </a></div>
+      <div class="panel-body"><a><xsl:attribute name="href"><xsl:value-of select="./h2/a/@href" />/downloads</xsl:attribute>
+            <i class="fa fa-files-o"></i> Documents
+        </a><xsl:copy-of select="./p" />
+      </div>
+    </div>    
+    </xsl:template>
+                                                                         
+                                                                         
+    
+        </rules>

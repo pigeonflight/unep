@@ -1,75 +1,102 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+ <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="context/main_template/macros/master">
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="unep">
+   
+<metal:block fill-slot="main">
 
-  <metal:block fill-slot="main">
+  <h1 class="documentFirstHeading" tal:content="context/title"></h1>
 
-    <ul id="unep-language">
-      <li id="unep-language-en">
-        <a href="#">
-          <img src="++resource++country-flags/us.gif" />
-          <span>English</span>
-        </a>
-      </li>
-      <li id="unep-language-es">
-        <a href="#">
-          <img src="++resource++country-flags/es.gif" />
-          <span>Spanish</span>
-        </a>
-      </li>
-      <li id="unep-language-fr">
-        <a href="#">
-          <img src="++resource++country-flags/fr.gif" />
-          <span>French</span>
-        </a>
-      </li>
-    </ul>
-    <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
-    <script src="++resource++unep/language.js"></script>
+  <h2 tal:content="python:view.translate('Meeting documents')">Meeting documents</h2>
 
-    <form action="@@downloadszip" method="post" tal:attributes="action string:${context/absolute_url}/@@downloadszip">
-      <div id="meeting-downloads">
-        <tal:files repeat="section view/sections">
-          <tal:maybe condition="section/files"> 
-            <h2 class="" tal:attributes="class section/klass" tal:content="section/title">Section</h2>
-            <table>
-              <tr>
-                <th>Title</th>
-                <th>Select</th>
-              </tr>
-              <tr tal:repeat="file section/files">
-                <td>
-                  <a href="" tal:attributes="href file/url">
-                    <strong tal:content="file/code"></strong>
-                    <p tal:content="file/title"/>
-                    <p tal:content="file/description"/>
-                  </a>
-                </td>
-                <td>
-                  <tal:languages repeat="lang python:['en','es','fr']">
-                    <span class=""
-                      tal:attributes="class python: lang in file['languages'] and 'meeting-select-'+lang or 'meeting-select-disabled meeting-select-'+lang">
-                      <span tal:content="lang">lang</span>
-                      <input type="checkbox" name="files" value=""
-                          tal:attributes="value string:${file/uid}:${lang};" />
-                    </span>
-                  </tal:languages>
-                </td>
-              </tr>
-            </table>
-          </tal:maybe>
-        </tal:files>
-      </div>
-      <div id="meeting-downloads-buttonbar">
-        <button id="meeting-downloads-button">Download</button>
-        <span id="meeting-downloads-number-of-documents">0</span>
-        <span> of items selected</span>
-      </div>
-      <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
+  <a href="" tal:attributes="href context/absolute_url" tal:content="python:view.translate('Back to Meeting')">Back to Meeting</a>
+
+  <ul id="unep-language">
+    <li id="unep-language-en">
+      <a href="#">
+        <img src="++resource++unep/en.png" />
+        <span tal:content="python:view.translate('English')">English</span>
+      </a>
+    </li>
+    <li id="unep-language-es">
+      <a href="#">
+        <img src="++resource++unep/es.png" />
+        <span tal:content="python:view.translate('Spanish')">Spanish</span>
+      </a>
+    </li>
+    <li id="unep-language-fr">
+      <a href="#">
+        <img src="++resource++unep/fr.png" />
+        <span tal:content="python:view.translate('French')">French</span>
+      </a>
+    </li>
+  </ul>
+
+  <link rel="stylesheet" type="text/css" href="++resource++unep/language.css" />
+   
+  <div class="alert alert-info" tal:content="python:view.translate('Select the documents you wish to download')">Select the documents you wish to download</div>
+  <form action="@@downloadszip" method="post" tal:attributes="action string:${context/absolute_url}/@@downloadszip">
+    <div id="meeting-downloads" tal:define="language python:request.cookies.get('unep-language','en')">
+    
+      <tal:files repeat="section view/sections">
+        <tal:maybe condition="section/files"> 
+          <h2 class="" tal:attributes="class string:${section/klass} download-section"><i class="fa fa-caret-right" /> <tal:section-title tal:content="section/title" /></h2>
+          <table tal:attributes="class section/cl">
+            <tr>
+              <th> </th>
+              <th><span><label><span tal:content="python:view.translate('Select All')">Select All</span><input type="checkbox" name="all" tal:attributes="rel section/cl"></label></span></th>
+            </tr>
+            <tr tal:repeat="file section/files">
+              <td>
+                <tal:maybe tal:condition="file/code">
+                 <strong class="document-code"  tal:content="file/code"></strong>
+                  
+                  <!-- <p class="document-title" tal:content="file/title"/> -->
+                  <p class="document-title" tal:content="python:file['titles'][language] or file['titles']['en'] or ''" />
+                  <p class="document-note" tal:content="file/description"/>
+                </tal:maybe>
+                <tal:can_add_files tal:condition="view/can_add_files">
+                <div>
+                <a class="meeting-downloads-document-link" href="" tal:attributes="href file/url">
+                  <i class="fa fa-edit"></i>
+                  <span tal:content="python:view.translate('Edit')">Edit</span>
+                </a>
+                </div>
+                </tal:can_add_files>
+              </td>
+              <td>
+                <tal:languages repeat="lang python:['en','es','fr']">
+                  <span class=""
+                    tal:attributes="class python: lang in file['languages'] and 'meeting-select-active meeting-select-'+lang or 'meeting-select-disabled meeting-select-'+lang">
+                    <label><tal:lang tal:content="lang" />
+                    <input type="checkbox" name="files" value=""
+                        tal:attributes="value string:${file/uid}:${lang};" />
+                     </label>
+                  </span>
+                </tal:languages>
+              </td>
+            </tr>
+          </table>
+        </tal:maybe>
+      </tal:files>
+    </div>
+
+    <div id="meeting-downloads-buttonbar">
+      <button class="btn btn-lg" id="meeting-downloads-button" tal:content="python:view.translate('Download')">Download</button>
+      <span tal:content="python:view.translate('Items selected:')">Items selected:</span>
+      <span id="meeting-downloads-number-of-documents">0</span>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="++resource++unep/downloads.css" />
+
+    <div id="putitatthebottom">
+      <script src="++resource++unep/language.js"></script>
       <script src="++resource++unep/downloads.js"></script>
-    </form>
-  </metal:block>
+    </div>
 
+  </form>
+  
+</metal:block>
 </html>

@@ -1,0 +1,271 @@
+#edit-bar{height:2.6em;margin-bottom:0}
+#edit-bar a:hover,#contentActionMenus dl.actionMenu a:hover{text-decoration:none;color:#444;}
+#edit-bar #contentActionMenus {
+margin-right: .5em;
+}
+div#LSResult {
+z-index: 1500;
+}
+#contentActionMenus dl.actionMenu.activated dd {
+min-width: 11em;
+}
+a.w-nav-link.super-menu-nav:visited {
+    color: rgb(211, 222, 206);
+}
+a.w-nav-link.super-menu-nav {
+    color: white;
+}
+.nav-bar a:hover,nav a:hover {
+    text-decoration: none;
+    color: rgb(194, 194, 194);
+}
+a.w-nav-link.super-menu-nav:hover{
+    color:rgb(120, 120, 120);
+}
+.btn {
+margin-right: 3px;
+}
+input[value="Delete"] {
+    background: rgb(224, 124, 124);
+}
+
+@media(max-width:767px){}
+@media(min-width:768px){
+    
+
+    
+}
+@media(min-width:992px){
+    
+   
+}
+@media(min-width:1200px){
+    
+    .w-slider img {
+    position: absolute;
+    top: 0;
+    right:0;
+    width:auto;
+    height:100%;
+}
+.w-slider  {
+    background:#333;
+    }
+.w-slider .slide-text {
+position: absolute;
+left: 49px;
+top: 10px;
+z-index: auto;
+width: 33%;
+margin-right: 0px;
+margin-left: 0px;
+padding: 0px 10px 0px 15px;
+background-color: rgba(18, 18, 18, 0.70);
+}
+
+    
+}
+/* hide some things temporarily 
+div.resources-section,.logos-section,footer div.w-row {
+    display: none;
+    
+}
+*/
+
+/* #contentActionMenus li {
+display: inline !important;
+}
+#contentActionMenus {
+float: none !important;
+}
+.contentViews a {
+font-size: 75%;
+}
+div.contentActions a {
+font-size: 90%;
+}
+*/
+div#portal-searchbox {
+top: 28px;
+position: relative;
+}
+#content-core label,#content label {
+display: inline-block;
+}
+body #content,body #content-core {
+    font-size: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+  margin-right:4px
+}
+body #content-core {
+font-size: 100%;
+}
+
+#content-core li{
+  margin-bottom: 0.25em;
+line-height: 1.5em;
+display: list-item;
+}
+
+#content.core ul.formTabs {
+background-color: #ddd;
+border: 0.3em solid #ddd;
+}
+a.w-nav-link.navlink.w--nav-link-open {
+    color: rgb(226, 224, 218);
+}
+#meeting-downloads h2 > a{
+     text-decoration: none;
+     padding:2px 15px;
+     margin:0 0 0 0;
+}
+
+#meeting-downloads h2 > a:hover {
+   
+    background: #ccc;
+}           .cover-collection-tile .panel .panel-body a {
+float: right;
+}
+a.panel-title {
+display: block;
+text-decoration: none;
+border-bottom: none;
+font-size: 130%;
+}
+#content a,#content a:visited,#content a:link {
+    border-bottom: 0px;
+}
+#content a:hover{
+    text-decoration:none;
+    color: rgb(166, 153, 192) !important;
+    border-bottom: 0px;
+}
+#content .badges a {
+    color: white;
+}
+#content .badges a:visited {
+    color: white;
+}
+
+.portalMessage .error {
+font-style: italic;
+border-bottom: 1px dashed rgb(116, 116, 116);
+background: rgb(240, 240, 240);
+padding: 2px 9px;
+line-height: 1.9em;
+}
+.logos-section {
+border-top: 1px solid #EEE;
+padding-top: 10px;
+}
+.footer-container p {color:#fff;}
+
+.meetings-bg a {
+color: white;
+    text-decoration:none;
+}
+.meetings-bg a:hover {
+color: #888;
+    text-decoration:none;
+}
+.two-column .side {
+margin-top: 2em;
+}
+.cep-header {
+    background-image: url('../images/waves.png');
+    background-size:cover;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-box-shadow: 1px 1px 5px 1px #E0E0E0;
+    -moz-box-shadow: 1px 1px 5px 1px #E0E0E0;
+    box-shadow: 1px 1px 5px 1px #E0E0E0;
+}
+.brand-wrapper{
+-moz-box-shadow: -1px 1px 1px 0px #BBBBBB;
+-webkit-border-bottom-left-radius: 3px;
+-moz-box-shadow: -1px 1px 1px 0px #BBBBBB;
+-webkit-border-bottom-left-radius: 3px;
+ box-shadow: -1px 1px 1px 0px #BBBBBB;
+ border-bottom-left-radius: 3px;
+}
+
+.main-section .row-3 {
+    margin-bottom: 15px;
+}
+
+.badges {
+    margin: 0px auto 15px;
+}
+.footer-social a {
+    margin-right: -6px;
+}
+a.footer-links {
+color: white;
+}
+a.footer-links:hover {
+text-decoration:none;
+}
+div.portalMessage.info {
+background: rgb(222, 165, 45);
+padding: 10px 20px;
+margin-bottom: 1em;
+border-radius: 5px;
+}
+.tweetBody {
+color: white;
+display: block;
+font-weight: 200;
+padding-bottom: 10px;
+border-bottom: 1px solid #4DA4DD;
+font-size: 13px;
+font-family: 'Gentium Basic', sans-serif;
+margin-bottom: 7px;
+}
+.tweetBody a {
+    color: white;
+    border-bottom: 1px dashed #ADC5E9;
+    text-decoration:none;
+}
+.tweetBody a:hover{color:#ffd126; border-bottom:none}
+.fc-event {
+background-color: #84D5FD;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+border: none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+background: #ABABAB;
+}
+#content a#sfc-ical-export {
+    background: rgb(88, 57, 5);
+    padding: 3px 5px;
+    border-radius: 2px;
+    color: #ddd;
+}
+body #content a#sfc-ical-export:hover{
+    color:white !important;
+}
+a#sfc-ical-export img{
+    opacity:.7;
+    margin-right:3px;
+}
+a#sfc-ical-export:hover img{
+    opacity:1;
+    margin-right:3px;
+}
+a.manage-portlets {
+    display: inline;
+    background: rgb(212, 182, 182);
+    position: relative;
+    padding: 3px 9px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+a.manage-portlets:hover {color:#333}
+div.social-more {
+margin-top: 1em;
+}

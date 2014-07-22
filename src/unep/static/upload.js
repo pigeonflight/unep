@@ -18,9 +18,9 @@ require([
       $(this).parents('.portalMessage').remove();
     });
   }
-
-  var uploadHtml = $('#upload').html(),
-      progress = $('<div><span>Uploading...<span></div>'),
+  var I18N = JSON.parse($('#upload').attr('data-i18n')),
+      uploadHtml = $('#upload').html(),
+      progress = $('<div><span>' + I18N['Uploading ...'] + '<span></div>'),
       uploaded = [];
 
   var dropzone = new Dropzone("#upload", {
@@ -45,12 +45,13 @@ require([
 
       $('#upload-cancel').on('click', function() {
         self.removeAllFiles(true);
+        $('#upload').html(uploadHtml).removeClass('upload-progress');
       });
 
       self.on("addedfile", function(file) {
         if (file.name.indexOf('.') !== -1 &&
             file.name.split('.').slice(-2)[0].indexOf('-') !== -1 &&
-            ['en', 'fr', 'es'].indexOf('assasasa.zip'.split('.').slice(-2)[0].split('-').slice(-1)[0])) {
+            ['en', 'fr', 'es'].indexOf(file.name.split('.').slice(-2)[0].split('-').slice(-1)[0]) !== -1) {
           if (self.files
               .map(function(f) { return f.name; })
               .filter(function(f) { return f === file.name })
@@ -58,14 +59,16 @@ require([
             self.removeFile(file);
           }
         } else {
-          addMessage('error', 'Error',
-                     'Files need to end with language (-en,-es,-fr) to be able to upload it.');
+          addMessage('error', I18N['Error'],
+                     '<strong><span class="error">' + file.name + '</span>' +
+                      I18N[' does not have a language identifier at the end of it\'s name (-en,-es,-fr). Please rename with a language identifier and attempt to upload again.'] + '</strong>');
           self.removeFile(file);
         }
       });
 
       self.on("complete", function(file) {
-        $(file.previewElement).html('<div class="dz-feedback">Upload of "' + file.name + '" successful.</div>')
+        $(file.previewElement).html(
+          '<div class="dz-feedback">' + I18N['Upload successful: '] + file.name + '</div>')
 
         uploaded.push(JSON.parse(file.xhr.responseText));
 
@@ -81,32 +84,60 @@ require([
             $('#upload').html(uploadHtml).removeClass('upload-progress');
             var message = '';
                 created = uploaded.reduce(function(prev, item) {
-                  if (!prev[item.id]){
-                    prev[item.id] = {
+                  if (!prev[item.uid]){
+                    prev[item.uid] = {
                       url: item.url,
                       title: item.title,
                       languages: [ item.language ]
                     };
                   } else {
-                    prev[item.id].languages.push(item.language);
+                    prev[item.uid].languages.push(item.language);
                   }
                   return prev;
                 }, {});
 
-            Object.keys(created).forEach(function(id) {
+            Object.keys(created).forEach(function(uid) {
               message += '' +
                 '<li>' +
-                ' <a href="' + created[id].url + '" target="_blank">' +
-                '  ' +  created[id].title +
-                ' (' + created[id].languages.join(',') +')' +
+                ' <a href="' + created[uid].url + '" class="uploaded-doc" target="_blank">' +
+                '  ' +  created[uid].title +
+                ' (' + created[uid].languages.join(',') +')' +
                 ' </a>'+
                 '</li>';
             });
             if (message !== '') {
               addMessage('info', 'Info',
-                '<p>Following documents were created/updated.</p>' +
-                '<p>Click on link to edit their metadata.</p>' +
+                '<p>' + I18N['Following documents were created/updated.'] + '</p>' +
+                '<p>' + I18N['Click on link to edit their metadata.'] + '</p>' +
                 '<ul>' + message + '</ul>', true);
+                
+          /*      $('a.uploaded-doc').prepOverlay({
+    subtype: 'ajax',
+    filter: '#content>*',
+    formselector: 'form'
+    }); */
+                overlays = [];
+                $('a.uploaded-doc').each(function(index) {
+                 var href = $(this).attr('href');
+                 overlay = $( this ).prepOverlay({
+                    subtype: 'ajax',
+                    filter: '#content>*',
+                    formselector: 'form',
+                    closeselector: 'input#form-buttons-cancel',
+                     afterpost: function(data,more){console.log(data,more)},
+                     config: {
+                         url : index + "|"  + href ,
+                        onBeforeLoad : function (e) {
+                         console.log(this.getConf().url);
+                           return true; }
+                         
+                            }
+                       });
+                    overlays.push(overlay);
+                     });
+                
+                
+                
 
             }
           }

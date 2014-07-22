@@ -1,0 +1,105 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-05-19 12:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: unep\n"
+
+msgid "English"
+msgstr ""
+
+msgid "Spanish"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+msgid "Navigation"
+msgstr ""
+
+msgid "Announcements"
+msgstr ""
+
+msgid "Information note for participants"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Announcements attachment"
+msgstr ""
+
+msgid "Information note attachment"
+msgstr ""
+
+msgid "Meeting documents"
+msgstr ""
+
+msgid "Additional Information"
+msgstr ""
+
+msgid "Back to Meeting"
+msgstr ""
+
+msgid "Select the documents you wish to download"
+msgstr ""
+
+msgid "Select All"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Items selected:"
+msgstr ""
+
+msgid "Uploading..."
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid " does not have a language identifier at the end of it\'s name (-en,-es,-fr). Please rename with a language identifier and attempt to upload again."
+msgstr ""
+
+msgid "Upload successful: "
+msgstr ""
+
+msgid "Following documents were created/updated."
+msgstr ""
+
+msgid "Click on link to edit their metadata."
+msgstr ""
+
+msgid "Drag/Click to upload documents."
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Announcements attachment"
+msgstr ""
+
+msgid "Information note attachment"
+msgstr ""
+
+msgid "Meeting Documents"
+msgstr ""

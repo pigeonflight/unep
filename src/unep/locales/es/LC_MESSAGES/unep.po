@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-05-19 12:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+msgid " does not have a language identifier at the end of it\'s name (-en,-es,-fr). Please rename with a language identifier and attempt to upload again."
+msgstr " no tiene un identificador de idioma al final de nombre (-en,-es,-fr). Por favor, cambie el nombre."
+
+msgid "Additional Information"
+msgstr "Información Adicional"
+
+msgid "Announcements"
+msgstr "Noticias"
+
+msgid "Announcements attachment"
+msgstr "Apego noticias"
+
+msgid "Back to Meeting"
+msgstr "Volver a la reunión "
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Click on link to edit their metadata."
+msgstr "Haga clic en el enlace para editar sus metadatos."
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Drag/Click to upload documents."
+msgstr "Arrastrar / pulsar para cargar los documentos."
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Following documents were created/updated."
+msgstr "Los siguientes documentos fueron creados / actualizados."
+
+msgid "French"
+msgstr "Francés"
+
+msgid "Information note attachment"
+msgstr "Apego Nota informativa"
+
+msgid "Information note for participants"
+msgstr "Nota informativa para los participantes"
+
+msgid "Items selected:"
+msgstr "Elementos seleccionados:"
+
+msgid "Meeting documents"
+msgstr "Documentos de la reunión"
+
+msgid "Navigation"
+msgstr "Navegación"
+
+msgid "Other"
+msgstr "Otro"
+
+msgid "Select All"
+msgstr "Seleccionar todo"
+
+msgid "Select the documents you wish to download"
+msgstr "Seleccione los documentos que desea descargar"
+
+msgid "Spanish"
+msgstr "Español"
+
+msgid "Upload"
+msgstr "Subir"
+
+msgid "Upload successful: "
+msgstr "Carga exitoso: "
+
+msgid "Uploading..."
+msgstr "Subiendo...:"
+
+msgid "Announcements attachment"
+msgstr "Anuncios apego" 
+
+msgid "Information note attachment"
+msgstr "Nota informativa apego" 
+
+msgid "Meeting Documents"
+msgstr "documentos de la reunión" 

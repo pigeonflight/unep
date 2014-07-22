@@ -14,7 +14,7 @@ from zope.interface import implements
 
 
 class AtLeastOneFile(Invalid):
-    __doc__ = _(u'You need to upload at least one file.')
+    __doc__ = u'You need to upload at least one file.'
 
 
 class IFile(model.Schema):
@@ -23,13 +23,13 @@ class IFile(model.Schema):
 
     searchable('code')
     code = schema.TextLine(
-        title=_(u'Code'),
+        title=u'Code',
         required=False,
     )
 
     model.fieldset(
         'language_independent',
-        label=_(u'Language independent'),
+        label=u'Language independent',
         fields=[
             'code',
         ],
@@ -37,70 +37,70 @@ class IFile(model.Schema):
 
     searchable('en_title')
     en_title = schema.TextLine(
-        title=_(u'Title'),
+        title=u'Title',
         required=False,
     )
 
     searchable('en_description')
     en_description = schema.Text(
-        title=_(u'Notes'),
+        title=u'Notes',
         required=False,
     )
 
     en_file = NamedBlobFile(
-        title=_(u'File'),
+        title=u'File',
         required=False,
     )
 
     model.fieldset(
         'en',
-        label=_(u'English'),
+        label=u'English',
         fields=['en_title', 'en_description', 'en_file']
     )
 
     searchable('es_title')
     es_title = schema.TextLine(
-        title=_(u'Title'),
+        title=u'Title',
         required=False,
     )
 
     searchable('es_description')
     es_description = schema.Text(
-        title=_(u'Notes'),
+        title=u'Notes',
         required=False,
     )
 
     es_file = NamedBlobFile(
-        title=_(u'File'),
+        title=u'File',
         required=False,
     )
 
     model.fieldset(
         'es',
-        label=_(u'Spanish'),
+        label=u'Spanish',
         fields=['es_title', 'es_description', 'es_file']
     )
 
     searchable('fr_title')
     fr_title = schema.TextLine(
-        title=_(u'Title'),
+        title=u'Title',
         required=False,
     )
 
     searchable('fr_description')
     fr_description = schema.Text(
-        title=_(u'Notes'),
+        title=u'Notes',
         required=False,
     )
 
     fr_file = NamedBlobFile(
-        title=_(u'File'),
+        title=u'File',
         required=False,
     )
 
     model.fieldset(
         'fr',
-        label=_(u'French'),
+        label=u'French',
         fields=['fr_title', 'fr_description', 'fr_file']
     )
 
@@ -116,6 +116,10 @@ class File(Item):
         title = get_field(self, 'title', '')
         if self.code:
             title = '(' + self.code + ')' + title
+        if not title:
+            field = get_field(self, 'file', None)
+            if field:
+                title = splitext(field.filename)[0]
         return title
 
     def setTitle(self, value):

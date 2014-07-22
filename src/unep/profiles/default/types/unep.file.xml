@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
-<object name="unep.file" meta_type="Dexterity FTI"
-    i18n:domain="unep"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object name="unep.file" meta_type="Dexterity FTI">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">UNEP File</property>
-  <property name="description"
-    i18n:translate=""></property>
+  <property name="title">UNEP File</property>
+  <property name="description"></property>
   <property name="icon_expr">string:${portal_url}/file_icon.png</property>
   <property name="factory">unep.file</property>
   <property name="global_allow">False</property>

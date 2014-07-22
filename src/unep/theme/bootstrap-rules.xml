@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+    
+   
+    <!-- #9 Bootstrap buttons -->
+         <xsl:template match="//input[@type[contains(., 'submit') or contains(., 'button')]]">
+           <input>
+             <xsl:copy-of select="attribute::*[not(name()='class')]" />
+             <xsl:attribute name="class"><xsl:value-of select="@class" /> btn btn-xs
+            <xsl:if test="@value[contains(., 'delete') or contains(., 'Remove')]">btn-danger</xsl:if>
+            <xsl:if test="@name[contains(., 'save') or contains(., 'Save') or contains(., 'RenameAll')]">btn-primary</xsl:if>
+           </xsl:attribute>
+          </input>
+</xsl:template>
+    
+    <!-- #10 listing bar -->
+    <xsl:template match="//div[@class='listingBar']">
+    <div>
+        <xsl:copy-of select="attribute::*[not(name()='class')]" />
+        <xsl:attribute name="class"><xsl:value-of select="@class" /> pagination</xsl:attribute>
+        <ul>
+            <xsl:attribute name="class"> pagination</xsl:attribute>
+            <xsl:if test="span[@class='previous']/a">
+                <li>
+                    <xsl:copy-of select="span[@class='previous']/a" />
+                </li>
+            </xsl:if>
+            <xsl:for-each select="*[not(contains(@class, 'previous')) and not(contains(@class, 'next'))]">
+                <xsl:choose>
+                    <xsl:when test="child::a and not(child::text())">
+                    <li>
+                        <xsl:copy-of select="./a[text()]" />
+                    </li>
+                    </xsl:when>
+                    <xsl:when test="child::a and child::text()">
+                        <xsl:if test="position() = last()">
+                        <li>
+                            <xsl:attribute name="class">disabled</xsl:attribute>
+                            <a>
+                                <xsl:attribute name="href">#</xsl:attribute>
+                                <xsl:copy-of select="text()" />
+                            </a>
+                        </li>
+                        </xsl:if>
+                        <li>
+                            <xsl:copy-of select="./a[text()]" />
+                        </li>
+                        <xsl:if test="position() = 1">
+                        <li>
+                            <xsl:attribute name="class">disabled</xsl:attribute>
+                            <a>
+                                <xsl:attribute name="href">#</xsl:attribute>
+                                <xsl:copy-of select="text()" />
+                            </a>
+                        </li>
+                        </xsl:if>
+                    </xsl:when>
+                    <xsl:when test="name()='span' and not(child::a)">
+                        <li>
+                            <xsl:attribute name="class">active</xsl:attribute>
+                            <a>
+                                <xsl:attribute name="href">#</xsl:attribute>
+                                <xsl:copy-of select="text()" />
+                            </a>
+                        </li>
+                        </xsl:when>
+                    <xsl:when test="@href">
+                        <li>
+                            <a>
+                                <xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute>
+                                <xsl:copy-of select="text()" />
+                            </a>
+                        </li>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <li>
+                            <xsl:attribute name="class">disabled</xsl:attribute>
+                            <a>
+                                <xsl:attribute name="href">#</xsl:attribute>
+                                <xsl:copy-of select="text()" />
+                            </a>
+                        </li>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
+            <xsl:if test="span[@class='next']/a">
+                <li>
+                    <xsl:copy-of select="span[@class='next']/a" />
+                </li>
+            </xsl:if>
+
+        </ul>
+    </div>
+   </xsl:template>
+</rules>
