@@ -198,7 +198,7 @@ p {
   background-attachment: scroll;
 }
 .upcoming-meetings {
-  padding-right: 0px;
+  padding-right: 20px;
   padding-bottom: 10px;
   padding-left: 10px;
   background-color: rgba(163, 163, 163, 0);

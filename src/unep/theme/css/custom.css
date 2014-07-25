@@ -48,7 +48,7 @@ input[value="Delete"] {
     width:auto;
     height:100%;
 }
-.w-slider  {
+div.w-container.slider-etc {
     background:#333;
     }
 .w-slider .slide-text {
@@ -268,4 +268,16 @@ a.manage-portlets {
 a.manage-portlets:hover {color:#333}
 div.social-more {
 margin-top: 1em;
+}
+
+/* override deco */
+div.position-0  { margin-left: -100%;}
+div.position-6 {
+margin-left: -59.9%;
+}
+div.position-8 {
+margin-left: -47.875%;
+}
+div.position-12 {
+margin-left: -22.4%;
 }
