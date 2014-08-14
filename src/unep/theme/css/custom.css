@@ -1,4 +1,7 @@
 #edit-bar{height:2.6em;margin-bottom:0}
+a.customisable-highlight {
+border: 2px solid red;
+}
 #edit-bar a:hover,#contentActionMenus dl.actionMenu a:hover{text-decoration:none;color:#444;}
 #edit-bar #contentActionMenus {
 margin-right: .5em;
@@ -269,3 +272,87 @@ a.manage-portlets:hover {color:#333}
 div.social-more {
 margin-top: 1em;
 }
+#content .widget label {
+display: inline;
+}
+
+/* lab styles */
+.containa{
+		width: 75%;
+		height: 35%;
+		background-color: #FFFFFF;
+		align-content: center;
+		margin: auto;
+		border-radius: 3px 10px 10px 3px;
+		-webkit-box-shadow: 0 5px 6px -6px black;
+		-moz-box-shadow: 0 5px 6px -6px black;
+		box-shadow: 0 5px 6px -6px black;
+		display: block;
+		overflow: hidden;
+	}
+
+	.titles{
+		font-family: sans-serif;
+		min-height: 25%;
+		max-width: 98%;
+		min-width: 45%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		margin: auto;
+		position: static;
+		display: block;
+		text-align: center;
+		top: 20;
+		z-index: 1;
+
+	}
+	
+	.containa:hover{
+		background-color: #F7F7F7;
+		min-height: 30%;
+		border-radius: 3px 3px 3px 3px;
+		-webkit-box-shadow: 0 8px 6px -6px black;
+		-moz-box-shadow: 0 8px 6px -6px black;
+		box-shadow: 0 8px 6px -6px black;
+		z-index: 50;
+		top: 1.5;
+		position: relative;
+	}
+
+	.titles, p{
+		font-style: normal;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size-adjust: 0.58;
+		font-family: sans-serif;
+		font-weight: 100;
+	}
+	
+	.heading, p{
+		font-style: normal;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size-adjust: 0.58;
+		font-family: serif;
+		font-weight: 300;
+	}
+
+	#DE{
+		width: 10%;
+		float: left;
+	}
+	
+	#Country{
+		float: right;
+		width: 10%;
+	}
+
+	.content-holder{
+		display: block;
+	}
+	
+	p{
+	position: static;
+		z-index: 1;
+	}
+/* end lab styles */
