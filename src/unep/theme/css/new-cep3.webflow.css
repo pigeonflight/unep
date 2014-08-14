@@ -133,8 +133,8 @@ p {
   padding-bottom: 3px;
   float: none;
   clear: none;
-  border-radius: 5px;
-  /*background-color: rgba(0, 0, 0, 0.58);*/
+  /*border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.58);*/
   color: white;
   font-size: 14px;
   font-weight: 300;
@@ -151,7 +151,7 @@ p {
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  background-image: url('../images/bg_page-header.png');
+  /*background-image: url('../images/bg_page-header.png');*/
   background-position: 100% 50%;
   font-family:'Open Sans', sans-serif;
 }
