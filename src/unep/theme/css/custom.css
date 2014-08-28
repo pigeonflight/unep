@@ -192,7 +192,7 @@ color: #888;
 margin-top: 2em;
 }
 .cep-header {
-   /* background-image: url('../images/waves.png');*/
+    background-image: url('../images/waves.png');
     background-size:cover;
   background-color: white;
     -webkit-border-bottom-right-radius: 0px;
@@ -304,6 +304,7 @@ display: inline;
     -webkit-box-shadow: 0 3px 6px -6px black;
 		-moz-box-shadow: 0 3px 6px -6px black;
 		box-shadow: 0 3px 6px -6px black;
+
 		display: block;
 		overflow: hidden;
     color: grey;
@@ -597,4 +598,3 @@ column-gap: 3px;
   max-height 95%;
   text-align: left;
   
-}
