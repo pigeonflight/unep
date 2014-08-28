@@ -192,7 +192,7 @@ color: #888;
 margin-top: 2em;
 }
 .cep-header {
-    background-image: url('../images/waves.png');
+   /* background-image: url('../images/waves.png');*/
     background-size:cover;
   background-color: white;
     -webkit-border-bottom-right-radius: 0px;
