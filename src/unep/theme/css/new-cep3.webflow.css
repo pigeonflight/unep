@@ -151,7 +151,7 @@ p {
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  background-image: url('../images/bg_page-header.png');
+  /*background-image: url('../images/bg_page-header.png');*/
   background-position: 100% 50%;
   font-family:'Open Sans', sans-serif;
 }
