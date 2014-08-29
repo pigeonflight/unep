@@ -294,4 +294,20 @@ display: inline;
   -moz-box-shadow: 0 1.5px 3px 0 #969696;
   box-shadow: 0 1.5px 3px 0 #969696;
   z-index: 3;
+  background-color: #f7f7f7;
+}
+
+/* styles for lab item */
+.listing.lab-field-label {
+  margin-top: auto;
+  color: #868891;
+  font-weight: 600;
+  text-transform: none;
+}
+.item-field {
+  color: #524f4f;
+}
+.lab-row.item-row {
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
