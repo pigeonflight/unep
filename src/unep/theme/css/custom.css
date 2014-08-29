@@ -311,3 +311,7 @@ display: inline;
   margin-top: 15px;
   margin-bottom: 20px;
 }
+.lab-other {
+padding: 10px 49px 30px;
+border: 1px solid #eee;
+}
