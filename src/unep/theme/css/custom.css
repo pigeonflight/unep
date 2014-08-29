@@ -285,3 +285,18 @@ display: inline;
   border-color: #ced1db;
   background-color: #f7f7f7;
 }
+
+/* styles for lab item */
+.listing.lab-field-label {
+  margin-top: auto;
+  color: #868891;
+  font-weight: 600;
+  text-transform: none;
+}
+.item-field {
+  color: #524f4f;
+}
+.lab-row.item-row {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
