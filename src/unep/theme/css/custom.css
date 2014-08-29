@@ -289,13 +289,11 @@ display: inline;
 }
 .faceted.lab:hover {
   border-color: #ced1db;
-<<<<<<< HEAD
   background-color: #F9F9F9;
   -webkit-box-shadow: 0 1.5px 3px 0 #969696;
   -moz-box-shadow: 0 1.5px 3px 0 #969696;
   box-shadow: 0 1.5px 3px 0 #969696;
   z-index: 3;
-=======
   background-color: #f7f7f7;
 }
 
@@ -312,5 +310,4 @@ display: inline;
 .lab-row.item-row {
   margin-top: 15px;
   margin-bottom: 20px;
->>>>>>> b68868e... updated stylesheet for lab page
 }
