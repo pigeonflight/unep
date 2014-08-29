@@ -278,10 +278,20 @@ display: inline;
 
 /* styles for faceted view */
 .faceted.lab {
-  padding: 5px 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right:10px;
   border: 1px solid #f0f2fa;
+  border-width: thin;
+  z-index: 2;
+  margin-top: 3px;
 }
 .faceted.lab:hover {
   border-color: #ced1db;
-  background-color: #f7f7f7;
+  background-color: #F9F9F9;
+  -webkit-box-shadow: 0 1.5px 3px 0 #969696;
+  -moz-box-shadow: 0 1.5px 3px 0 #969696;
+  box-shadow: 0 1.5px 3px 0 #969696;
+  z-index: 3;
 }
