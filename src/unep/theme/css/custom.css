@@ -279,8 +279,9 @@ display: inline;
 /* styles for faceted view */
 .faceted.lab {
   padding: 5px 6px;
-  border: 1px solid #7e859c;
+  border: 1px solid #f0f2fa;
 }
 .faceted.lab:hover {
+  border-color: #ced1db;
   background-color: #f7f7f7;
 }
