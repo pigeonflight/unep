@@ -307,6 +307,11 @@ display: inline;
 .item-field {
   color: #524f4f;
 }
+.lab-item.telephone {
+    float: right;
+    color: rgb(205, 201, 201);
+    font-weight: 600;
+}
 .lab-row.item-row {
   margin-top: 15px;
   margin-bottom: 20px;
