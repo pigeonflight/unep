@@ -100,7 +100,7 @@
             <a href="{$portal_url}/multimedia"><h3 class="resources-heading">Multimedia</h3></a>
         </replace>
         <replace css:theme-children=".resources-badge.technical-reports">
-            <a href="{$portal_url}/technical-reports"><img class="resources-image" src="{$portal_url}/cep-images/multimedia.jpg" width="200" alt="technical reports" /></a>
+            <a href="{$portal_url}/technical-reports"><img class="resources-image" src="{$portal_url}/cep-images/technical-reports.jpg" width="200" alt="technical reports" /></a>
             <a href="{$portal_url}/technical-reports"><h3 class="resources-heading">Technical Reports</h3></a>
         </replace>
         
