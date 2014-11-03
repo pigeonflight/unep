@@ -145,9 +145,12 @@
         <!-- footer -->
         <replace css:theme-children="div.footer-blocks.column-one .footer-offices" css:content=".portlet-static-unep-offices dd"/>
         <replace css:theme-children="div.footer-blocks.column-two .footer-quicklinks" css:content=".portlet-static-quick-links dd" />
-        <replace css:theme-children="div.footer-blocks.column-three .footer-resources">
+         <replace css:theme-children="div.footer-blocks.column-three .footer-resources" css:content=".portlet-static-tweets dd" />
+      
+<!--      <replace css:theme-children="div.footer-blocks.column-three .footer-resources">
             <xsl:for-each css:select=".portletTwitterPortlet dd"><xsl:copy-of css:select=".tweetBody"/></xsl:for-each>
         </replace> 
+-->
         <replace css:theme-children="div.footer-blocks.column-four .footer-social .social-more" css:content=".portlet-static-social-media dd" />
                                                                                                    
               

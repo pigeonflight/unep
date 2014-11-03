@@ -1,4 +1,7 @@
 #edit-bar{height:2.6em;margin-bottom:0}
+a.customisable-highlight {
+border: 2px solid red;
+}
 #edit-bar a:hover,#contentActionMenus dl.actionMenu a:hover{text-decoration:none;color:#444;}
 #edit-bar #contentActionMenus {
 margin-right: .5em;
@@ -270,6 +273,7 @@ div.social-more {
 margin-top: 1em;
 }
 
+
 /* override deco */
 div.position-0  { margin-left: -100%;}
 div.position-6 {
@@ -280,4 +284,47 @@ margin-left: -47.875%;
 }
 div.position-12 {
 margin-left: -22.4%;
+
+#content .widget label {
+display: inline;
+}
+
+/* styles for faceted view */
+.faceted.lab {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right:10px;
+  border: 1px solid #f0f2fa;
+  border-width: thin;
+  z-index: 2;
+  margin-top: 3px;
+}
+.faceted.lab:hover {
+  border-color: #ced1db;
+  background-color: #F9F9F9;
+  -webkit-box-shadow: 0 1.5px 3px 0 #969696;
+  -moz-box-shadow: 0 1.5px 3px 0 #969696;
+  box-shadow: 0 1.5px 3px 0 #969696;
+  z-index: 3;
+  background-color: #f7f7f7;
+}
+
+/* styles for lab item */
+.listing.lab-field-label {
+  margin-top: auto;
+  color: #868891;
+  font-weight: 600;
+  text-transform: none;
+}
+.item-field {
+  color: #524f4f;
+}
+.lab-row.item-row {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.lab-other {
+padding: 10px 49px 30px;
+border: 1px solid #eee;
 }
