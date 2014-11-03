@@ -454,6 +454,44 @@ p {
   box-shadow: #c9c9c9 0px 2px 3px 0px, #c9c9c9 0px -2px 2px 0px;
 }
 .resources-badge {
+  width: 200px;
+  height: 175px;
+  margin-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  border: 0px solid #8a8a8a;
+  background-color: #034569;
+  box-shadow: #a1a1a1 1px 1px 2px 0px;
+}
+.resources-heading {
+  width: auto;
+  max-width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+  float: left;
+  clear: none;
+  font-family:'Open Sans', sans-serif;
+  color: white;
+  font-size: 20px;
+  line-height: 23px;
+  font-style: italic;
+  font-weight: 600;
+  text-shadow: rgba(0, 0, 0, 0.70) 0px 1px 0px;
+}
+.resources-image {
+  float: none;
+  border: 0px solid #adadad;
+}
+
+/*
+.resources-section {
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  background-color: #ededed;
+  box-shadow: #c9c9c9 0px 2px 3px 0px, #c9c9c9 0px -2px 2px 0px;
+}
+.resources-badge {
   height: 100px;
   margin-right: 0px;
   padding-top: 0px;
@@ -481,6 +519,7 @@ p {
   float: right;
   border: 0px solid #adadad;
 }
+*/
 .gef-links {
   clear: left;
 }
