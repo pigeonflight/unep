@@ -86,10 +86,11 @@
          </nav>
         </replace>
         <drop css:theme=".resources-section" css:if-not-content=".section-front-cover" />
-        <!-- hard coded kids corner for now -->
+        <!-- hard coded resources section for now -->
         <replace css:theme-children=".resources-badge.clearing-houses">
-           <a href="{$portal_url}/clearing-house-and-databases"><h3 class="resources-heading">Clearing Houses and Databases</h3>
-            <img class="resources-image" src="{$portal_url}/cep-images/databases.jpg" width="200" alt="clearing houses and databases" />
+           <a href="{$portal_url}/clearing-house-and-databases">
+               <img class="resources-image" src="{$portal_url}/cep-images/databases.jpg" width="200" alt="clearing houses and databases" />
+               <h3 class="resources-heading">Clearing Houses and Databases</h3>
         </a></replace>
         <replace css:theme-children=".resources-badge.kids-corner">
             <a href="{$portal_url}/kids-corner"><img class="resources-image" src="{$portal_url}/cep-images/kids-corner.jpg" width="200" alt="kids corner" /></a>
