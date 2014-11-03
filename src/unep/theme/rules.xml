@@ -104,6 +104,7 @@
             <a href="{$portal_url}/technical-reports"><h3 class="resources-heading">Technical Reports</h3></a>
         </replace>
         
+        
         <!-- #portlet-column-one .portlet -->
         <after css:theme-children="footer">
                <xsl:for-each css:select="#portlet-column-one .portlet">
