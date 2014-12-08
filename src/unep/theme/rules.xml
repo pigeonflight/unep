@@ -81,7 +81,7 @@
         <nav class="w-nav-menu w-hidden-small w-hidden-tiny super-menu" role="navigation">
             <a class="w-nav-link w-hidden-small w-hidden-tiny super-menu-nav" href="{$portal_url}/contact-us">Contact</a>
             <a class="w-nav-link w-hidden-small w-hidden-tiny super-menu-nav" href="{$portal_url}/vacancies-and-internships">Vacancies and Internships</a>
-            <a class="w-nav-link super-menu-nav" href="{$portal_url}/staff-directory">Staff Directory</a>
+            <a class="w-nav-link super-menu-nav" href="{$portal_url}/multimedia">Multimedia</a>
             <a class="w-nav-link super-menu-nav" href="http://unep.org">UNEP</a>
          </nav>
         </replace>
