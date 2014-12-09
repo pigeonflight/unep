@@ -11,3 +11,4 @@
 /var/
 /.mr.developer.cfg
 /src/plone.app.widgets
+dist/
