@@ -8,6 +8,7 @@ margin-right: .5em;
 }
 div#LSResult {
 z-index: 1500;
+top: 34px;
 }
 #contentActionMenus dl.actionMenu.activated dd {
 min-width: 11em;
