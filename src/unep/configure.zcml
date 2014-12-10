@@ -49,12 +49,13 @@
     handler="unep.file.setFileId"
     />
 
-  <!--<browser:page
+  <browser:page
     for="unep.file.IFile"
     name="view"
     permission="zope2.Public"
     class="unep.file.FileView"
-    />-->
+    template="file.pt"
+    />
 
   <browser:page
     for="unep.filefolder.IFileFolder"

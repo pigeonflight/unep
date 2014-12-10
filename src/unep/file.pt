@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/main_template/macros/master">
+
+  <metal:block fill-slot="content-core">
+
+    <div class="unep-files">
+            <tal:block condition="context/en_file">
+                <h4>English</h4>
+                <p><a 
+                tal:content="context/en_file/filename" 
+                tal:attributes="href 
+                string:${context/absolute_url}/@@download/en_file/${context/en_file/filename};">
+                en file</a></p>     
+            </tal:block>
+            <tal:block condition="not:context/en_file">
+            <p>No English File</p>
+            </tal:block>
+
+            <tal:block condition="context/es_file">
+                <h4>Spanish</h4>
+                <p><a 
+                tal:content="context/es_file/filename" 
+                tal:attributes="href 
+                string:${context/absolute_url}/@@download/es_file/${context/es_file/filename};">
+                es file</a></p>
+            </tal:block>
+            <tal:block condition="not:context/es_file">
+            <p>No Spanish File</p>
+            </tal:block>
+            <tal:block condition="context/fr_file">
+                <h4>French</h4>
+                <p><a tal:content="context/fr_file/filename"
+                tal:attributes="href 
+                string:${context/absolute_url}/@@download/fr_file/${context/fr_file/filename};">
+                fr file</a></p>
+            </tal:block>
+            <tal:block condition="not:context/fr_file">
+            <p>No French File</p>
+            </tal:block>
+
+
+        </div>
+  </metal:block>
+
+</html>

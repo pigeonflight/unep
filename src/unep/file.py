@@ -11,6 +11,9 @@ from unep.utils import get_field
 from zope import schema
 from zope.interface import Invalid
 from zope.interface import implements
+from AccessControl import getSecurityManager
+from AccessControl import Unauthorized
+from Products.CMFCore.permissions import ModifyPortalContent
 
 
 class AtLeastOneFile(Invalid):
@@ -149,8 +152,22 @@ def setFileId(context, event):
 class FileView(BrowserView):
     """
     """
-
-    pass
+    def __init__(self, context, request):
+        """ Initialize context and request as view multi adaption parameters.
+        """
+        self.context = context
+        self.request = request
+        
+    def is_editor(self):
+        sm = getSecurityManager()
+        if sm.checkPermission(ModifyPortalContent, self.context):
+            return True
+        return False
+    
     #def __call__(self):
-    #    self.request.response.redirect(
-    #        self.context.absolute_url() + '/edit')
+    #    pass
+        # check permissions
+        ##pass
+        #if self.is_editor():
+        #    self.request.response.redirect(
+        #        self.context.absolute_url() + '/edit')
