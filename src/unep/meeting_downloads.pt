@@ -59,7 +59,7 @@
                 </tal:maybe>
                 <tal:can_add_files tal:condition="view/can_add_files">
                 <div>
-                <a class="meeting-downloads-document-link" href="" tal:attributes="href file/url">
+                <a class="meeting-downloads-document-link" href="" tal:attributes="href string:${file/url}/edit">
                   <i class="fa fa-edit"></i>
                   <span tal:content="python:view.translate('Edit')">Edit</span>
                 </a>

@@ -150,6 +150,7 @@ class FileView(BrowserView):
     """
     """
 
-    def __call__(self):
-        self.request.response.redirect(
-            self.context.absolute_url() + '/edit')
+    pass
+    #def __call__(self):
+    #    self.request.response.redirect(
+    #        self.context.absolute_url() + '/edit')
