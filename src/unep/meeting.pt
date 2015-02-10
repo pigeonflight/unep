@@ -18,19 +18,19 @@
     
      <ul id="unep-language">
       <li id="unep-language-en">
-        <a href="#">
+        <a href="#en">
           <img src="++resource++unep/en.png" />
           <span tal:content="python:view.translate('English')">English</span>
         </a>
       </li>
       <li id="unep-language-es">
-        <a href="#">
+        <a href="#es">
           <img src="++resource++unep/es.png" />
           <span tal:content="python:view.translate('Spanish')">Spanish</span>
         </a>
       </li>
       <li id="unep-language-fr">
-        <a href="#">
+        <a href="#fr">
           <img src="++resource++unep/fr.png" />
           <span tal:content="python:view.translate('French')">French</span>
         </a>
