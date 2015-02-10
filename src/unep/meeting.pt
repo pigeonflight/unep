@@ -36,10 +36,20 @@
         </a>
       </li>
     </ul>
-    <div class="documentHeading">
+    <div class="meeting-header">
+   <h4 class="meeting-heading" tal:content="view/title">Spaw Cop8</h4>
+   <div class="meeting-desc">
+
+    <tal:span tal:content="startdate">Start</tal:span> &ndash;
+    <tal:span tal:content="enddate">Start</tal:span>
+   </div></div>
+   
+    <div class="documentHeading meeting-heading-material">
+    <tal:commentout tal:condition="nothing">
     <h1 class="documentFirstHeading" tal:content="view/title">Title</h1>
     <p class="documentDate"><span class="documentStart" tal:content="startdate">Start</span> &ndash;
     <span class="documentEnd" tal:content="enddate">Start</span></p>
+    </tal:commentout>
     <p class="documentMeetingLocation" tal:content="context/location">Meeting Location</p>
     <span class="documentMeetingType" tal:content="context/meeting_type">Meeting Type</span>
 
@@ -70,10 +80,10 @@
          <span tal:content="python:view.translate('Announcements attachment')">Announcements attachment</span>
       </a>
 
-      <h2 tal:condition="view/information" id="meeting-text-information">
+      <div class="text-content" tal:condition="view/information" id="meeting-text-information">
         <i class="fa fa-caret-right" />
         <span tal:content="python:view.translate('Information note for participants')">Information note for participants</span>
-      </h2>
+      </div>
       <div class="text-content" tal:condition="view/information">
         <div tal:content="structure view/information"></div>
       </div>

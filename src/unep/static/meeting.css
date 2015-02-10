@@ -6,6 +6,16 @@ border: 1px solid #EEE;
 padding: 15px;
 margin-bottom: 10px;
 }
+.meeting-heading-material{
+margin-top:15px;
+margin-left:10px;
+}
+.meeting-header{
+background-image: url(++resource++unep/_meeting-header.jpg);
+}
+.meeting-heading{
+color:white;
+}
 .documentHeading .documentFirstHeading,
 #content div.documentHeading p {
     margin-bottom: .2em;

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 def get_language(request, default='en'):
     language = default
     if "unep-language" in request.cookies:
