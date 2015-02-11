@@ -8,7 +8,11 @@
 #unep-language li {
   margin: 0.5em;
   display: inline-block;
+  opacity: 0.4;
 }
+#unep-language.en li#unep-language-en,
+#unep-language.es li#unep-language-es,
+#unep-language.fr li#unep-language-fr{opacity:1}
 
 #unep-language img {
   vertical-align: middle;
@@ -20,3 +24,6 @@
 #unep-language a {
   border: 0 !important;
 }
+#unep-language.en {}
+#unep-language.es {}
+#unep-language.fr {}

@@ -12,38 +12,38 @@
        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                    enddate context/end;
                    startdate context/start;
+                   language view/language;
                    end python:toLocalizedTime(enddate);
                    start python:toLocalizedTime(startdate);
                    ">
-    
-     <ul id="unep-language">
-      <li id="unep-language-en">
-        <a href="#en" onClick="window.location.reload()">
-          <img src="++resource++unep/en.png" />
-          <span tal:content="python:view.translate('English')">English</span>
-        </a>
-      </li>
-      <li id="unep-language-es">
-        <a href="#es" onClick="window.location.reload()">
-          <img src="++resource++unep/es.png" />
-          <span tal:content="python:view.translate('Spanish')">Spanish</span>
-        </a>
-      </li>
-      <li id="unep-language-fr">
-        <a href="#fr" onClick="window.location.reload()">
-          <img src="++resource++unep/fr.png" />
-          <span tal:content="python:view.translate('French')">French</span>
-        </a>
-      </li>
-    </ul>
-    <div class="meeting-header">
+       <div class="meeting-header">
    <h4 class="meeting-heading" tal:content="view/title">Spaw Cop8</h4>
    <div class="meeting-desc">
 
     <tal:span tal:content="startdate">Start</tal:span> &ndash;
     <tal:span tal:content="enddate">Start</tal:span>
    </div></div>
-   
+     <ul id="unep-language" tal:attributes="class string:active $language">
+      <li id="unep-language-en">
+        <a href="#" onClick="window.location.reload()">
+          <img src="++resource++unep/en.png" />
+          <span tal:content="python:view.translate('English')">English</span>
+        </a>
+      </li>
+      <li id="unep-language-es">
+        <a href="#" onClick="window.location.reload()">
+          <img src="++resource++unep/es.png" />
+          <span tal:content="python:view.translate('Spanish')">Spanish</span>
+        </a>
+      </li>
+      <li id="unep-language-fr">
+        <a href="#" onClick="window.location.reload()">
+          <img src="++resource++unep/fr.png" />
+          <span tal:content="python:view.translate('French')">French</span>
+        </a>
+      </li>
+    </ul>
+
     <div class="documentHeading meeting-heading-material">
     <tal:commentout tal:condition="nothing">
     <h1 class="documentFirstHeading" tal:content="view/title">Title</h1>

@@ -68,8 +68,18 @@ class IMeeting(model.Schema):
         required=False,
     )
 
-    registration_url = schema.URI(
-        title=u'Registration URL',
+    en_registration_url = schema.URI(
+        title=u'EN Registration URL',
+        description=u'',
+        required=False,
+    )
+    es_registration_url = schema.URI(
+        title=u'ES Registration URL',
+        description=u'',
+        required=False,
+    )
+    fr_registration_url = schema.URI(
+        title=u'FR Registration URL',
         description=u'',
         required=False,
     )
@@ -243,7 +253,6 @@ class IMeeting(model.Schema):
             'end',
             'location',
             'meeting_type',
-            'registration_url',
             'files_working',
             'files_information',
             'files_reference',
@@ -308,6 +317,7 @@ class IMeeting(model.Schema):
         fields=[
             'en_title',
             'en_description',
+            'en_registration_url',
             'en_announcement',
             'en_announcement_file',
             'en_information',
@@ -369,6 +379,7 @@ class IMeeting(model.Schema):
         fields=[
             'es_title',
             'es_description',
+            'es_registration_url',            
             'es_announcement',
             'es_announcement_file',
             'es_information',
@@ -430,7 +441,8 @@ class IMeeting(model.Schema):
         fields=[
             'fr_title',
             'fr_description',
-            'fr_announcement',
+            'fr_registration_url',            
+            'fr_announcement',            
             'fr_announcement_file',
             'fr_information',
             'fr_information_file',
