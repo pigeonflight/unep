@@ -74,6 +74,9 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
+msgid "Registration form"
+msgstr "Registration form"
+
 msgid "Select All"
 msgstr ""
 

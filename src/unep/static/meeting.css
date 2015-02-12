@@ -6,6 +6,10 @@ border: 1px solid #EEE;
 padding: 15px;
 margin-bottom: 10px;
 }
+.meeting-registration_url {
+display: block;
+text-align: right;
+}
 .meeting-heading-material{
 margin-top:15px;
 margin-left:10px;
@@ -15,6 +19,16 @@ background-image: url(++resource++unep/_meeting-header.jpg);
 }
 .meeting-heading{
 color:white;
+}
+.meeting-note {
+    text-align: right;
+    display: block;
+    margin-bottom: .2em;
+    font-size:22px;
+}
+.meeting-note-content {
+    text-align: right;
+
 }
 .documentHeading .documentFirstHeading,
 #content div.documentHeading p {

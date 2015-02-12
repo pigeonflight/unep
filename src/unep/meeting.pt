@@ -53,6 +53,14 @@
     <p class="documentMeetingLocation" tal:content="context/location">Meeting Location</p>
     <span class="documentMeetingType" tal:content="context/meeting_type">Meeting Type</span>
 
+     <tal:check tal:condition="python:context.it_has('{}_registration_url'.format(view.language))">
+      <a href="" class="meeting-registration_url" 
+         tal:attributes="href python:getattr(context,'{}_registration_url'.format(view.language))">
+         <i class="fa fa-pencil-square-o" />
+         <span tal:content="python:view.translate('Registration form')">Registration form</span>
+      </a>
+      </tal:check>
+
     <p class="documentDescription" tal:content="view/description">Description</p>
     </div>
 
@@ -82,11 +90,11 @@
       </a>
       </tal:check>
 
-      <div class="text-content" tal:condition="view/information" id="meeting-text-information">
-        <i class="fa fa-caret-right" />
+      <div class="meeting-note" tal:condition="view/information" id="meeting-text-information">
+        <!-- <i class="fa fa-caret-right" /> -->
         <span tal:content="python:view.translate('Information note for participants')">Information note for participants</span>
       </div>
-      <div class="text-content" tal:condition="view/information">
+      <div class="meeting-note-content" tal:condition="view/information">
         <div tal:content="structure view/information"></div>
       </div>
             

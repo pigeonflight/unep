@@ -74,6 +74,9 @@ msgstr "Navegación"
 msgid "Other"
 msgstr "Otro"
 
+msgid "Registration form"
+msgstr "el formulario de inscripción"
+
 msgid "Select All"
 msgstr "Seleccionar todo"
 
