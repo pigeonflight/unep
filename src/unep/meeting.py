@@ -471,10 +471,30 @@ class Meeting(Item):
     def setDescription(self, value):
         return
 
+    @property
+    def has_en_announcement_file(self):
+        if self.en_announcement_file:
+            return True
+        return False
+
+    
+    def it_has(self,name):
+        if getattr(self, "{}".format(name)):
+            return True
+        return False
+    
+    @property
+    def has_en_announcement_file(self):
+        if self.es_announcement_file:
+            return True
+        return False
+
 
 class MeetingView(BrowserView):
     """
     """
+    
+    
     @property
     def title(self):
         return get_translated(self.context, self.request, 'title')

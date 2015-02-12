@@ -74,11 +74,13 @@
       <div class="text-content" tal:condition="view/announcement">
         <div tal:content="structure view/announcement"></div>
       </div>
+      <tal:check tal:condition="python:context.it_has('{}_announcement_file'.format(view.language))">
       <a href="" class="meeting-attachment" 
          tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_announcement_file">
          <i class="fa fa-file-o" />
          <span tal:content="python:view.translate('Announcements attachment')">Announcements attachment</span>
       </a>
+      </tal:check>
 
       <div class="text-content" tal:condition="view/information" id="meeting-text-information">
         <i class="fa fa-caret-right" />
@@ -87,11 +89,14 @@
       <div class="text-content" tal:condition="view/information">
         <div tal:content="structure view/information"></div>
       </div>
+            
+      <tal:check tal:condition="python:context.it_has('{}_information_file'.format(view.language))">
       <a class="meeting-attachment" 
         tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file">
         <i class="fa fa-file-o" />
         <span tal:content="python:view.translate('Information note attachment')">Information note attachment</span>
       </a>
+      </tal:check>
               
       <a class="meeting-downloads" href="" tal:attributes="href string:${context/absolute_url}/@@downloads">
         <div id="meeting-text-downloads">
