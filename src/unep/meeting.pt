@@ -25,19 +25,19 @@
    </div></div>
      <ul id="unep-language" tal:attributes="class string:active $language">
       <li id="unep-language-en">
-        <a href="#" onClick="window.location.reload()">
+        <a href="#">
           <img src="++resource++unep/en.png" />
           <span tal:content="python:view.translate('English')">English</span>
         </a>
       </li>
       <li id="unep-language-es">
-        <a href="#" onClick="window.location.reload()">
+        <a href="#">
           <img src="++resource++unep/es.png" />
           <span tal:content="python:view.translate('Spanish')">Spanish</span>
         </a>
       </li>
       <li id="unep-language-fr">
-        <a href="#" onClick="window.location.reload()">
+        <a href="#">
           <img src="++resource++unep/fr.png" />
           <span tal:content="python:view.translate('French')">French</span>
         </a>
