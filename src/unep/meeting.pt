@@ -78,7 +78,7 @@
       <a href="" class="meeting-attachment" 
          tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_announcement_file">
          <i class="fa fa-file-o" />
-         <span tal:content="python:view.translate('Announcements attachment')">Announcements attachment</span>
+         <span tal:content="python:view.translate('Announcements')">Announcements</span>
       </a>
       </tal:check>
 
@@ -94,7 +94,7 @@
       <a class="meeting-attachment" 
         tal:attributes="href string:${context/absolute_url}/@@download/${view/language}_information_file">
         <i class="fa fa-file-o" />
-        <span tal:content="python:view.translate('Information note attachment')">Information note attachment</span>
+        <span tal:content="python:view.translate('Information note')">Information note</span>
       </a>
       </tal:check>
               

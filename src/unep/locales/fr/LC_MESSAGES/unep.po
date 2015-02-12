@@ -56,8 +56,8 @@ msgstr "Les documents suivants ont été créés / mis à jour."
 msgid "French"
 msgstr "français"
 
-msgid "Information note attachment"
-msgstr "Note d'information attachement"
+msgid "Information note"
+msgstr "Note d'information"
 
 msgid "Information note for participants"
 msgstr "Note d'information pour les participants"

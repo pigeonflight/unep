@@ -32,6 +32,9 @@ msgstr ""
 msgid "Announcements"
 msgstr ""
 
+msgid "Information note"
+msgstr ""
+
 msgid "Information note for participants"
 msgstr ""
 
