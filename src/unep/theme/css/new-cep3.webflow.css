@@ -805,6 +805,70 @@ p {
 .header {
   border-bottom: 1px solid #7e859c;
 }
+.multimedia-tile {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+.multimedia-tile.variation.promo-vids {
+  background-color: rgba(146, 0, 49, 0.8);
+  background-image: url('../images/movie-icon.png');
+  background-position: 25% 75%;
+  background-size: auto 80px;
+  background-repeat: no-repeat;
+}
+.multimedia-tile.variation.publications {
+  background-color: rgba(73, 149, 0, 0.8);
+  background-image: url('../images/file-pdf-icon.png');
+  background-position: 25% 75%;
+  background-size: auto 80px;
+  background-repeat: no-repeat;
+}
+.multimedia-tile.photo-gallery {
+  background-color: rgba(166, 90, 0, 0.8);
+  background-image: url('../images/camera-icon.png');
+  background-position: 75% 25%;
+  background-size: auto 80px;
+  background-repeat: no-repeat;
+}
+.multimedia-tile.radio-programmes {
+  background-color: rgba(3, 69, 105, 0.8);
+  background-image: url('../images/microphone-icon.png');
+  background-position: 75% 25%;
+  background-size: auto 80px;
+  background-repeat: no-repeat;
+}
+.multimedia-tile.presentations {
+  background-color: rgba(58, 154, 207, 0.8);
+  background-image: url('../images/file-powerpoint-icon.png');
+  background-position: 75% 25%;
+  background-size: auto 80px;
+  background-repeat: no-repeat;
+}
+.mm-tile-heading {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: rgba(77, 77, 77, 0.29);
+  color: white;
+  line-height: 26px;
+  font-style: italic;
+  font-weight: 300;
+  text-transform: capitalize;
+  text-shadow: rgba(0, 0, 0, 0.70) 1px 1px 4px;
+}
+.mm-tile-heading.variation {
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: auto;
+}
+
 @media (max-width: 991px) {
   .logo {
     width: 143px;
