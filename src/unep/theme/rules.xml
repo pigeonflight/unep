@@ -251,9 +251,27 @@
           </div>
         
         <div class="w-col w-col-4">
-          <xsl:for-each css:select=".row-1 .col-2 .cover-basic-tile"> 
+          <xsl:for-each css:select=".row-1 .col-2 .cover-embed-tile .tile-content"> 
               <div><xsl:copy-of select="."/></div>
           </xsl:for-each>
+          <xsl:for-each css:select=".row-1 .col-2 .cover-banner-tile .tile-content"> 
+              <div><xsl:copy-of select="."/></div>
+          </xsl:for-each>
+
+          <xsl:for-each css:select=".row-1 .col-2 .cover-file-tile .tile-content"> 
+              <div><xsl:copy-of select="."/></div>
+          </xsl:for-each>
+
+          <xsl:for-each css:select=".row-1 .col-2 .cover-list-tile .tile-content"> 
+              <div><xsl:copy-of select="."/></div>
+          </xsl:for-each>
+  
+          <xsl:for-each css:select=".row-1 .col-2 .cover-basic-tile .tile-content"> 
+              <div><xsl:copy-of select="."/></div>
+          </xsl:for-each>
+          <xsl:for-each css:select=".row-1 .col-2 .cover-richtext-tile .tile-content"> 
+              <div><xsl:copy-of select="."/></div>
+          </xsl:for-each>  
           <div class="w-clearfix upcoming-meetings">
             <h2 class="meetings-area"><xsl:value-of css:select=".row-1 .col-2 .tile-header h2"/></h2>
             <xsl:for-each css:select=".row-1 .col-2 .collection-item">
