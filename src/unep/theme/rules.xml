@@ -251,25 +251,25 @@
           </div>
         
         <div class="w-col w-col-4">
-          <xsl:for-each css:select=".row-1 .col-2 .cover-embed-tile .tile-content"> 
-              <div><xsl:copy-of select="."/></div>
+          <xsl:for-each css:select=".row-1 .col-2 .cover-embed-tile"> 
+               <div class="tile-item"><xsl:copy-of select="."/></div>
           </xsl:for-each>
-          <xsl:for-each css:select=".row-1 .col-2 .cover-banner-tile .tile-content"> 
-              <div><xsl:copy-of select="."/></div>
-          </xsl:for-each>
-
-          <xsl:for-each css:select=".row-1 .col-2 .cover-file-tile .tile-content"> 
-              <div><xsl:copy-of select="."/></div>
+          <xsl:for-each css:select=".row-1 .col-2 .cover-banner-tile"> 
+               <div class="tile-item"><xsl:copy-of select="."/></div>
           </xsl:for-each>
 
-          <xsl:for-each css:select=".row-1 .col-2 .cover-list-tile .tile-content"> 
-              <div><xsl:copy-of select="."/></div>
+          <xsl:for-each css:select=".row-1 .col-2 .cover-file-tile"> 
+               <div class="tile-item"><xsl:copy-of select="."/></div>
+           </xsl:for-each>
+
+          <xsl:for-each css:select=".row-1 .col-2 .cover-list-tile"> 
+              <div class="tile-item"><xsl:copy-of select="."/></div>
           </xsl:for-each>
   
-          <xsl:for-each css:select=".row-1 .col-2 .cover-basic-tile .tile-content"> 
-              <div><xsl:copy-of select="."/></div>
+          <xsl:for-each css:select=".row-1 .col-2 .cover-basic-tile"> 
+              <div class="tile-item"><xsl:copy-of select="."/></div>
           </xsl:for-each>
-          <xsl:for-each css:select=".row-1 .col-2 .cover-richtext-tile .tile-content"> 
+          <xsl:for-each css:select=".row-1 .col-2 .cover-richtext-tile"> 
               <div><xsl:copy-of select="."/></div>
           </xsl:for-each>  
           <div class="w-clearfix upcoming-meetings">
