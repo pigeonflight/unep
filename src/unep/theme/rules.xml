@@ -216,27 +216,29 @@
         
         <!-- embed first row in hero section -->
          <drop css:theme=".hero-section" />
-         <before css:theme=".main-section" if-content="/html/body[@class[contains(., 'section-front-cover')]]" method="raw">
+         <before css:theme=".main-section" 
+                 if-content="/html/body[@class[contains(., 'section-front-cover')]]" 
+                 method="raw">
             <section class="hero-section"> 
                 <!-- <xsl:copy-of css:select=".row-1" /> -->
                 <!-- raw code -->
                 <div class="w-container slider-etc">
-      <div class="w-row">
-        <div class="w-col w-col-8 slider-column">
-          <div>
-            <div class="w-slider main-slider" data-animation="slide" data-duration="1000" data-infinite="1" data-delay="4000" data-autoplay="1">
-              <div class="w-slider-mask">
-               <xsl:for-each css:select=".row-1 .tile-default .collection-item">
-                <div class="w-slide">
-                    <xsl:copy-of css:select=".collection-item > a"/>
-                    <div class="slide-text">
-                    <h4 class="slide-title"><xsl:value-of css:select=".collection-item h2"/></h4>
-                    <div class="slide-description"><xsl:value-of css:select=".collection-item p.description"/></div>
-                   </div>
-                 </div>
-                </xsl:for-each>
-                </div>
-              
+              <div class="w-row">
+                <div class="w-col w-col-8 slider-column">
+                  <div>
+                    <div class="w-slider main-slider" data-animation="slide" data-duration="1000" data-infinite="1" data-delay="4000" data-autoplay="1">
+                      <div class="w-slider-mask">
+                       <xsl:for-each css:select=".row-1 .tile-default .collection-item">
+                        <div class="w-slide">
+                            <xsl:copy-of css:select=".collection-item > a"/>
+                            <div class="slide-text">
+                            <h4 class="slide-title"><xsl:value-of css:select=".collection-item h2"/></h4>
+                            <div class="slide-description"><xsl:value-of css:select=".collection-item p.description"/></div>
+                           </div>
+                         </div>
+                        </xsl:for-each>
+                        </div>
+
               <div class="w-slider-arrow-left slider-arrows">
                 <div class="w-icon-slider-left"></div>
               </div>
@@ -249,13 +251,14 @@
           </div>
         
         <div class="w-col w-col-4">
-          
+          <xsl:for-each css:select=".row-1 .col-2 .cover-basic-tile"> 
+              <div><xsl:copy-of select="."/></div>
+          </xsl:for-each>
           <div class="w-clearfix upcoming-meetings">
             <h2 class="meetings-area"><xsl:value-of css:select=".row-1 .col-2 .tile-header h2"/></h2>
             <xsl:for-each css:select=".row-1 .col-2 .collection-item">
-             <div class="meetings-holder">
-                 
-            <div class="meetings-bg seats-1">
+             <div class="meetings-holder">               
+              <div class="meetings-bg seats-1">
                 <h4 class="meetings-bg"><xsl:copy-of css:select=".collection-item h2 a"/></h4>
                 <!-- <div class="meeting-desc">Nov 24 – 29, 2014</div> -->
               </div>
