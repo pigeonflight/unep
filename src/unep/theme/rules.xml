@@ -85,7 +85,12 @@
             <a class="w-nav-link super-menu-nav" href="http://unep.org">UNEP</a>
          </nav>
         </replace>
-        <drop css:theme=".resources-section" css:if-not-content=".section-front-cover" />
+        <drop css:theme=".resources-section" 
+              if-not-content="/html/body[@class[contains(., '.section-front-cover')]]" />
+        <!-- <drop css:theme=".resources-section" css:if-not-content=".section-front-cover-alt" />
+        <drop css:theme=".resources-section" css:if-not-content=".section-front-cover-alt2" />
+        <drop css:theme=".resources-section" css:if-not-content=".section-front-cover-alt3" />
+        -->
         <!-- hard coded resources section for now -->
         <replace css:theme-children=".resources-badge.clearing-houses">
            <a href="{$portal_url}/clearing-house-and-databases">
@@ -211,7 +216,7 @@
         
         <!-- embed first row in hero section -->
          <drop css:theme=".hero-section" />
-         <before css:theme=".main-section" css:if-content="body.template-view.section-front-cover" method="raw">
+         <before css:theme=".main-section" if-content="/html/body[@class[contains(., 'section-front-cover')]]" method="raw">
             <section class="hero-section"> 
                 <!-- <xsl:copy-of css:select=".row-1" /> -->
                 <!-- raw code -->
@@ -282,8 +287,11 @@
              </section> 
            
          </before>  
-         <drop css:content=".row-1" css:if-content="body.section-front-cover.template-view"/>
-        
+         <drop css:content=".row-1" if-content="/html/body[@class[contains(., 'section-front-cover') and contains(., 'template-view')]]"/>
+         <!-- <drop css:content=".row-1" css:if-content="body.section-front-cover-alt.template-view"/>
+         <drop css:content=".row-1" css:if-content="body.section-front-cover-alt2.template-view"/>
+         <drop css:content=".row-1" css:if-content="body.section-front-cover-alt3.template-view"/> -->
+
         <!-- slide show from collective.cover collection tile -->
          <replace css:content=".tile-default .cover-collection-tile" css:if-content=".zzztile-default .cover-collection-tile" method="raw">
             <div class="flexslider"> 
