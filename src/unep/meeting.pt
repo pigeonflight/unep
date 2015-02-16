@@ -73,6 +73,15 @@
       </ul>
     </div> -->
 
+    <div id="meeting-photo">
+    <tal:photo tal:define="image nocall:context/image"
+     tal:condition="nocall:image">
+    <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
+                         height image/_height | nothing;
+                         width image/_width | nothing;"
+        />
+     </tal:photo>
+    </div>
     <div id="meeting-texts">
 
       <h2 tal:condition="view/announcement" id="meeting-text-announcement" class="open">

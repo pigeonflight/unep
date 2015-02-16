@@ -10,6 +10,7 @@ from plone.app.widgets.dx import RelatedItemsWidget
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobFile
+from plone.namedfile.field import NamedImage
 from plone.supermodel import model
 from unep import _
 from unep.utils import get_field
@@ -50,7 +51,12 @@ class IMeeting(model.Schema):
                     u'eg: Kingston, Jamaica',
         required=False,
     )
-
+     
+    image = NamedImage(
+        title=_(u"Meeting photo"),
+        required=False,
+    )
+    
     meeting_type = schema.Choice(
         title=u'Meeting type',
         description=u'The type of meeting',
@@ -252,6 +258,7 @@ class IMeeting(model.Schema):
             'start',
             'end',
             'location',
+            'image',
             'meeting_type',
             'files_working',
             'files_information',

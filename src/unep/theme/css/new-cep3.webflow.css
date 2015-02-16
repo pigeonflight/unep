@@ -846,6 +846,57 @@ p {
   background-size: auto 80px;
   background-repeat: no-repeat;
 }
+.multimedia-tile._300 {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 300px;
+  background-image: none;
+  background-position: 0% 0%;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+.multimedia-tile._300.marine {
+  background-image: url('../images/marine-information.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.multimedia-tile._150 {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 150px;
+  margin-bottom: 0px;
+}
+.multimedia-tile._150.tech-reports {
+  background-image: url('../images/technical-reports.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.multimedia-tile._150.small-grants {
+  background-image: url('../images/small-grants-fund.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.multimedia-tile.promo-material {
+  background-image: url('../images/promotional-materials.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.multimedia-tile.databases {
+  background-image: url('../images/publications-databases.jpg');
+  background-position: 0px 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.multimedia-tile.kids {
+  background-image: url('../images/publications-kids-corner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .mm-tile-heading {
   position: absolute;
   left: 0px;
@@ -868,7 +919,65 @@ p {
   right: 0px;
   bottom: auto;
 }
-
+.multi-cover-spacer {
+  height: 100px;
+}
+.multimedia-tile-colour {
+  height: 100%;
+  background-color: rgba(77, 77, 77, 0.29);
+}
+.publications-link {
+  position: relative;
+  z-index: 1;
+  overflow-x: visible;
+  overflow-y: visible;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(77, 77, 77, 0.29);
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  text-decoration: none;
+}
+.publications-link:hover {
+  background-color: rgba(77, 77, 77, 0.6);
+}
+.publications-image {
+  position: absolute;
+  left: 0px;
+  top: -100px;
+  right: 0px;
+  bottom: 0px;
+}
+.publications-image.position-centred {
+  top: -50px;
+}
+.publications-image.normal {
+  top: 0px;
+}
+.publications-image.hands {
+  top: -30px;
+}
+.publications-image.databases {
+  top: 0px;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+.publications-image.kids {
+  top: 0px;
+}
+.publications-tile-heading {
+  margin-top: 50px;
+  padding: 10px 20px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  color: white;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+}
 @media (max-width: 991px) {
   .logo {
     width: 143px;
@@ -907,6 +1016,18 @@ p {
   }
   .menu-button.w--open {
     background-color: #28558f;
+  }
+  .multimedia-tile {
+    height: 150px;
+  }
+  .multimedia-tile._300 {
+    height: 240px;
+  }
+  .multimedia-tile._150 {
+    height: 120px;
+  }
+  .publications-tile-heading {
+    font-size: 18px;
   }
 }
 @media (max-width: 767px) {
@@ -969,6 +1090,13 @@ p {
     margin-right: auto;
     margin-left: auto;
     float: none;
+  }
+  .multimedia-tile._300 {
+    height: 150px;
+  }
+  .multimedia-tile._150 {
+    height: 150px;
+    margin-bottom: 20px;
   }
 }
 @media (max-width: 479px) {
