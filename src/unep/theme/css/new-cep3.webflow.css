@@ -841,7 +841,7 @@ p {
 }
 .multimedia-tile.presentations {
   background-color: rgba(58, 154, 207, 0.8);
-  background-image: url('../images/file-powerpoint-icon.png');
+  background-image: url('../images/powerpoint-icon.png');
   background-position: 75% 25%;
   background-size: auto 80px;
   background-repeat: no-repeat;
@@ -978,6 +978,9 @@ p {
   font-weight: 600;
   text-align: center;
 }
+.meeting-photo {
+  float: left;
+}
 @media (max-width: 991px) {
   .logo {
     width: 143px;
@@ -1097,6 +1100,9 @@ p {
   .multimedia-tile._150 {
     height: 150px;
     margin-bottom: 20px;
+  }
+  .meeting-photo {
+    float: none;
   }
 }
 @media (max-width: 479px) {

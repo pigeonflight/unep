@@ -73,16 +73,23 @@
       </ul>
     </div> -->
 
-    <div id="meeting-photo">
+    <div id="meeting-photo" class="meeting-photo">
     <tal:photo tal:define="image nocall:context/image"
      tal:condition="nocall:image">
-    <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
+     <img tal:define="scales context/@@images;
+                 preview python: scales.scale('image', width=640, height=640);"
+     tal:condition="preview"
+     tal:attributes="src preview/url;
+                     width preview/width;
+                     height preview/height" />
+                     
+    <!-- <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
                          height image/_height | nothing;
                          width image/_width | nothing;"
-        />
+        /> -->
      </tal:photo>
     </div>
-    <div id="meeting-texts">
+    <div id="meeting-texts" class="meeting-texts">
 
       <h2 tal:condition="view/announcement" id="meeting-text-announcement" class="open">
         <i class="fa fa-caret-down" />
