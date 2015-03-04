@@ -86,7 +86,7 @@
          </nav>
         </replace>
         <drop css:theme=".resources-section" 
-              if-not-content="/html/body[@class[contains(., '.section-front-cover')]]" />
+              if-not-content="/html/body[@class[contains(., 'section-front-cover')]]" />
         <!-- <drop css:theme=".resources-section" css:if-not-content=".section-front-cover-alt" />
         <drop css:theme=".resources-section" css:if-not-content=".section-front-cover-alt2" />
         <drop css:theme=".resources-section" css:if-not-content=".section-front-cover-alt3" />
